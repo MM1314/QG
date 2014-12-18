@@ -14,6 +14,10 @@ namespace SOA.WLIMS.Web
         {
             return new UserServiceClient();
         }
+        /// <summary>
+        /// 车辆管理服务
+        /// </summary>
+        /// <returns></returns>
         public static IServiceOf_Vehicle GetVehicleService()
         {
             return new ServiceOf_VehicleClient();
