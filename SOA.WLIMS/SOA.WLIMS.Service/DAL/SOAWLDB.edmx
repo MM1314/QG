@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SOAWLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SOAWLDBModelStoreContainer">
+          <EntitySet Name="DeliveryInfo" EntityType="SOAWLDBModel.Store.DeliveryInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="SOAWLDBModel.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Store.Storehouse" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="SOAWLDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vehicle" EntityType="SOAWLDBModel.Store.Vehicle" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="DeliveryInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderCode" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="StorehouseID" Type="bigint" />
+          <Property Name="VehicleID" Type="bigint" />
+          <Property Name="HandleTime" Type="datetime" Nullable="false" />
+          <Property Name="HandleStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="HandleMessage" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="SrcUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SrcUserPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="SrcAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="Contents" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContentsWeight" Type="float" Nullable="false" />
+          <Property Name="ContentsValue" Type="money" />
+          <Property Name="ToUserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ToUserPhone" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ToAddress" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" />
+          <Property Name="Charges" Type="money" />
+          <Property Name="PickupTime" Type="datetime" Nullable="false" />
+          <Property Name="SigninTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Storehouse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Master" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="AliasName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Role" Type="nvarchar" MaxLength="20" />
+          <Property Name="EmployeCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enable" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="LastActivityDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SOAWLDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SOAWLDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeliveryInfo" EntityType="SOAWLDBModel.DeliveryInfo" />
+          <EntitySet Name="Order" EntityType="SOAWLDBModel.Order" />
+          <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Storehouse" />
+          <EntitySet Name="User" EntityType="SOAWLDBModel.User" />
+          <EntitySet Name="Vehicle" EntityType="SOAWLDBModel.Vehicle" />
+        </EntityContainer>
+        <EntityType Name="DeliveryInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="StorehouseID" Type="Int64" />
+          <Property Name="VehicleID" Type="Int64" />
+          <Property Name="HandleTime" Type="DateTime" Nullable="false" />
+          <Property Name="HandleStatus" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="HandleMessage" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="SrcUserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SrcUserPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SrcAddress" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Contents" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ContentsWeight" Type="Double" Nullable="false" />
+          <Property Name="ContentsValue" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ToUserPhone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ToAddress" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Charges" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PickupTime" Type="DateTime" Nullable="false" />
+          <Property Name="SigninTime" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Storehouse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="Master" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AliasName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Role" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="EmployeCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Enable" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="LastActivityDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LicensePlateNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SOAWLDBModelStoreContainer" CdmEntityContainer="SOAWLDBEntities">
+          <EntitySetMapping Name="DeliveryInfo"><EntityTypeMapping TypeName="SOAWLDBModel.DeliveryInfo"><MappingFragment StoreEntitySet="DeliveryInfo">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+            <ScalarProperty Name="StorehouseID" ColumnName="StorehouseID" />
+            <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+            <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+            <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+            <ScalarProperty Name="HandleMessage" ColumnName="HandleMessage" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Order"><EntityTypeMapping TypeName="SOAWLDBModel.Order"><MappingFragment StoreEntitySet="Order">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="SrcUserName" ColumnName="SrcUserName" />
+            <ScalarProperty Name="SrcUserPhone" ColumnName="SrcUserPhone" />
+            <ScalarProperty Name="SrcAddress" ColumnName="SrcAddress" />
+            <ScalarProperty Name="Contents" ColumnName="Contents" />
+            <ScalarProperty Name="ContentsWeight" ColumnName="ContentsWeight" />
+            <ScalarProperty Name="ContentsValue" ColumnName="ContentsValue" />
+            <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+            <ScalarProperty Name="ToUserPhone" ColumnName="ToUserPhone" />
+            <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Charges" ColumnName="Charges" />
+            <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+            <ScalarProperty Name="SigninTime" ColumnName="SigninTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Storehouse"><EntityTypeMapping TypeName="SOAWLDBModel.Storehouse"><MappingFragment StoreEntitySet="Storehouse">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Address" ColumnName="Address" />
+            <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+            <ScalarProperty Name="Master" ColumnName="Master" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="User"><EntityTypeMapping TypeName="SOAWLDBModel.User"><MappingFragment StoreEntitySet="User">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="AliasName" ColumnName="AliasName" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="Tel" ColumnName="Tel" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+            <ScalarProperty Name="Role" ColumnName="Role" />
+            <ScalarProperty Name="EmployeCode" ColumnName="EmployeCode" />
+            <ScalarProperty Name="Enable" ColumnName="Enable" />
+            <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+            <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Vehicle"><EntityTypeMapping TypeName="SOAWLDBModel.Vehicle"><MappingFragment StoreEntitySet="Vehicle">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="LicensePlateNumber" ColumnName="LicensePlateNumber" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SOAWLDB">
+        <EntityTypeShape EntityType="SOAWLDBModel.DeliveryInfo" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOAWLDBModel.Order" Width="1.5" PointX="2.75" PointY="0.75" Height="3.8802294921874996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOAWLDBModel.Storehouse" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9700325520833326" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOAWLDBModel.User" Width="1.5" PointX="4.75" PointY="3.75" Height="3.1161507161458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOAWLDBModel.Vehicle" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7790128580729174" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

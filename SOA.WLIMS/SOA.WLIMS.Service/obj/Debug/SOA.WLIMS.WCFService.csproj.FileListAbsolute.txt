@@ -1,0 +1,11 @@
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.WCFService.dll
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.WCFService.pdb
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\obj\Debug\ResolveAssemblyReference.cache
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\obj\Debug\SOA.WLIMS.WCFService.dll
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\obj\Debug\SOA.WLIMS.WCFService.pdb
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.Models.dll
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.Models.pdb
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.BLL.dll
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.DAL.dll
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.BLL.pdb
+D:\soa物流信息系统简介\SOA.WLIMS\SOA.WLIMS.WCFService\bin\SOA.WLIMS.DAL.pdb

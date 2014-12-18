@@ -1,0 +1,32 @@
+﻿@model SOA.WLIMS.Service.DAL.User
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    Details</h2>
+<fieldset>
+    <legend>用户信息</legend>
+    <div class="display-label">
+        姓名</div>
+    <div class="display-field">@Model.Name</div>
+     <div class="display-label">
+        真实姓名</div>
+    <div class="display-field">@Model.AliasName</div>
+    <div class="display-label">
+        Email</div>
+    <div class="display-field">@Model.Email</div>
+    <div class="display-label">
+        Tel</div>
+    <div class="display-field">@Model.Tel</div>
+    <div class="display-label">
+        角色</div>
+    <div class="display-field">@Model.Role</div>
+     <div class="display-label">
+        员工代号</div>
+    <div class="display-field">@Model.EmployeCode</div>
+</fieldset>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

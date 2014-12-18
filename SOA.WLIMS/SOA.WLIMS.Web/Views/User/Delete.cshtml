@@ -1,0 +1,39 @@
+﻿@model SOA.WLIMS.Service.DAL.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>User</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">AliasName</div>
+    <div class="display-field">@Model.AliasName</div>
+    
+    <div class="display-label">Tel</div>
+    <div class="display-field">@Model.Tel</div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">@Model.Email</div>
+
+    <div class="display-label">Role</div>
+    <div class="display-field">@Model.Role</div>
+
+    <div class="display-label">EmployeCode</div>
+    <div class="display-field">@Model.EmployeCode</div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

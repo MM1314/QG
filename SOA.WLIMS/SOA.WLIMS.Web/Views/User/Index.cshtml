@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SOA.WLIMS.Service.DAL.User>
+@{
+    ViewBag.Title = "用户列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    用户列表</h2>
+<p>
+    @Html.ActionLink("新建用户", "../Account/Register")
+</p>
+<table>
+    <tr>
+        <th>
+            用户名
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            角色
+        </th>
+        <th>
+            员工代码
+        </th>
+          <th>
+            已删除
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @(item.Role.Equals("Employe")?"员工":"客户")
+            </td>
+            <td>
+                @item.EmployeCode
+            </td>
+              <td>
+                @item.IsDeleted
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.ID  }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.ID  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.ID  })
+            </td>
+        </tr>
+}
+</table>

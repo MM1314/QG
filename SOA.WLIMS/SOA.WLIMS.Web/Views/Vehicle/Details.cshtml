@@ -1,0 +1,25 @@
+﻿@model SOA.WLIMS.Service.DAL.Vehicle
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Vehicle</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">LicensePlateNumber</div>
+    <div class="display-field">@Model.LicensePlateNumber</div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">@Model.Status</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

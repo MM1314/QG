@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SOAWLDBModelStoreContainer" CdmEntityContainer="SOAWLDBEntities">
+    <EntitySetMapping Name="DeliveryInfo">
+      <EntityTypeMapping TypeName="SOAWLDBModel.DeliveryInfo">
+        <MappingFragment StoreEntitySet="DeliveryInfo">
+          <ScalarProperty Name="HandleMessage" ColumnName="HandleMessage" />
+          <ScalarProperty Name="HandleStatus" ColumnName="HandleStatus" />
+          <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+          <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+          <ScalarProperty Name="StorehouseID" ColumnName="StorehouseID" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="SOAWLDBModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="SigninTime" ColumnName="SigninTime" />
+          <ScalarProperty Name="PickupTime" ColumnName="PickupTime" />
+          <ScalarProperty Name="Charges" ColumnName="Charges" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+          <ScalarProperty Name="ToUserPhone" ColumnName="ToUserPhone" />
+          <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+          <ScalarProperty Name="ContentsValue" ColumnName="ContentsValue" />
+          <ScalarProperty Name="ContentsWeight" ColumnName="ContentsWeight" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="SrcAddress" ColumnName="SrcAddress" />
+          <ScalarProperty Name="SrcUserPhone" ColumnName="SrcUserPhone" />
+          <ScalarProperty Name="SrcUserName" ColumnName="SrcUserName" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Storehouse">
+      <EntityTypeMapping TypeName="SOAWLDBModel.Storehouse">
+        <MappingFragment StoreEntitySet="Storehouse">
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="SOAWLDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Enable" ColumnName="Enable" />
+          <ScalarProperty Name="EmployeCode" ColumnName="EmployeCode" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AliasName" ColumnName="AliasName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="SOAWLDBModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LicensePlateNumber" ColumnName="LicensePlateNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using SOA.WLIMS.Models;
+using SOA.WLIMS.Service.DAL;
+
+namespace SOA.WLIMS.Web.Controllers
+{
+    public class VehicleController : Controller
+    {
+        //
+        // GET: /Vehicle/
+
+        public ActionResult Index()
+        {
+            return View(ServiceFactory.GetVehicleService().Query(null));
+        }
+
+        //
+        // GET: /Vehicle/Details/5
+
+        public ActionResult Details(int id)
+        {
+            return View(ServiceFactory.GetVehicleService().Get(id));
+        }
+
+        //
+        // GET: /Vehicle/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        } 
+
+        //
+        // POST: /Vehicle/Create
+
+        [HttpPost]
+        public ActionResult Create(Vehicle model)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+                if (ServiceFactory.GetVehicleService().Add(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        
+        //
+        // GET: /Vehicle/Edit/5
+ 
+        public ActionResult Edit(int id)
+        {
+            return View(ServiceFactory.GetVehicleService().Get(id));
+        }
+
+        //
+        // POST: /Vehicle/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+ 
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //
+        // GET: /Vehicle/Delete/5
+ 
+        public ActionResult Delete(int id)
+        {
+            return View(ServiceFactory.GetVehicleService().Get(id));
+        }
+
+        //
+        // POST: /Vehicle/Delete/5
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+ 
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+}

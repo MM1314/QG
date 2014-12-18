@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SOAWLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SOAWLDBModelStoreContainer">
+    <EntitySet Name="DeliveryInfo" EntityType="SOAWLDBModel.Store.DeliveryInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Order" EntityType="SOAWLDBModel.Store.Order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Store.Storehouse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="SOAWLDBModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Vehicle" EntityType="SOAWLDBModel.Store.Vehicle" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="DeliveryInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderCode" Type="nvarchar" Nullable="false" MaxLength="12" />
+    <Property Name="StorehouseID" Type="bigint" />
+    <Property Name="VehicleID" Type="bigint" />
+    <Property Name="HandleTime" Type="datetime" Nullable="false" />
+    <Property Name="HandleStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="HandleMessage" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="12" />
+    <Property Name="SrcUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SrcUserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SrcAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="Contents" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContentsWeight" Type="float" Nullable="false" />
+    <Property Name="ContentsValue" Type="money" />
+    <Property Name="ToUserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ToUserPhone" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ToAddress" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="Charges" Type="money" />
+    <Property Name="PickupTime" Type="datetime" Nullable="false" />
+    <Property Name="SigninTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Storehouse">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Capacity" Type="int" />
+    <Property Name="Master" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="AliasName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role" Type="nvarchar" MaxLength="20" />
+    <Property Name="EmployeCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Enable" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="LastActivityDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="10" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+</Schema>
