@@ -14,7 +14,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         public ActionResult Index()
         {
-            return View(new List<RegisterModel>());
+            return View(ServiceFactory.GetOrderService().Query(null));
 
         }
 
@@ -23,7 +23,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            return View(ServiceFactory.GetOrderService().Get(id));
         }
 
         //
@@ -32,7 +32,7 @@ namespace SOA.WLIMS.Web.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Order/Create
@@ -51,13 +51,13 @@ namespace SOA.WLIMS.Web.Controllers
                 return View();
             }
         }
-        
+
         //
         // GET: /Order/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(ServiceFactory.GetOrderService().Get(id));
         }
 
         //
@@ -69,7 +69,7 @@ namespace SOA.WLIMS.Web.Controllers
             try
             {
                 // TODO: Add update logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch
@@ -80,10 +80,10 @@ namespace SOA.WLIMS.Web.Controllers
 
         //
         // GET: /Order/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(ServiceFactory.GetOrderService().Get(id));
         }
 
         //
@@ -95,7 +95,7 @@ namespace SOA.WLIMS.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
+
                 return RedirectToAction("Index");
             }
             catch

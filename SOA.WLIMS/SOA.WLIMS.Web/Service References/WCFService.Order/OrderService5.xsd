@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service.DAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service.DAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1735/OrderService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
+  <xs:complexType name="Order">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" base="q1:EntityObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Charges" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Contents" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContentsValue" nillable="true" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ContentsWeight" type="xs:double" />
+          <xs:element minOccurs="0" name="ID" type="xs:long" />
+          <xs:element minOccurs="0" name="PickupTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SigninTime" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SrcAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SrcUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SrcUserPhone" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToUserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ToUserPhone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="ArrayOfOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+</xs:schema>

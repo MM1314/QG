@@ -1,8 +1,7 @@
-﻿@model IEnumerable<SOA.WLIMS.Models.RegisterModel>
+﻿@model IEnumerable<SOA.WLIMS.Service.DAL.Order>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -14,37 +13,97 @@
     <tr>
         <th></th>
         <th>
-            UserName
+            Code
         </th>
         <th>
-            Email
+            SrcUserName
         </th>
         <th>
-            Password
+            SrcUserPhone
         </th>
         <th>
-            ConfirmPassword
+            SrcAddress
+        </th>
+        <th>
+            Contents
+        </th>
+        <th>
+            ContentsWeight
+        </th>
+        <th>
+            ContentsValue
+        </th>
+        <th>
+            ToUserName
+        </th>
+        <th>
+            ToUserPhone
+        </th>
+        <th>
+            ToAddress
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Charges
+        </th>
+        <th>
+            PickupTime
+        </th>
+        <th>
+            SigninTime
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
         <td>
-            @item.UserName
+            @item.Code
         </td>
         <td>
-            @item.Email
+            @item.SrcUserName
         </td>
         <td>
-            @item.Password
+            @item.SrcUserPhone
         </td>
         <td>
-            @item.ConfirmPassword
+            @item.SrcAddress
+        </td>
+        <td>
+            @item.Contents
+        </td>
+        <td>
+            @String.Format("{0:F}", item.ContentsWeight)
+        </td>
+        <td>
+            @String.Format("{0:F}", item.ContentsValue)
+        </td>
+        <td>
+            @item.ToUserName
+        </td>
+        <td>
+            @item.ToUserPhone
+        </td>
+        <td>
+            @item.ToAddress
+        </td>
+        <td>
+            @item.Status
+        </td>
+        <td>
+            @String.Format("{0:F}", item.Charges)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.PickupTime)
+        </td>
+        <td>
+            @String.Format("{0:g}", item.SigninTime)
         </td>
     </tr>
 }

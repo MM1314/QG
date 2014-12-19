@@ -14,7 +14,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         public ActionResult Index()
         {
-            return View(new List<RegisterModel>());
+            return View(ServiceFactory.GetStorehouseService().Query(null));
 
         }
 
@@ -23,7 +23,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            return View(ServiceFactory.GetStorehouseService().Get(id));
         }
 
         //
@@ -57,7 +57,7 @@ namespace SOA.WLIMS.Web.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(ServiceFactory.GetStorehouseService().Get(id));
         }
 
         //
@@ -83,7 +83,7 @@ namespace SOA.WLIMS.Web.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(ServiceFactory.GetStorehouseService().Get(id));
         }
 
         //

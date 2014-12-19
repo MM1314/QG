@@ -20,17 +20,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:3834/VehicleService.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:1735/VehicleService.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="VehicleService.xsd" MetadataType="Schema" ID="30c0283f-0bfb-4fa6-89e9-1025f5f7edd9" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd5" />
-    <MetadataFile FileName="VehicleService1.xsd" MetadataType="Schema" ID="3d82a0a1-3375-4b27-a25d-15b5e32d95d8" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd4" />
-    <MetadataFile FileName="VehicleService.wsdl" MetadataType="Wsdl" ID="b55d25ad-bb27-4183-a9ec-5e9c5be3f95a" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?wsdl" />
-    <MetadataFile FileName="VehicleService2.xsd" MetadataType="Schema" ID="ab51e4d8-7048-4eff-8576-2f259b419d1c" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd3" />
-    <MetadataFile FileName="VehicleService3.xsd" MetadataType="Schema" ID="cb26beb6-6186-446d-8de4-cc6fe68d20ce" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd2" />
-    <MetadataFile FileName="VehicleService4.xsd" MetadataType="Schema" ID="2da66065-83f8-4012-b136-32d4a475e96f" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd1" />
-    <MetadataFile FileName="VehicleService5.xsd" MetadataType="Schema" ID="f706fd99-dd53-45f9-8eb5-113c74ca2935" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd0" />
-    <MetadataFile FileName="VehicleService6.xsd" MetadataType="Schema" ID="03b51e2e-bc41-436b-96a1-1403adf71740" SourceId="1" SourceUrl="http://localhost:3834/VehicleService.svc?xsd=xsd6" />
+    <MetadataFile FileName="VehicleService1.wsdl" MetadataType="Wsdl" ID="547b58e1-d36d-428f-883e-21ad5079e058" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?wsdl" />
+    <MetadataFile FileName="VehicleService7.xsd" MetadataType="Schema" ID="490f8443-3da1-4896-ade3-d28def4b3361" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd4" />
+    <MetadataFile FileName="VehicleService71.xsd" MetadataType="Schema" ID="a01ba783-405b-4a36-9958-3091881943c7" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd5" />
+    <MetadataFile FileName="VehicleService72.xsd" MetadataType="Schema" ID="6f2f352b-aaff-44de-a17f-37a02d207a71" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd2" />
+    <MetadataFile FileName="VehicleService73.xsd" MetadataType="Schema" ID="0d458cf8-65de-4d50-9a7b-ad363a18f1fe" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd3" />
+    <MetadataFile FileName="VehicleService74.xsd" MetadataType="Schema" ID="4d19be8c-506d-4971-8a18-d75dee20e5df" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd0" />
+    <MetadataFile FileName="VehicleService75.xsd" MetadataType="Schema" ID="36351fe5-395c-49d9-9ac1-fd733c39959f" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd1" />
+    <MetadataFile FileName="VehicleService76.xsd" MetadataType="Schema" ID="bd8a1b4d-3ab5-4d7c-b494-e5bca2428eb6" SourceId="1" SourceUrl="http://localhost:1735/VehicleService.svc?xsd=xsd6" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

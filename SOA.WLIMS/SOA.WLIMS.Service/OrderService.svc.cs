@@ -14,7 +14,6 @@ namespace SOA.WLIMS.Service
     {
         SOAWLDBEntities DB = DBFactory.CreateDB;
 
-
         public bool Add(Order model)
         {
             DB.Order.AddObject(model);

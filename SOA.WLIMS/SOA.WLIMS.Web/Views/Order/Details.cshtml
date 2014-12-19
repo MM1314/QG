@@ -1,0 +1,58 @@
+﻿@model SOA.WLIMS.Service.DAL.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">Code</div>
+    <div class="display-field">@Model.Code</div>
+
+    <div class="display-label">SrcUserName</div>
+    <div class="display-field">@Model.SrcUserName</div>
+
+    <div class="display-label">SrcUserPhone</div>
+    <div class="display-field">@Model.SrcUserPhone</div>
+
+    <div class="display-label">SrcAddress</div>
+    <div class="display-field">@Model.SrcAddress</div>
+
+    <div class="display-label">Contents</div>
+    <div class="display-field">@Model.Contents</div>
+
+    <div class="display-label">ContentsWeight</div>
+    <div class="display-field">@String.Format("{0:F}", Model.ContentsWeight)</div>
+
+    <div class="display-label">ContentsValue</div>
+    <div class="display-field">@String.Format("{0:F}", Model.ContentsValue)</div>
+
+    <div class="display-label">ToUserName</div>
+    <div class="display-field">@Model.ToUserName</div>
+
+    <div class="display-label">ToUserPhone</div>
+    <div class="display-field">@Model.ToUserPhone</div>
+
+    <div class="display-label">ToAddress</div>
+    <div class="display-field">@Model.ToAddress</div>
+
+    <div class="display-label">Status</div>
+    <div class="display-field">@Model.Status</div>
+
+    <div class="display-label">Charges</div>
+    <div class="display-field">@String.Format("{0:F}", Model.Charges)</div>
+
+    <div class="display-label">PickupTime</div>
+    <div class="display-field">@String.Format("{0:g}", Model.PickupTime)</div>
+
+    <div class="display-label">SigninTime</div>
+    <div class="display-field">@String.Format("{0:g}", Model.SigninTime)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

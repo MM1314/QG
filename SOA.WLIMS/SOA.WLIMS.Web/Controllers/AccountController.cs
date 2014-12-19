@@ -9,7 +9,7 @@ using System.Web.Routing;
 using System.Web.Security;
 
 using SOA.WLIMS.Models;
-using SOA.WLIMS.Web.WCFService;
+using SOA.WLIMS.Web.WCFService.User;
 
 namespace SOA.WLIMS.Web.Controllers
 {

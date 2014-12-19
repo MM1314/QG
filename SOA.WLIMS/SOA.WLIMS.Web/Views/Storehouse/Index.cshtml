@@ -1,8 +1,7 @@
-﻿@model IEnumerable<SOA.WLIMS.Models.RegisterModel>
+﻿@model IEnumerable<SOA.WLIMS.Service.DAL.Storehouse>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -14,37 +13,37 @@
     <tr>
         <th></th>
         <th>
-            UserName
+            Name
         </th>
         <th>
-            Email
+            Address
         </th>
         <th>
-            Password
+            Capacity
         </th>
         <th>
-            ConfirmPassword
+            Master
         </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
         <td>
-            @item.UserName
+            @item.Name
         </td>
         <td>
-            @item.Email
+            @item.Address
         </td>
         <td>
-            @item.Password
+            @item.Capacity
         </td>
         <td>
-            @item.ConfirmPassword
+            @item.Master
         </td>
     </tr>
 }

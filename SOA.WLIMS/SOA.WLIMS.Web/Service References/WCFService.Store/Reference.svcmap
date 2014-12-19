@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="fa9e15ea-a2f7-47cd-8be4-f16e47291578" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1735/StoreService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="StoreService.xsd" MetadataType="Schema" ID="8b904fcd-ba32-4301-8376-b074ef20e227" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd2" />
+    <MetadataFile FileName="StoreService.wsdl" MetadataType="Wsdl" ID="bfda85db-1015-4c49-b94c-a7ca0abc25a2" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?wsdl" />
+    <MetadataFile FileName="StoreService1.xsd" MetadataType="Schema" ID="1c9200a8-1d21-4bc0-a5ea-78df83252b74" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd6" />
+    <MetadataFile FileName="StoreService2.xsd" MetadataType="Schema" ID="ae6dcada-1ec5-41c3-8148-2943f35f49db" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd3" />
+    <MetadataFile FileName="StoreService3.xsd" MetadataType="Schema" ID="ca41ca6f-7268-4bff-a6ea-febc501bdf0b" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd5" />
+    <MetadataFile FileName="StoreService4.xsd" MetadataType="Schema" ID="81f03f7e-3859-42e0-ae03-302e6f1e5976" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd1" />
+    <MetadataFile FileName="StoreService5.xsd" MetadataType="Schema" ID="7ecc5b23-2d46-47df-a556-13ad92004855" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd4" />
+    <MetadataFile FileName="StoreService6.xsd" MetadataType="Schema" ID="5fd8d785-b058-4254-b5ec-7809923ec10b" SourceId="1" SourceUrl="http://localhost:1735/StoreService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
