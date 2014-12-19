@@ -4,14 +4,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>
-    用户列表</h2>
+    用户管理</h2>
 <p>
-    @Html.ActionLink("新建用户", "../Account/Register")
+    @Html.ActionLink("新增", "../Account/Register")
 </p>
 <table>
     <tr>
         <th>
             用户名
+        </th>
+         <th>
+            姓名
+        </th>
+         <th>
+            Tel
         </th>
         <th>
             Email
@@ -33,6 +39,13 @@
         <tr>
             <td>
                 @item.Name
+            </td>
+            <td>
+                @item.AliasName
+            </td>
+            
+            <td>
+                @item.Tel
             </td>
             <td>
                 @item.Email

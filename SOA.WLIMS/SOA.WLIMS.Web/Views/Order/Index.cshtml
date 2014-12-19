@@ -4,25 +4,19 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>订单管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create")
 </p>
 <table>
     <tr>
-        <th></th>
+        
         <th>
             Code
         </th>
         <th>
             SrcUserName
-        </th>
-        <th>
-            SrcUserPhone
-        </th>
-        <th>
-            SrcAddress
         </th>
         <th>
             Contents
@@ -37,12 +31,6 @@
             ToUserName
         </th>
         <th>
-            ToUserPhone
-        </th>
-        <th>
-            ToAddress
-        </th>
-        <th>
             Status
         </th>
         <th>
@@ -54,26 +42,16 @@
         <th>
             SigninTime
         </th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-        <td>
             @item.Code
         </td>
         <td>
             @item.SrcUserName
-        </td>
-        <td>
-            @item.SrcUserPhone
-        </td>
-        <td>
-            @item.SrcAddress
         </td>
         <td>
             @item.Contents
@@ -88,12 +66,6 @@
             @item.ToUserName
         </td>
         <td>
-            @item.ToUserPhone
-        </td>
-        <td>
-            @item.ToAddress
-        </td>
-        <td>
             @item.Status
         </td>
         <td>
@@ -104,6 +76,12 @@
         </td>
         <td>
             @String.Format("{0:g}", item.SigninTime)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

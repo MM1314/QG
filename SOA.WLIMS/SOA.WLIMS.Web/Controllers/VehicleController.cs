@@ -32,7 +32,7 @@ namespace SOA.WLIMS.Web.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Vehicle/Create
@@ -57,10 +57,10 @@ namespace SOA.WLIMS.Web.Controllers
                 return View();
             }
         }
-        
+
         //
         // GET: /Vehicle/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             return View(ServiceFactory.GetVehicleService().Get(id));
@@ -70,13 +70,19 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Vehicle/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Vehicle model)
         {
             try
             {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetVehicleService().Modify(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "修改失败");
+                    return View();
+                }
             }
             catch
             {
@@ -86,7 +92,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         //
         // GET: /Vehicle/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             return View(ServiceFactory.GetVehicleService().Get(id));
@@ -101,8 +107,14 @@ namespace SOA.WLIMS.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetVehicleService().Delete(id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {

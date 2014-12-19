@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SOA.WLIMS.Models;
+using SOA.WLIMS.Service.DAL;
 
 namespace SOA.WLIMS.Web.Controllers
 {
@@ -15,7 +16,6 @@ namespace SOA.WLIMS.Web.Controllers
         public ActionResult Index()
         {
             return View(ServiceFactory.GetOrderService().Query(null));
-
         }
 
         //
@@ -38,13 +38,19 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Order/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Order model)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetOrderService().Add(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
@@ -64,13 +70,19 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Order/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Order model)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetOrderService().Modify(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "修改失败");
+                    return View();
+                }
             }
             catch
             {
@@ -95,8 +107,14 @@ namespace SOA.WLIMS.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetOrderService().Delete(id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {

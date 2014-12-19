@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SOA.WLIMS.Models;
+using SOA.WLIMS.Service.DAL;
 
 namespace SOA.WLIMS.Web.Controllers
 {
@@ -15,7 +16,6 @@ namespace SOA.WLIMS.Web.Controllers
         public ActionResult Index()
         {
             return View(ServiceFactory.GetStorehouseService().Query(null));
-
         }
 
         //
@@ -32,29 +32,35 @@ namespace SOA.WLIMS.Web.Controllers
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Storehouse/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Storehouse model)
         {
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetStorehouseService().Add(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
                 return View();
             }
         }
-        
+
         //
         // GET: /Storehouse/Edit/5
- 
+
         public ActionResult Edit(int id)
         {
             return View(ServiceFactory.GetStorehouseService().Get(id));
@@ -64,13 +70,19 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Storehouse/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Storehouse model)
         {
             try
             {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetStorehouseService().Modify(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "修改失败");
+                    return View();
+                }
             }
             catch
             {
@@ -80,7 +92,7 @@ namespace SOA.WLIMS.Web.Controllers
 
         //
         // GET: /Storehouse/Delete/5
- 
+
         public ActionResult Delete(int id)
         {
             return View(ServiceFactory.GetStorehouseService().Get(id));
@@ -95,8 +107,14 @@ namespace SOA.WLIMS.Web.Controllers
             try
             {
                 // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
+                if (ServiceFactory.GetStorehouseService().Delete(id))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch
             {
