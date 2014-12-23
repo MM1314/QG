@@ -16,3 +16,12 @@ D:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Mode
 D:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.csprojResolveAssemblyReference.cache
 D:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.dll
 D:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Service.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Service.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.BLL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Models.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.BLL.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Models.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.csprojResolveAssemblyReference.cache
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.pdb

@@ -13,34 +13,34 @@
     <tr>
         
         <th>
-            Code
+            订单编号
         </th>
         <th>
-            SrcUserName
+            寄件人
         </th>
         <th>
-            Contents
+            寄件信息
         </th>
         <th>
-            ContentsWeight
+            重量
         </th>
         <th>
-            ContentsValue
+            报价
         </th>
         <th>
-            ToUserName
+            收件人
         </th>
         <th>
-            Status
+            订单状态
         </th>
         <th>
-            Charges
+            邮费
         </th>
         <th>
-            PickupTime
+            寄件时间
         </th>
         <th>
-            SigninTime
+            签收时间
         </th>
         <th></th>
     </tr>
@@ -79,9 +79,9 @@
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

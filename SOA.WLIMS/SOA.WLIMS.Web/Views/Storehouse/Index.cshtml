@@ -7,22 +7,22 @@
 <h2>仓库管理</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新增", "Create")
 </p>
 <table>
     <tr>
         
         <th>
-            Name
+            仓库名称
         </th>
         <th>
-            Address
+            仓库地址
         </th>
         <th>
-            Capacity
+            仓库容量
         </th>
         <th>
-            Master
+            管理员
         </th>
         <th></th>
     </tr>
@@ -43,9 +43,9 @@
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("查看", "Details", new { id=item.ID }) |
+            @Html.ActionLink("删除", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
