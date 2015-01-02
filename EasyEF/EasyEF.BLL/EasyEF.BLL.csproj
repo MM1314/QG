@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CC6E094-9ACF-464D-8E31-8BA9DBBBCB97}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyEF.BLL</RootNamespace>
+    <AssemblyName>EasyEF.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Service.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyEF.Common\EasyEF.Common.csproj">
+      <Project>{0DF243F0-CCC7-4702-BA3F-DDEF8780337D}</Project>
+      <Name>EasyEF.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyEF.Contract\EasyEF.Contract.csproj">
+      <Project>{9A3516C6-7BD5-4943-B50C-7299EF181B29}</Project>
+      <Name>EasyEF.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyEF.DAL\EasyEF.DAL.csproj">
+      <Project>{F3273207-75B3-497D-8BAE-369939492361}</Project>
+      <Name>EasyEF.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyEF.IDAL\EasyEF.IDAL.csproj">
+      <Project>{C0051D64-E5CB-4833-A441-1FDB68B02CA1}</Project>
+      <Name>EasyEF.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyEF.Models\EasyEF.Models.csproj">
+      <Project>{A58F8E81-B319-4EA7-ACEF-AC3DCF979099}</Project>
+      <Name>EasyEF.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EasyEF.WCFExtension\EasyEF.WCFExtension.csproj">
+      <Project>{7BEAC95A-C242-4E50-B3D2-7C6CCA20D0F9}</Project>
+      <Name>EasyEF.WCFExtension</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,26 @@
+﻿@using EasyEF.Common
+@using EasyEF.Models
+@using EasyEF.Controls
+@model PagedList<Product>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            @foreach (var product in Model.Data)
+            {
+                <li>@product.Name</li>
+            }
+        </ul>
+        @Html.Pager(Model, new PagerOptions { PageIndexParameterName = "id" })
+    </div>
+</body>
+</html>
