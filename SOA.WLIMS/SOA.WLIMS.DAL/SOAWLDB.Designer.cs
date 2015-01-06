@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-
 namespace SOA.WLIMS.DAL
 {
     #region 上下文
@@ -146,6 +146,7 @@ namespace SOA.WLIMS.DAL
         private ObjectSet<Vehicle> _Vehicle;
 
         #endregion
+
         #region AddTo 方法
     
         /// <summary>
@@ -189,11 +190,11 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region 实体
     
     /// <summary>
@@ -224,6 +225,7 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -398,6 +400,7 @@ namespace SOA.WLIMS.DAL
         partial void OnHandleMessageChanged();
 
         #endregion
+
     
     }
     
@@ -435,6 +438,7 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -801,6 +805,7 @@ namespace SOA.WLIMS.DAL
         partial void OnSigninTimeChanged();
 
         #endregion
+
     
     }
     
@@ -828,6 +833,7 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -954,6 +960,7 @@ namespace SOA.WLIMS.DAL
         partial void OnMasterChanged();
 
         #endregion
+
     
     }
     
@@ -983,6 +990,7 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -1253,6 +1261,7 @@ namespace SOA.WLIMS.DAL
         partial void OnLastActivityDateChanged();
 
         #endregion
+
     
     }
     
@@ -1278,6 +1287,7 @@ namespace SOA.WLIMS.DAL
         }
 
         #endregion
+
         #region 基元属性
     
         /// <summary>
@@ -1380,9 +1390,11 @@ namespace SOA.WLIMS.DAL
         partial void OnStatusChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

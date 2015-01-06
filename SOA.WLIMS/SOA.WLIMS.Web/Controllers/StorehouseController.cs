@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SOA.WLIMS.Models;
-using SOA.WLIMS.Service.DAL;
 
 namespace SOA.WLIMS.Web.Controllers
 {
@@ -38,7 +37,7 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Storehouse/Create
 
         [HttpPost]
-        public ActionResult Create(Storehouse model)
+        public ActionResult Create(StorehouseModel model)
         {
             try
             {
@@ -70,7 +69,7 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /Storehouse/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Storehouse model)
+        public ActionResult Edit(StorehouseModel model)
         {
             try
             {

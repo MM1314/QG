@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SOA.WLIMS.Service.DAL;
+using SOA.WLIMS.DAL;
 
 namespace SOA.WLIMS.Service
 {

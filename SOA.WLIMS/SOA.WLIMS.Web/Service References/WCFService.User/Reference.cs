@@ -9,7 +9,457 @@
 //------------------------------------------------------------------------------
 
 namespace SOA.WLIMS.Web.WCFService.User {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RegisterModel", Namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models")]
+    [System.SerializableAttribute()]
+    public partial class RegisterModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConfirmPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ConfirmPassword {
+            get {
+                return this.ConfirmPasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConfirmPasswordField, value) != true)) {
+                    this.ConfirmPasswordField = value;
+                    this.RaisePropertyChanged("ConfirmPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeCode {
+            get {
+                return this.EmployeCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeCodeField, value) != true)) {
+                    this.EmployeCodeField = value;
+                    this.RaisePropertyChanged("EmployeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MembershipCreateStatus", Namespace="http://schemas.datacontract.org/2004/07/System.Web.Security")]
+    public enum MembershipCreateStatus : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Success = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidUserName = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidPassword = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidQuestion = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidAnswer = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidEmail = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DuplicateUserName = 6,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DuplicateEmail = 7,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        UserRejected = 8,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        InvalidProviderUserKey = 9,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        DuplicateProviderUserKey = 10,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ProviderError = 11,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserModel", Namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models")]
+    [System.SerializableAttribute()]
+    public partial class UserModel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AliasNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmployeCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> EnableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsDeletedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> LastActivityDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string AliasName {
+            get {
+                return this.AliasNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AliasNameField, value) != true)) {
+                    this.AliasNameField = value;
+                    this.RaisePropertyChanged("AliasName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EmployeCode {
+            get {
+                return this.EmployeCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmployeCodeField, value) != true)) {
+                    this.EmployeCodeField = value;
+                    this.RaisePropertyChanged("EmployeCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> Enable {
+            get {
+                return this.EnableField;
+            }
+            set {
+                if ((this.EnableField.Equals(value) != true)) {
+                    this.EnableField = value;
+                    this.RaisePropertyChanged("Enable");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsDeleted {
+            get {
+                return this.IsDeletedField;
+            }
+            set {
+                if ((this.IsDeletedField.Equals(value) != true)) {
+                    this.IsDeletedField = value;
+                    this.RaisePropertyChanged("IsDeleted");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastActivityDate {
+            get {
+                return this.LastActivityDateField;
+            }
+            set {
+                if ((this.LastActivityDateField.Equals(value) != true)) {
+                    this.LastActivityDateField = value;
+                    this.RaisePropertyChanged("LastActivityDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Role {
+            get {
+                return this.RoleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoleField, value) != true)) {
+                    this.RoleField = value;
+                    this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tel {
+            get {
+                return this.TelField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelField, value) != true)) {
+                    this.TelField = value;
+                    this.RaisePropertyChanged("Tel");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QueryParam", Namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models")]
+    [System.SerializableAttribute()]
+    public partial class QueryParam : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> BoolValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, string> ParamField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StringValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> BoolValue {
+            get {
+                return this.BoolValueField;
+            }
+            set {
+                if ((this.BoolValueField.Equals(value) != true)) {
+                    this.BoolValueField = value;
+                    this.RaisePropertyChanged("BoolValue");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, string> Param {
+            get {
+                return this.ParamField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ParamField, value) != true)) {
+                    this.ParamField = value;
+                    this.RaisePropertyChanged("Param");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StringValue {
+            get {
+                return this.StringValueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
+                    this.StringValueField = value;
+                    this.RaisePropertyChanged("StringValue");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFService.User.IUserService")]
@@ -22,22 +472,22 @@ namespace SOA.WLIMS.Web.WCFService.User {
         bool ValidateUser(string userName, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/CreateUser", ReplyAction="http://tempuri.org/IUserService/CreateUserResponse")]
-        System.Web.Security.MembershipCreateStatus CreateUser(SOA.WLIMS.Models.RegisterModel model);
+        SOA.WLIMS.Web.WCFService.User.MembershipCreateStatus CreateUser(SOA.WLIMS.Web.WCFService.User.RegisterModel model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/ChangePassword", ReplyAction="http://tempuri.org/IUserService/ChangePasswordResponse")]
         bool ChangePassword(string userName, string oldPassword, string newPassword);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Modify", ReplyAction="http://tempuri.org/IUserService/ModifyResponse")]
-        bool Modify(SOA.WLIMS.Service.DAL.User model);
+        bool Modify(SOA.WLIMS.Web.WCFService.User.UserModel model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Delete", ReplyAction="http://tempuri.org/IUserService/DeleteResponse")]
         bool Delete(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Get", ReplyAction="http://tempuri.org/IUserService/GetResponse")]
-        SOA.WLIMS.Service.DAL.User Get(int id);
+        SOA.WLIMS.Web.WCFService.User.UserModel Get(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/Query", ReplyAction="http://tempuri.org/IUserService/QueryResponse")]
-        System.Collections.Generic.List<SOA.WLIMS.Service.DAL.User> Query(SOA.WLIMS.Service.QueryParam param);
+        System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.User.UserModel> Query(SOA.WLIMS.Web.WCFService.User.QueryParam param);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -75,7 +525,7 @@ namespace SOA.WLIMS.Web.WCFService.User {
             return base.Channel.ValidateUser(userName, password);
         }
         
-        public System.Web.Security.MembershipCreateStatus CreateUser(SOA.WLIMS.Models.RegisterModel model) {
+        public SOA.WLIMS.Web.WCFService.User.MembershipCreateStatus CreateUser(SOA.WLIMS.Web.WCFService.User.RegisterModel model) {
             return base.Channel.CreateUser(model);
         }
         
@@ -83,7 +533,7 @@ namespace SOA.WLIMS.Web.WCFService.User {
             return base.Channel.ChangePassword(userName, oldPassword, newPassword);
         }
         
-        public bool Modify(SOA.WLIMS.Service.DAL.User model) {
+        public bool Modify(SOA.WLIMS.Web.WCFService.User.UserModel model) {
             return base.Channel.Modify(model);
         }
         
@@ -91,11 +541,11 @@ namespace SOA.WLIMS.Web.WCFService.User {
             return base.Channel.Delete(id);
         }
         
-        public SOA.WLIMS.Service.DAL.User Get(int id) {
+        public SOA.WLIMS.Web.WCFService.User.UserModel Get(int id) {
             return base.Channel.Get(id);
         }
         
-        public System.Collections.Generic.List<SOA.WLIMS.Service.DAL.User> Query(SOA.WLIMS.Service.QueryParam param) {
+        public System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.User.UserModel> Query(SOA.WLIMS.Web.WCFService.User.QueryParam param) {
             return base.Channel.Query(param);
         }
     }

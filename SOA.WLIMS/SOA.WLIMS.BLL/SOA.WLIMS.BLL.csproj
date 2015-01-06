@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +44,16 @@
   <ItemGroup>
     <Compile Include="UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SOA.WLIMS.Contract\SOA.WLIMS.Contract.csproj">
+      <Project>{C864D7C2-BB7D-46CF-8D39-7F69955D7885}</Project>
+      <Name>SOA.WLIMS.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOA.WLIMS.Models\SOA.WLIMS.Models.csproj">
+      <Project>{300AC4BD-5A7B-4EBD-AC05-7B5EE20B2A65}</Project>
+      <Name>SOA.WLIMS.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

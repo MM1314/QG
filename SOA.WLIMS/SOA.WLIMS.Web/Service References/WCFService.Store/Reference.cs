@@ -9,26 +9,113 @@
 //------------------------------------------------------------------------------
 
 namespace SOA.WLIMS.Web.WCFService.Store {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Storehouse", Namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.DAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Storehouse : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CapacityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MasterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                this.AddressField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Capacity {
+            get {
+                return this.CapacityField;
+            }
+            set {
+                this.CapacityField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                this.IDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Master {
+            get {
+                return this.MasterField;
+            }
+            set {
+                this.MasterField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                this.NameField = value;
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFService.Store.IServiceOf_Storehouse")]
     public interface IServiceOf_Storehouse {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Storehouse/Add", ReplyAction="http://tempuri.org/IServiceOf_Storehouse/AddResponse")]
-        bool Add(SOA.WLIMS.Service.DAL.Storehouse model);
+        bool Add(SOA.WLIMS.Web.WCFService.Store.Storehouse model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Storehouse/Modify", ReplyAction="http://tempuri.org/IServiceOf_Storehouse/ModifyResponse")]
-        bool Modify(SOA.WLIMS.Service.DAL.Storehouse model);
+        bool Modify(SOA.WLIMS.Web.WCFService.Store.Storehouse model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Storehouse/Delete", ReplyAction="http://tempuri.org/IServiceOf_Storehouse/DeleteResponse")]
         bool Delete(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Storehouse/Get", ReplyAction="http://tempuri.org/IServiceOf_Storehouse/GetResponse")]
-        SOA.WLIMS.Service.DAL.Storehouse Get(int id);
+        SOA.WLIMS.Web.WCFService.Store.Storehouse Get(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Storehouse/Query", ReplyAction="http://tempuri.org/IServiceOf_Storehouse/QueryResponse")]
-        System.Collections.Generic.List<SOA.WLIMS.Service.DAL.Storehouse> Query(SOA.WLIMS.Service.QueryParam para);
+        System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.Store.Storehouse> Query(SOA.WLIMS.Models.QueryParam para);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,11 +145,11 @@ namespace SOA.WLIMS.Web.WCFService.Store {
                 base(binding, remoteAddress) {
         }
         
-        public bool Add(SOA.WLIMS.Service.DAL.Storehouse model) {
+        public bool Add(SOA.WLIMS.Web.WCFService.Store.Storehouse model) {
             return base.Channel.Add(model);
         }
         
-        public bool Modify(SOA.WLIMS.Service.DAL.Storehouse model) {
+        public bool Modify(SOA.WLIMS.Web.WCFService.Store.Storehouse model) {
             return base.Channel.Modify(model);
         }
         
@@ -70,11 +157,11 @@ namespace SOA.WLIMS.Web.WCFService.Store {
             return base.Channel.Delete(id);
         }
         
-        public SOA.WLIMS.Service.DAL.Storehouse Get(int id) {
+        public SOA.WLIMS.Web.WCFService.Store.Storehouse Get(int id) {
             return base.Channel.Get(id);
         }
         
-        public System.Collections.Generic.List<SOA.WLIMS.Service.DAL.Storehouse> Query(SOA.WLIMS.Service.QueryParam para) {
+        public System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.Store.Storehouse> Query(SOA.WLIMS.Models.QueryParam para) {
             return base.Channel.Query(para);
         }
     }

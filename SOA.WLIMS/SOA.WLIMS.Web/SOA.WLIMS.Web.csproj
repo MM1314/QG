@@ -97,6 +97,7 @@
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.User.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.Vehicle.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Models.RegisterModel.datasource" />
+    <None Include="Properties\DataSources\SOA.WLIMS.Models.UserModel.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.Order.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.Storehouse.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.User.datasource" />
@@ -109,6 +110,12 @@
     <None Include="Service References\WCFService.Order\OrderService4.xsd" />
     <None Include="Service References\WCFService.Order\OrderService5.xsd" />
     <None Include="Service References\WCFService.Order\OrderService6.xsd" />
+    <None Include="Service References\WCFService.Order\SOA.WLIMS.Web.WCFService.Order.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WCFService.Store\SOA.WLIMS.Web.WCFService.Store.Storehouse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCFService.Store\StoreService.wsdl" />
     <None Include="Service References\WCFService.Store\StoreService.xsd" />
     <None Include="Service References\WCFService.Store\StoreService1.xsd" />
@@ -117,16 +124,18 @@
     <None Include="Service References\WCFService.Store\StoreService4.xsd" />
     <None Include="Service References\WCFService.Store\StoreService5.xsd" />
     <None Include="Service References\WCFService.Store\StoreService6.xsd" />
+    <None Include="Service References\WCFService.User\SOA.WLIMS.Web.WCFService.User.MembershipCreateStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WCFService.User\SOA.WLIMS.Web.WCFService.User.UserModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCFService.User\UserService1.wsdl" />
     <None Include="Service References\WCFService.User\UserService5.xsd" />
     <None Include="Service References\WCFService.User\UserService51.xsd" />
     <None Include="Service References\WCFService.User\UserService52.xsd" />
     <None Include="Service References\WCFService.User\UserService53.xsd" />
     <None Include="Service References\WCFService.User\UserService54.xsd" />
-    <None Include="Service References\WCFService.User\UserService55.xsd" />
-    <None Include="Service References\WCFService.User\UserService56.xsd" />
-    <None Include="Service References\WCFService.User\UserService57.xsd" />
-    <None Include="Service References\WCFService.User\UserService58.xsd" />
     <None Include="Service References\WCFService.User\configuration91.svcinfo" />
     <None Include="Service References\WCFService.User\configuration.svcinfo" />
     <None Include="Service References\WCFService.User\Reference.svcmap">
@@ -222,6 +231,9 @@
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\Delete.cshtml" />
+    <None Include="Service References\WCFService.Vehicle\SOA.WLIMS.Web.WCFService.Vehicle.Vehicle.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\WCFService.Vehicle\VehicleService1.wsdl" />
     <None Include="Service References\WCFService.Vehicle\VehicleService7.xsd" />
     <None Include="Service References\WCFService.Vehicle\VehicleService71.xsd" />
@@ -246,6 +258,10 @@
     <WCFMetadataStorage Include="Service References\WCFService.User\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SOA.WLIMS.Contract\SOA.WLIMS.Contract.csproj">
+      <Project>{C864D7C2-BB7D-46CF-8D39-7F69955D7885}</Project>
+      <Name>SOA.WLIMS.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SOA.WLIMS.Models\SOA.WLIMS.Models.csproj">
       <Project>{300AC4BD-5A7B-4EBD-AC05-7B5EE20B2A65}</Project>
       <Name>SOA.WLIMS.Models</Name>
@@ -253,6 +269,10 @@
     <ProjectReference Include="..\SOA.WLIMS.Service\SOA.WLIMS.Service.csproj">
       <Project>{2975CC13-72E8-42E4-B6E5-A69C67A5833A}</Project>
       <Name>SOA.WLIMS.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOA.WLIMS.WCFClientProxy\SOA.WLIMS.WCFClientProxy.csproj">
+      <Project>{EA0B9911-A920-411F-84E2-F85FD828AD19}</Project>
+      <Name>SOA.WLIMS.WCFClientProxy</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

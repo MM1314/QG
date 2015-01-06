@@ -9,26 +9,100 @@
 //------------------------------------------------------------------------------
 
 namespace SOA.WLIMS.Web.WCFService.Vehicle {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Vehicle", Namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.DAL", IsReference=true)]
+    [System.SerializableAttribute()]
+    public partial class Vehicle : System.Data.Objects.DataClasses.EntityObject, System.Runtime.Serialization.IExtensibleDataObject {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LicensePlateNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                this.IDField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LicensePlateNumber {
+            get {
+                return this.LicensePlateNumberField;
+            }
+            set {
+                this.LicensePlateNumberField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                this.NameField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                this.StatusField = value;
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFService.Vehicle.IServiceOf_Vehicle")]
     public interface IServiceOf_Vehicle {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Vehicle/Add", ReplyAction="http://tempuri.org/IServiceOf_Vehicle/AddResponse")]
-        bool Add(SOA.WLIMS.Service.DAL.Vehicle model);
+        bool Add(SOA.WLIMS.Web.WCFService.Vehicle.Vehicle model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Vehicle/Modify", ReplyAction="http://tempuri.org/IServiceOf_Vehicle/ModifyResponse")]
-        bool Modify(SOA.WLIMS.Service.DAL.Vehicle model);
+        bool Modify(SOA.WLIMS.Web.WCFService.Vehicle.Vehicle model);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Vehicle/Delete", ReplyAction="http://tempuri.org/IServiceOf_Vehicle/DeleteResponse")]
         bool Delete(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Vehicle/Get", ReplyAction="http://tempuri.org/IServiceOf_Vehicle/GetResponse")]
-        SOA.WLIMS.Service.DAL.Vehicle Get(int id);
+        SOA.WLIMS.Web.WCFService.Vehicle.Vehicle Get(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Vehicle/Query", ReplyAction="http://tempuri.org/IServiceOf_Vehicle/QueryResponse")]
-        System.Collections.Generic.List<SOA.WLIMS.Service.DAL.Vehicle> Query(SOA.WLIMS.Service.QueryParam para);
+        System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.Vehicle.Vehicle> Query(SOA.WLIMS.Models.QueryParam para);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -58,11 +132,11 @@ namespace SOA.WLIMS.Web.WCFService.Vehicle {
                 base(binding, remoteAddress) {
         }
         
-        public bool Add(SOA.WLIMS.Service.DAL.Vehicle model) {
+        public bool Add(SOA.WLIMS.Web.WCFService.Vehicle.Vehicle model) {
             return base.Channel.Add(model);
         }
         
-        public bool Modify(SOA.WLIMS.Service.DAL.Vehicle model) {
+        public bool Modify(SOA.WLIMS.Web.WCFService.Vehicle.Vehicle model) {
             return base.Channel.Modify(model);
         }
         
@@ -70,11 +144,11 @@ namespace SOA.WLIMS.Web.WCFService.Vehicle {
             return base.Channel.Delete(id);
         }
         
-        public SOA.WLIMS.Service.DAL.Vehicle Get(int id) {
+        public SOA.WLIMS.Web.WCFService.Vehicle.Vehicle Get(int id) {
             return base.Channel.Get(id);
         }
         
-        public System.Collections.Generic.List<SOA.WLIMS.Service.DAL.Vehicle> Query(SOA.WLIMS.Service.QueryParam para) {
+        public System.Collections.Generic.List<SOA.WLIMS.Web.WCFService.Vehicle.Vehicle> Query(SOA.WLIMS.Models.QueryParam para) {
             return base.Channel.Query(para);
         }
     }

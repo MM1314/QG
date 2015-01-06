@@ -1,0 +1,4 @@
+E:\soa物流信息系统简介\QG\EasyEF\EasyEF.Utility\bin\Debug\EasyEF.Utility.dll
+E:\soa物流信息系统简介\QG\EasyEF\EasyEF.Utility\bin\Debug\EasyEF.Utility.pdb
+E:\soa物流信息系统简介\QG\EasyEF\EasyEF.Utility\obj\Debug\EasyEF.Utility.dll
+E:\soa物流信息系统简介\QG\EasyEF\EasyEF.Utility\obj\Debug\EasyEF.Utility.pdb

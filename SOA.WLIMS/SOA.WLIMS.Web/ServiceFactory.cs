@@ -3,30 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-using SOA.WLIMS.Web.WCFService.Vehicle;
-using SOA.WLIMS.Web.WCFService.User;
-using SOA.WLIMS.Web.WCFService.Store;
-using SOA.WLIMS.Web.WCFService.Order;
+using SOA.WLIMS.WCFClientProxy;
+using SOA.WLIMS.Contract;
+using SOA.WLIMS.Models;
 
 namespace SOA.WLIMS.Web
 {
     public class ServiceFactory
     {
+
+        public static IServiceFactory Factory
+        {
+            get
+            {
+                //Need to inject dynamic later
+                return new RemoteServiceFactory();
+            }
+        }
+               
+
         /// <summary>
         /// 用户管理服务
         /// </summary>
         /// <returns></returns>
         public static IUserService GetUserService()
         {
-            return new UserServiceClient();
+            //return new WCFService.User.UserServiceClient();
+            return Factory.GetUserService();
         }
         /// <summary>
         /// 车辆管理服务
         /// </summary>
         /// <returns></returns>
-        public static IServiceOf_Vehicle GetVehicleService()
+        public static IService<VehicleModel> GetVehicleService()
         {
-            return new ServiceOf_VehicleClient();
+            return Factory.GetVehicleService();
         }
         /// <summary>
         /// 订单管理服务
@@ -34,15 +45,15 @@ namespace SOA.WLIMS.Web
         /// <returns></returns>
         public static IOrderService GetOrderService()
         {
-            return new OrderServiceClient();
+            return Factory.GetOrderService();
         }
         /// <summary>
         /// 仓库管理服务
         /// </summary>
         /// <returns></returns>
-        public static IServiceOf_Storehouse GetStorehouseService()
+        public static IService<StorehouseModel> GetStorehouseService()
         {
-            return new ServiceOf_StorehouseClient();
+            return Factory.GetStorehouseService();
         }
     }
 }

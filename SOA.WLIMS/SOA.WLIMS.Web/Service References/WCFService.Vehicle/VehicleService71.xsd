@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:1735/VehicleService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="QueryParam">
     <xs:sequence>

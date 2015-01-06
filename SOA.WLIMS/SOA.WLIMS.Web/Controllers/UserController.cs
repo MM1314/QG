@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using SOA.WLIMS.Models;
 using SOA.WLIMS.Web.WCFService;
-using SOA.WLIMS.Service.DAL;
 
 namespace SOA.WLIMS.Web.Controllers
 {
@@ -65,7 +64,7 @@ namespace SOA.WLIMS.Web.Controllers
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(User model)
+        public ActionResult Edit(UserModel model)
         {
             try
             {

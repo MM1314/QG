@@ -5,7 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using SOA.WLIMS.Service.DAL;
+using SOA.WLIMS.DAL;
+using SOA.WLIMS.Models;
+using SOA.WLIMS.Contract;
 
 namespace SOA.WLIMS.Service
 {
@@ -14,14 +16,31 @@ namespace SOA.WLIMS.Service
     {
         SOAWLDBEntities DB = DBFactory.CreateDB;
 
-        public bool Add(Order model)
+        public bool Add(OrderModel model)
         {
-            DB.Order.AddObject(model);
+            DB.Order.AddObject(new Order()
+            {
+                Charges = model.Charges,
+                Code = model.Code,
+                Contents = model.Contents,
+                ContentsValue = model.ContentsValue,
+                ContentsWeight = model.ContentsWeight,
+                ID = model.ID,
+                PickupTime = model.PickupTime,
+                SigninTime = model.SigninTime,
+                SrcAddress = model.SrcAddress,
+                SrcUserName = model.SrcUserName,
+                SrcUserPhone = model.SrcUserPhone,
+                ToAddress = model.ToAddress,
+                Status = model.Status,
+                ToUserName = model.ToUserName,
+                ToUserPhone = model.ToUserPhone
+            });
             DB.SaveChanges();
             return true;
         }
 
-        public bool Modify(Order model)
+        public bool Modify(OrderModel model)
         {
             Order oldValue = DB.Order.SingleOrDefault(o => o.ID == model.ID);
             if (oldValue != null)
@@ -40,14 +59,48 @@ namespace SOA.WLIMS.Service
             return DB.SaveChanges() == 1;
         }
 
-        public Order Get(int id)
+        public OrderModel Get(int id)
         {
-            return DB.Order.SingleOrDefault(o => o.ID == id);
+            return DB.Order.Select(model => new OrderModel()
+            {
+                Charges = model.Charges,
+                Code = model.Code,
+                Contents = model.Contents,
+                ContentsValue = model.ContentsValue,
+                ContentsWeight = model.ContentsWeight,
+                ID = model.ID,
+                PickupTime = model.PickupTime,
+                SigninTime = model.SigninTime,
+                SrcAddress = model.SrcAddress,
+                SrcUserName = model.SrcUserName,
+                SrcUserPhone = model.SrcUserPhone,
+                ToAddress = model.ToAddress,
+                Status = model.Status,
+                ToUserName = model.ToUserName,
+                ToUserPhone = model.ToUserPhone
+            }).SingleOrDefault(o => o.ID == id);
         }
 
-        public List<Order> Query(QueryParam para)
+        public List<OrderModel> Query(QueryParam para)
         {
-            return DB.Order.Where(o => 1 == 1).ToList();
+            return DB.Order.Select(model => new OrderModel()
+            {
+                Charges = model.Charges,
+                Code = model.Code,
+                Contents = model.Contents,
+                ContentsValue = model.ContentsValue,
+                ContentsWeight = model.ContentsWeight,
+                ID = model.ID,
+                PickupTime = model.PickupTime,
+                SigninTime = model.SigninTime,
+                SrcAddress = model.SrcAddress,
+                SrcUserName = model.SrcUserName,
+                SrcUserPhone = model.SrcUserPhone,
+                ToAddress = model.ToAddress,
+                Status = model.Status,
+                ToUserName = model.ToUserName,
+                ToUserPhone = model.ToUserPhone
+            }).Where(o => 1 == 1).ToList();
         }
     }
 }

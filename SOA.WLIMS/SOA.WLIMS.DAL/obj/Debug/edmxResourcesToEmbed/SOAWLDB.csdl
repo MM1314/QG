@@ -11,67 +11,67 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="OrderCode" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Type="Int64" Name="StorehouseID" />
-    <Property Type="Int64" Name="VehicleID" />
-    <Property Type="DateTime" Name="HandleTime" Nullable="false" />
-    <Property Type="String" Name="HandleStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="HandleMessage" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="StorehouseID" Type="Int64" />
+    <Property Name="VehicleID" Type="Int64" />
+    <Property Name="HandleTime" Type="DateTime" Nullable="false" />
+    <Property Name="HandleStatus" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="HandleMessage" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Code" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="SrcUserName" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="SrcUserPhone" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="SrcAddress" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Contents" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Double" Name="ContentsWeight" Nullable="false" />
-    <Property Type="Decimal" Name="ContentsValue" Precision="19" Scale="4" />
-    <Property Type="String" Name="ToUserName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="ToUserPhone" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="ToAddress" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Type="Decimal" Name="Charges" Precision="19" Scale="4" />
-    <Property Type="DateTime" Name="PickupTime" Nullable="false" />
-    <Property Type="DateTime" Name="SigninTime" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="SrcUserName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SrcUserPhone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SrcAddress" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Contents" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ContentsWeight" Type="Double" Nullable="false" />
+    <Property Name="ContentsValue" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ToUserPhone" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ToAddress" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Charges" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="PickupTime" Type="DateTime" Nullable="false" />
+    <Property Name="SigninTime" Type="DateTime" />
   </EntityType>
   <EntityType Name="Storehouse">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="Capacity" />
-    <Property Type="String" Name="Master" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Capacity" Type="Int32" />
+    <Property Name="Master" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="AliasName" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Role" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="EmployeCode" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="Enable" />
-    <Property Type="Boolean" Name="IsDeleted" />
-    <Property Type="DateTime" Name="LastActivityDate" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="AliasName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Tel" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Role" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="EmployeCode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Enable" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="LastActivityDate" Type="DateTime" />
   </EntityType>
   <EntityType Name="Vehicle">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="LicensePlateNumber" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LicensePlateNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
   </EntityType>
 </Schema>

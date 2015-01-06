@@ -24,3 +24,15 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.Service.
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\obj\Debug\SOA.WLIMS.Web.csprojResolveAssemblyReference.cache
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\obj\Debug\SOA.WLIMS.Web.dll
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\obj\Debug\SOA.WLIMS.Web.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.Contract.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.WCFClientProxy.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.DAL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\EasyEF.Utility.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\EasyEF.WCFExtension.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.BLL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.Contract.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.WCFClientProxy.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.DAL.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\EasyEF.Utility.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\EasyEF.WCFExtension.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Web\bin\SOA.WLIMS.BLL.pdb

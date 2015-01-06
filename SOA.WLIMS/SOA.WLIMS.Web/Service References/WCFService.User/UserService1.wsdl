@@ -6,11 +6,7 @@
       <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Models" />
       <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Web.Security" />
-      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service.DAL" />
-      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses" />
-      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SOA.WLIMS.Service" />
-      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:1735/UserService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_MinPasswordLength_InputMessage">

@@ -71,7 +71,7 @@
     </Key>
     <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="10" />
-    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
   </EntityType>
 </Schema>

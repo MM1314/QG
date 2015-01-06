@@ -4,16 +4,18 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using SOA.WLIMS.Service.DAL;
+using SOA.WLIMS.DAL;
+using SOA.WLIMS.Models;
+using SOA.WLIMS.Contract;
 
 
 namespace SOA.WLIMS.Service
 {
     // 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码、svc 和配置文件中的类名“VehicleService”。
-    public class VehicleService : IService<Vehicle>
+    public class VehicleService : IService<VehicleModel>
     {
         SOAWLDBEntities DB = DBFactory.CreateDB;
-        public bool Add(Vehicle model)
+        public bool Add(VehicleModel model)
         {
             DB.Vehicle.AddObject(new Vehicle()
             {
@@ -26,7 +28,7 @@ namespace SOA.WLIMS.Service
             return true;
         }
 
-        public bool Modify(Vehicle model)
+        public bool Modify(VehicleModel model)
         {
             Vehicle oldValue = DB.Vehicle.SingleOrDefault(o => o.ID == model.ID);
             if (oldValue != null)
@@ -44,14 +46,26 @@ namespace SOA.WLIMS.Service
             return DB.SaveChanges() == 1;
         }
 
-        public Vehicle Get(int id)
+        public VehicleModel Get(int id)
         {
-            return DB.Vehicle.SingleOrDefault(o => o.ID == id);
+            return DB.Vehicle.Select(model => new VehicleModel()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                LicensePlateNumber = model.LicensePlateNumber,
+                Status = model.Status
+            }).SingleOrDefault(o => o.ID == id);
         }
 
-        public List<Vehicle> Query(QueryParam para)
+        public List<VehicleModel> Query(QueryParam para)
         {
-            return DB.Vehicle.Where(o => 1 == 1).ToList();
+            return DB.Vehicle.Select(model => new VehicleModel()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                LicensePlateNumber = model.LicensePlateNumber,
+                Status = model.Status
+            }).Where(o => 1 == 1).ToList();
         }
     }
 }

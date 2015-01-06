@@ -25,3 +25,7 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Mode
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.csprojResolveAssemblyReference.cache
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.dll
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\obj\Debug\SOA.WLIMS.Service.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Contract.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.DAL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.Contract.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Service\bin\SOA.WLIMS.DAL.pdb
