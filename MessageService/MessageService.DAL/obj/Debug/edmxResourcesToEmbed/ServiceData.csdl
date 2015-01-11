@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TytusB2BModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TytusB2BEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dealer_AuthorizeInfo" EntityType="TytusB2BModel.Dealer_AuthorizeInfo" />
+    <EntitySet Name="Dealer_AuthorizeInfoDT" EntityType="TytusB2BModel.Dealer_AuthorizeInfoDT" />
+    <EntitySet Name="Dealer_AuthorizeProductLine" EntityType="TytusB2BModel.Dealer_AuthorizeProductLine" />
+    <EntitySet Name="Dealer_DealerInfo" EntityType="TytusB2BModel.Dealer_DealerInfo" />
+    <EntitySet Name="MD_Message" EntityType="TytusB2BModel.MD_Message" />
+    <EntitySet Name="MD_MessageLog" EntityType="TytusB2BModel.MD_MessageLog" />
+    <EntitySet Name="Inv_InvInfo" EntityType="TytusB2BModel.Inv_InvInfo" />
+    <EntitySet Name="MD_PrewiredPackageDT" EntityType="TytusB2BModel.MD_PrewiredPackageDT" />
+    <EntitySet Name="MD_Product" EntityType="TytusB2BModel.MD_Product" />
+    <EntitySet Name="MD_Warehouse" EntityType="TytusB2BModel.MD_Warehouse" />
+    <EntitySet Name="MD_WarehouseDT" EntityType="TytusB2BModel.MD_WarehouseDT" />
+    <EntitySet Name="PO_OutInvOrder" EntityType="TytusB2BModel.PO_OutInvOrder" />
+    <EntitySet Name="PO_OutInvOrderDT" EntityType="TytusB2BModel.PO_OutInvOrderDT" />
+    <EntitySet Name="PO_POrder" EntityType="TytusB2BModel.PO_POrder" />
+    <EntitySet Name="PO_ShipOrder" EntityType="TytusB2BModel.PO_ShipOrder" />
+  </EntityContainer>
+  <EntityType Name="Dealer_AuthorizeInfo">
+    <Key>
+      <PropertyRef Name="DealerAuthorID" />
+    </Key>
+    <Property Type="Guid" Name="DealerAuthorID" Nullable="false" />
+    <Property Type="Guid" Name="DealerID" />
+    <Property Type="String" Name="DealerCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AreaManage" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompTel" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SalemanTel" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobil" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyCompName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerLevel" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="TopDealerID" />
+    <Property Type="String" Name="TopDealerCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TopDealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ContractDateFrm" />
+    <Property Type="DateTime" Name="ContractDateTo" />
+    <Property Type="String" Name="ContractCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Recman" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RecTel" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RecMobil" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RecEmail" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RecAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="FlowID" />
+    <Property Type="String" Name="FlowCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="Guid" Name="RegionID" />
+    <Property Type="String" Name="RegionName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="RelationDealerAuthorID" />
+  </EntityType>
+  <EntityType Name="Dealer_AuthorizeInfoDT">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Type="Guid" Name="AuthorID" Nullable="false" />
+    <Property Type="Guid" Name="DealerAuthorID" />
+    <Property Type="String" Name="ProvinceCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProvinceName" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CountyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CountyName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="HospitalID" />
+    <Property Type="String" Name="HospitalName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateFrm" />
+    <Property Type="DateTime" Name="DateTo" />
+    <Property Type="String" Name="ProductJzID" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductCsID" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dealer_AuthorizeProductLine">
+    <Key>
+      <PropertyRef Name="DealerProductID" />
+    </Key>
+    <Property Type="Guid" Name="DealerProductID" Nullable="false" />
+    <Property Type="Guid" Name="DealerAuthorID" />
+    <Property Type="String" Name="ProductJzID" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductCsID" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" />
+    <Property Type="Boolean" Name="IsDisable" />
+    <Property Type="String" Name="Creator" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" />
+    <Property Type="String" Name="Modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" />
+  </EntityType>
+  <EntityType Name="Dealer_DealerInfo">
+    <Key>
+      <PropertyRef Name="DealerID" />
+    </Key>
+    <Property Type="Guid" Name="DealerID" Nullable="false" />
+    <Property Type="String" Name="DealerCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="DealerAuthorID" />
+    <Property Type="Guid" Name="TopDealerID" />
+    <Property Type="String" Name="TopDealerCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TopDealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerLevel" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LegalName" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="RegAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Manager" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyTel" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobil" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Bank" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BankNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TaxNum" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvoiceType" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="FlowID" />
+    <Property Type="String" Name="FlowCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="DateTime" Name="Lic_DateFrm" />
+    <Property Type="DateTime" Name="Lic_DateTo" />
+    <Property Type="DateTime" Name="Per_DateFrm" />
+    <Property Type="DateTime" Name="Per_DateTo" />
+    <Property Type="DateTime" Name="Org_DateFrm" />
+    <Property Type="DateTime" Name="Org_DateTo" />
+    <Property Type="DateTime" Name="Fax_DateFrm" />
+    <Property Type="DateTime" Name="Fax_DateTo" />
+    <Property Type="DateTime" Name="Legal_DateFrm" />
+    <Property Type="DateTime" Name="Legal_DateTo" />
+    <Property Type="DateTime" Name="ContractDateFrm" />
+    <Property Type="DateTime" Name="ContractDateTo" />
+    <Property Type="String" Name="BusinessCertificate" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BusinessLicense" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Attribute1" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MD_Message">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="SourceID" />
+    <Property Type="String" Name="Mails" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobiles" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Receiver" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MsgDate" />
+    <Property Type="Boolean" Name="IsSended" />
+  </EntityType>
+  <EntityType Name="MD_MessageLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="MessageID" />
+    <Property Type="DateTime" Name="SendTime" />
+    <Property Type="String" Name="SendType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSuccess" />
+    <Property Type="String" Name="Exception" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Inv_InvInfo">
+    <Key>
+      <PropertyRef Name="InvID" />
+    </Key>
+    <Property Type="Guid" Name="InvID" Nullable="false" />
+    <Property Type="Guid" Name="CompanyID" />
+    <Property Type="String" Name="CompanyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CompanyName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="InvType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductID" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Model" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="WarehouseID" />
+    <Property Type="String" Name="WarehouseCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="StorageID" />
+    <Property Type="String" Name="StorageCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StorageName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LotNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="InvNum" Nullable="false" />
+    <Property Type="Int32" Name="FreezeNum" />
+    <Property Type="String" Name="Units" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Precision="20" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Precision="20" Scale="2" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_PrewiredPackageDT">
+    <Key>
+      <PropertyRef Name="PrewID" />
+    </Key>
+    <Property Type="Guid" Name="PrewID" Nullable="false" />
+    <Property Type="Guid" Name="PrewiredID" />
+    <Property Type="Guid" Name="ProductID" />
+    <Property Type="String" Name="ProductCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PrewAmount" />
+    <Property Type="Int32" Name="PickAmount" />
+    <Property Type="String" Name="LotNo" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="WarehouseID" />
+    <Property Type="String" Name="WarehouseCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="StorageID" />
+    <Property Type="String" Name="StorageCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StorageName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="Int32" Name="NotfatNum" />
+  </EntityType>
+  <EntityType Name="MD_Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Type="Guid" Name="ProductID" Nullable="false" />
+    <Property Type="String" Name="ProductCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ParentGUID" />
+    <Property Type="String" Name="Model" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductType" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductTypeCode" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SeqNo" />
+    <Property Type="Int32" Name="TreeLevel" />
+    <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UseNum" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Class1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Class2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MBarcode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Part1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Part2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Part3" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="ItemLen" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ItemWidth" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ItemHeight" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ItemHole" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="ItemAngle" Precision="18" Scale="2" />
+    <Property Type="String" Name="Material" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CertCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsLeaf" />
+    <Property Type="String" Name="ImgURL" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Type="Guid" Name="WarehouseID" Nullable="false" />
+    <Property Type="String" Name="WarehouseCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseHead" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseAdmin" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="CompanyID" />
+    <Property Type="String" Name="CompanyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Company" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_WarehouseDT">
+    <Key>
+      <PropertyRef Name="StorageID" />
+    </Key>
+    <Property Type="Guid" Name="StorageID" Nullable="false" />
+    <Property Type="String" Name="StorageCode" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StorageName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="WarehouseID" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PO_OutInvOrder">
+    <Key>
+      <PropertyRef Name="OutInvID" />
+    </Key>
+    <Property Type="Guid" Name="OutInvID" Nullable="false" />
+    <Property Type="String" Name="OutInvCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ShipOrderID" />
+    <Property Type="String" Name="ExpressName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BillCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Weight" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="String" Name="POType" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="CheckAmount" Precision="18" Scale="2" />
+    <Property Type="String" Name="PayStatus" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PO_OutInvOrderDT">
+    <Key>
+      <PropertyRef Name="OutInvDTID" />
+    </Key>
+    <Property Type="Guid" Name="OutInvDTID" Nullable="false" />
+    <Property Type="Guid" Name="OutInvID" />
+    <Property Type="Guid" Name="ProductID" />
+    <Property Type="String" Name="ProductCode" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProductName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Model" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="OrderNum" />
+    <Property Type="Int32" Name="DeliveryNum" />
+    <Property Type="Int32" Name="NotfatNum" />
+    <Property Type="String" Name="Units" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Amount" Precision="18" Scale="2" />
+    <Property Type="String" Name="LotNo" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StorageCode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StorageName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="Int32" Name="DataType" />
+    <Property Type="Guid" Name="PrevwPackageID" />
+  </EntityType>
+  <EntityType Name="PO_POrder">
+    <Key>
+      <PropertyRef Name="POID" />
+    </Key>
+    <Property Type="Guid" Name="POID" Nullable="false" />
+    <Property Type="String" Name="POCode" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="POName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PODate" />
+    <Property Type="Guid" Name="DealerID" />
+    <Property Type="String" Name="DealerCode" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamilyCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="POStatus" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Importance" />
+    <Property Type="String" Name="SendAddress" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Tel" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="TotalNum" />
+    <Property Type="String" Name="POType" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CheckUser" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CheckDate" />
+    <Property Type="Decimal" Name="TotalAmount" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="CashPay" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Credit" Precision="18" Scale="2" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="Guid" Name="FlowID" />
+    <Property Type="String" Name="FlowCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductLineID" />
+    <Property Type="String" Name="ProductLineName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductLineID1" />
+    <Property Type="String" Name="ProductLineName1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductLineID2" />
+    <Property Type="String" Name="ProductLineName2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductLineID3" />
+    <Property Type="String" Name="ProductLineName3" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ProductLineID4" />
+    <Property Type="String" Name="ProductLineName4" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="DoctorID" />
+    <Property Type="String" Name="DoctorName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IsFlyCut" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="HospitalID" />
+    <Property Type="String" Name="HospitalName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfigInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SickName" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Age" />
+    <Property Type="String" Name="Sex" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BedNo" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SickConfigInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Weeks" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SurDate" />
+    <Property Type="Guid" Name="SurOderID" />
+    <Property Type="String" Name="SurOderCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="TopDealerID" />
+    <Property Type="String" Name="TopDealerCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TopDealerName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PO_ShipOrder">
+    <Key>
+      <PropertyRef Name="ShipOrderID" />
+    </Key>
+    <Property Type="Guid" Name="ShipOrderID" Nullable="false" />
+    <Property Type="Guid" Name="POID" />
+    <Property Type="String" Name="ShipOrderCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ShipOrderName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ShipDate" />
+    <Property Type="String" Name="ShipStatus" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="DealerID" />
+    <Property Type="String" Name="DealerCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DealerName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CheckUser" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CheckDate" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDelete" Nullable="false" />
+    <Property Type="Boolean" Name="IsDisable" Nullable="false" />
+    <Property Type="String" Name="Creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+    <Property Type="String" Name="Modifier" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ModifyTime" Nullable="false" />
+    <Property Type="Guid" Name="WarehouseID" />
+    <Property Type="String" Name="WarehouseCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WarehouseName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImgURL" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="POType" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AdvancedPayment" />
+    <Property Type="Decimal" Name="ActualAmount" Precision="18" Scale="2" />
+  </EntityType>
+</Schema>

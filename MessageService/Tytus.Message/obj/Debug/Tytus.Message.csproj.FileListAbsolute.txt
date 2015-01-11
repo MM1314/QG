@@ -1,0 +1,14 @@
+F:\MessageService\ClassLibrary1\bin\Debug\Tytus.Message.dll
+F:\MessageService\ClassLibrary1\bin\Debug\Tytus.Message.pdb
+F:\MessageService\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+F:\MessageService\ClassLibrary1\obj\Debug\Tytus.Message.dll
+F:\MessageService\ClassLibrary1\obj\Debug\Tytus.Message.pdb
+F:\MessageService\Tytus.Message\bin\Debug\Tytus.Message.dll
+F:\MessageService\Tytus.Message\bin\Debug\Tytus.Message.pdb
+F:\MessageService\Tytus.Message\obj\Debug\ResolveAssemblyReference.cache
+F:\MessageService\Tytus.Message\obj\Debug\Tytus.Message.dll
+F:\MessageService\Tytus.Message\obj\Debug\Tytus.Message.pdb
+E:\soa物流信息系统简介\QG\MessageService\Tytus.Message\bin\Debug\Tytus.Message.dll
+E:\soa物流信息系统简介\QG\MessageService\Tytus.Message\bin\Debug\Tytus.Message.pdb
+E:\soa物流信息系统简介\QG\MessageService\Tytus.Message\obj\Debug\Tytus.Message.dll
+E:\soa物流信息系统简介\QG\MessageService\Tytus.Message\obj\Debug\Tytus.Message.pdb

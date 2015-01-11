@@ -1,0 +1,16 @@
+F:\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.dll.config
+F:\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.dll
+F:\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.pdb
+F:\MessageService\MessageService.DAL\obj\Debug\ResolveAssemblyReference.cache
+F:\MessageService\MessageService.DAL\obj\Debug\MessageService.DAL.dll
+F:\MessageService\MessageService.DAL\obj\Debug\MessageService.DAL.pdb
+F:\MessageService\MessageService.DAL\bin\Debug\MessageService.Model.dll
+F:\MessageService\MessageService.DAL\bin\Debug\MessageService.Model.pdb
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.dll.config
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.dll
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\bin\Debug\MessageService.DAL.pdb
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\bin\Debug\MessageService.Model.dll
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\bin\Debug\MessageService.Model.pdb
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\obj\Debug\MessageService.DAL.csprojResolveAssemblyReference.cache
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\obj\Debug\MessageService.DAL.dll
+E:\soa物流信息系统简介\QG\MessageService\MessageService.DAL\obj\Debug\MessageService.DAL.pdb

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TytusB2BModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="TytusB2BModelStoreContainer">
+    <EntitySet Name="Dealer_AuthorizeInfo" EntityType="TytusB2BModel.Store.Dealer_AuthorizeInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dealer_AuthorizeInfoDT" EntityType="TytusB2BModel.Store.Dealer_AuthorizeInfoDT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dealer_AuthorizeProductLine" EntityType="TytusB2BModel.Store.Dealer_AuthorizeProductLine" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dealer_DealerInfo" EntityType="TytusB2BModel.Store.Dealer_DealerInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Inv_InvInfo" EntityType="TytusB2BModel.Store.Inv_InvInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_Message" EntityType="TytusB2BModel.Store.MD_Message" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_MessageLog" EntityType="TytusB2BModel.Store.MD_MessageLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_PrewiredPackageDT" EntityType="TytusB2BModel.Store.MD_PrewiredPackageDT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_Product" EntityType="TytusB2BModel.Store.MD_Product" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_Warehouse" EntityType="TytusB2BModel.Store.MD_Warehouse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_WarehouseDT" EntityType="TytusB2BModel.Store.MD_WarehouseDT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PO_OutInvOrder" EntityType="TytusB2BModel.Store.PO_OutInvOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PO_OutInvOrderDT" EntityType="TytusB2BModel.Store.PO_OutInvOrderDT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PO_POrder" EntityType="TytusB2BModel.Store.PO_POrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PO_ShipOrder" EntityType="TytusB2BModel.Store.PO_ShipOrder" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Dealer_AuthorizeInfo">
+    <Key>
+      <PropertyRef Name="DealerAuthorID" />
+    </Key>
+    <Property Name="DealerAuthorID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealerID" Type="uniqueidentifier" />
+    <Property Name="DealerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="AreaManage" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompTel" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="SalemanTel" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mobil" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="FamilyCompName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FamilyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DealerLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopDealerID" Type="uniqueidentifier" />
+    <Property Name="TopDealerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopDealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ContractDateFrm" Type="datetime" />
+    <Property Name="ContractDateTo" Type="datetime" />
+    <Property Name="ContractCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Recman" Type="nvarchar" MaxLength="20" />
+    <Property Name="RecTel" Type="nvarchar" MaxLength="100" />
+    <Property Name="RecMobil" Type="nvarchar" MaxLength="100" />
+    <Property Name="RecEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="RecAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" />
+    <Property Name="FlowID" Type="uniqueidentifier" />
+    <Property Name="FlowCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="RegionID" Type="uniqueidentifier" />
+    <Property Name="RegionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RelationDealerAuthorID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Dealer_AuthorizeInfoDT">
+    <Key>
+      <PropertyRef Name="AuthorID" />
+    </Key>
+    <Property Name="AuthorID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealerAuthorID" Type="uniqueidentifier" />
+    <Property Name="ProvinceCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="ProvinceName" Type="nvarchar" MaxLength="30" />
+    <Property Name="CityCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HospitalID" Type="uniqueidentifier" />
+    <Property Name="HospitalName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateFrm" Type="datetime" />
+    <Property Name="DateTo" Type="datetime" />
+    <Property Name="ProductJzID" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProductCsID" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dealer_AuthorizeProductLine">
+    <Key>
+      <PropertyRef Name="DealerProductID" />
+    </Key>
+    <Property Name="DealerProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealerAuthorID" Type="uniqueidentifier" />
+    <Property Name="ProductJzID" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ProductCsID" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="IsDisable" Type="bit" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Modifier" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Dealer_DealerInfo">
+    <Key>
+      <PropertyRef Name="DealerID" />
+    </Key>
+    <Property Name="DealerID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealerCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DealerAuthorID" Type="uniqueidentifier" />
+    <Property Name="TopDealerID" Type="uniqueidentifier" />
+    <Property Name="TopDealerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopDealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="DealerLevel" Type="nvarchar" MaxLength="10" />
+    <Property Name="LegalName" Type="nvarchar" MaxLength="20" />
+    <Property Name="RegAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Manager" Type="nvarchar" MaxLength="20" />
+    <Property Name="CompanyTel" Type="nvarchar" MaxLength="100" />
+    <Property Name="Mobil" Type="nvarchar" MaxLength="100" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaxNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="InvoiceType" Type="nvarchar" MaxLength="20" />
+    <Property Name="FlowID" Type="uniqueidentifier" />
+    <Property Name="FlowCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="Lic_DateFrm" Type="datetime" />
+    <Property Name="Lic_DateTo" Type="datetime" />
+    <Property Name="Per_DateFrm" Type="datetime" />
+    <Property Name="Per_DateTo" Type="datetime" />
+    <Property Name="Org_DateFrm" Type="datetime" />
+    <Property Name="Org_DateTo" Type="datetime" />
+    <Property Name="Fax_DateFrm" Type="datetime" />
+    <Property Name="Fax_DateTo" Type="datetime" />
+    <Property Name="Legal_DateFrm" Type="datetime" />
+    <Property Name="Legal_DateTo" Type="datetime" />
+    <Property Name="ContractDateFrm" Type="datetime" />
+    <Property Name="ContractDateTo" Type="datetime" />
+    <Property Name="BusinessCertificate" Type="nvarchar" MaxLength="100" />
+    <Property Name="BusinessLicense" Type="nvarchar" MaxLength="100" />
+    <Property Name="Attribute1" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Inv_InvInfo">
+    <Key>
+      <PropertyRef Name="InvID" />
+    </Key>
+    <Property Name="InvID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompanyID" Type="uniqueidentifier" />
+    <Property Name="CompanyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="InvType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductID" Type="uniqueidentifier" />
+    <Property Name="ProductCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Model" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WarehouseID" Type="uniqueidentifier" />
+    <Property Name="WarehouseCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WarehouseName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StorageID" Type="uniqueidentifier" />
+    <Property Name="StorageCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StorageName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LotNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="InvNum" Type="int" Nullable="false" />
+    <Property Name="FreezeNum" Type="int" />
+    <Property Name="Units" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="Amount" Type="decimal" Precision="20" Scale="2" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_Message">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SourceID" Type="uniqueidentifier" />
+    <Property Name="Mails" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Mobiles" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Content" Type="text" />
+    <Property Name="MsgDate" Type="datetime" />
+    <Property Name="IsSended" Type="bit" />
+  </EntityType>
+  <EntityType Name="MD_MessageLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MessageID" Type="uniqueidentifier" />
+    <Property Name="SendTime" Type="datetime" />
+    <Property Name="SendType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSuccess" Type="bit" />
+    <Property Name="Exception" Type="text" />
+  </EntityType>
+  <EntityType Name="MD_PrewiredPackageDT">
+    <Key>
+      <PropertyRef Name="PrewID" />
+    </Key>
+    <Property Name="PrewID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PrewiredID" Type="uniqueidentifier" />
+    <Property Name="ProductID" Type="uniqueidentifier" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="PrewAmount" Type="int" />
+    <Property Name="PickAmount" Type="int" />
+    <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="WarehouseID" Type="uniqueidentifier" />
+    <Property Name="WarehouseCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StorageID" Type="uniqueidentifier" />
+    <Property Name="StorageCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="StorageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="NotfatNum" Type="int" />
+  </EntityType>
+  <EntityType Name="MD_Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ParentGUID" Type="uniqueidentifier" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductType" Type="nvarchar" MaxLength="20" />
+    <Property Name="ProductTypeCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="SeqNo" Type="int" />
+    <Property Name="TreeLevel" Type="int" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="UseNum" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Class1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Class2" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBarcode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Part1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Part2" Type="nvarchar" MaxLength="50" />
+    <Property Name="Part3" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemLen" Type="decimal" Scale="2" />
+    <Property Name="ItemWidth" Type="decimal" Scale="2" />
+    <Property Name="ItemHeight" Type="decimal" Scale="2" />
+    <Property Name="ItemHole" Type="decimal" Scale="2" />
+    <Property Name="ItemAngle" Type="decimal" Scale="2" />
+    <Property Name="Material" Type="nvarchar" MaxLength="50" />
+    <Property Name="CertCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsLeaf" Type="bit" />
+    <Property Name="ImgURL" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="WarehouseCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WarehouseName" Type="nvarchar" MaxLength="100" />
+    <Property Name="WarehouseHead" Type="nvarchar" MaxLength="30" />
+    <Property Name="WarehouseAdmin" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyID" Type="uniqueidentifier" />
+    <Property Name="CompanyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Company" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MD_WarehouseDT">
+    <Key>
+      <PropertyRef Name="StorageID" />
+    </Key>
+    <Property Name="StorageID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StorageCode" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="StorageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="WarehouseID" Type="uniqueidentifier" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PO_OutInvOrder">
+    <Key>
+      <PropertyRef Name="OutInvID" />
+    </Key>
+    <Property Name="OutInvID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OutInvCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipOrderID" Type="uniqueidentifier" />
+    <Property Name="ExpressName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BillCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="decimal" Scale="2" />
+    <Property Name="Amount" Type="decimal" Scale="2" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="POType" Type="nvarchar" MaxLength="10" />
+    <Property Name="CheckAmount" Type="decimal" Scale="2" />
+    <Property Name="PayStatus" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="PO_OutInvOrderDT">
+    <Key>
+      <PropertyRef Name="OutInvDTID" />
+    </Key>
+    <Property Name="OutInvDTID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OutInvID" Type="uniqueidentifier" />
+    <Property Name="ProductID" Type="uniqueidentifier" />
+    <Property Name="ProductCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" />
+    <Property Name="OrderNum" Type="int" />
+    <Property Name="DeliveryNum" Type="int" />
+    <Property Name="NotfatNum" Type="int" />
+    <Property Name="Units" Type="nvarchar" MaxLength="10" />
+    <Property Name="Price" Type="decimal" Scale="2" />
+    <Property Name="Amount" Type="decimal" Scale="2" />
+    <Property Name="LotNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="WarehouseCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="StorageCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="StorageName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="DataType" Type="int" />
+    <Property Name="PrevwPackageID" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="PO_POrder">
+    <Key>
+      <PropertyRef Name="POID" />
+    </Key>
+    <Property Name="POID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="POCode" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="POName" Type="nvarchar" MaxLength="255" />
+    <Property Name="PODate" Type="datetime" />
+    <Property Name="DealerID" Type="uniqueidentifier" />
+    <Property Name="DealerCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="DealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="FamilyCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="POStatus" Type="nvarchar" MaxLength="10" />
+    <Property Name="Importance" Type="bit" />
+    <Property Name="SendAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalNum" Type="int" />
+    <Property Name="POType" Type="nvarchar" MaxLength="20" />
+    <Property Name="CheckUser" Type="nvarchar" MaxLength="20" />
+    <Property Name="CheckDate" Type="datetime" />
+    <Property Name="TotalAmount" Type="decimal" Scale="2" />
+    <Property Name="CashPay" Type="decimal" Scale="2" />
+    <Property Name="Credit" Type="decimal" Scale="2" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="FlowID" Type="uniqueidentifier" />
+    <Property Name="FlowCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductLineID" Type="uniqueidentifier" />
+    <Property Name="ProductLineName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductLineID1" Type="uniqueidentifier" />
+    <Property Name="ProductLineName1" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductLineID2" Type="uniqueidentifier" />
+    <Property Name="ProductLineName2" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductLineID3" Type="uniqueidentifier" />
+    <Property Name="ProductLineName3" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductLineID4" Type="uniqueidentifier" />
+    <Property Name="ProductLineName4" Type="nvarchar" MaxLength="50" />
+    <Property Name="DoctorID" Type="uniqueidentifier" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsFlyCut" Type="nvarchar" MaxLength="10" />
+    <Property Name="HospitalID" Type="uniqueidentifier" />
+    <Property Name="HospitalName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfigInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="SickName" Type="nvarchar" MaxLength="10" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="BedNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="SickConfigInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="Weeks" Type="nvarchar" MaxLength="10" />
+    <Property Name="SurDate" Type="datetime" />
+    <Property Name="SurOderID" Type="uniqueidentifier" />
+    <Property Name="SurOderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopDealerID" Type="uniqueidentifier" />
+    <Property Name="TopDealerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopDealerName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PO_ShipOrder">
+    <Key>
+      <PropertyRef Name="ShipOrderID" />
+    </Key>
+    <Property Name="ShipOrderID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="POID" Type="uniqueidentifier" />
+    <Property Name="ShipOrderCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShipOrderName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ShipDate" Type="datetime" />
+    <Property Name="ShipStatus" Type="nvarchar" MaxLength="10" />
+    <Property Name="DealerID" Type="uniqueidentifier" />
+    <Property Name="DealerCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="DealerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CheckUser" Type="nvarchar" MaxLength="30" />
+    <Property Name="CheckDate" Type="datetime" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+    <Property Name="IsDisable" Type="bit" Nullable="false" />
+    <Property Name="Creator" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Modifier" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ModifyTime" Type="datetime" Nullable="false" />
+    <Property Name="WarehouseID" Type="uniqueidentifier" />
+    <Property Name="WarehouseCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="WarehouseName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImgURL" Type="nvarchar" MaxLength="500" />
+    <Property Name="POType" Type="nvarchar" MaxLength="10" />
+    <Property Name="AdvancedPayment" Type="int" />
+    <Property Name="ActualAmount" Type="decimal" Scale="2" />
+  </EntityType>
+</Schema>

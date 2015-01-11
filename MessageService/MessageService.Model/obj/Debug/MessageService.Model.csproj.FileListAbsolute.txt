@@ -1,0 +1,9 @@
+F:\MessageService\MessageService.Model\bin\Debug\MessageService.Model.dll
+F:\MessageService\MessageService.Model\bin\Debug\MessageService.Model.pdb
+F:\MessageService\MessageService.Model\obj\Debug\ResolveAssemblyReference.cache
+F:\MessageService\MessageService.Model\obj\Debug\MessageService.Model.dll
+F:\MessageService\MessageService.Model\obj\Debug\MessageService.Model.pdb
+E:\soa物流信息系统简介\QG\MessageService\MessageService.Model\bin\Debug\MessageService.Model.dll
+E:\soa物流信息系统简介\QG\MessageService\MessageService.Model\bin\Debug\MessageService.Model.pdb
+E:\soa物流信息系统简介\QG\MessageService\MessageService.Model\obj\Debug\MessageService.Model.dll
+E:\soa物流信息系统简介\QG\MessageService\MessageService.Model\obj\Debug\MessageService.Model.pdb
