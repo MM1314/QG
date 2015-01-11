@@ -98,7 +98,7 @@ namespace SOA.WLIMS.Web.Controllers
         {
            // ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             ViewBag.PasswordLength = UserService.MinPasswordLength();
-            return View(new RegisterModel() { Role = "kehu" });
+            return View(new RegisterModel() { Role = UserRoles.Customer.ToString() });
         }
 
         [HttpPost]
