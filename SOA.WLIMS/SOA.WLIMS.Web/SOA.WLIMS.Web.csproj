@@ -66,6 +66,8 @@
     <Compile Include="Controllers\StorehouseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
+    <Compile Include="CustomAuthorizeAttribute.cs" />
+    <Compile Include="GetRoles.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,6 +95,7 @@
     <Compile Include="ServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActionRoles.xml" />
     <Content Include="Global.asax" />
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.User.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.Vehicle.datasource" />

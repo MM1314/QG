@@ -132,5 +132,22 @@ namespace SOA.WLIMS.Service
             }).SingleOrDefault(o => o.ID == id);
         }
 
+
+
+        public UserModel GetUserByName(string userName)
+        {
+            return DB.User.Select(model => new UserModel()
+            {
+                ID = model.ID,
+                Name = model.Name,
+                AliasName = model.AliasName,
+                Email = model.Email,
+                Password = model.Password,
+                Role = model.Role,
+                EmployeCode = model.EmployeCode,
+                Enable = model.Enable,
+                IsDeleted = model.IsDeleted
+            }).SingleOrDefault(o => o.Name == userName);
+        }
     }
 }

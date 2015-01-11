@@ -32,5 +32,7 @@ namespace SOA.WLIMS.Contract
         UserModel Get(int id);
         [OperationContract]
         List<UserModel> Query(QueryParam param);
+        [OperationContract]
+        UserModel GetUserByName(string userName);
     }
 }

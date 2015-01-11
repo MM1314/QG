@@ -71,8 +71,8 @@
                 @Html.LabelFor(m => m.Role)
             </div>
             <div class="editor-field">
-                @Html.RadioButtonFor(m => m.Role, "kehu", new { onchange = "hide()" })客户
-                @Html.RadioButtonFor(m => m.Role, "employe", new { onchange = "show()" })员工
+                @Html.RadioButtonFor(m => m.Role, SOA.WLIMS.Models.UserRoles.Customer.ToString(), new { onchange = "hide()" })客户
+                @Html.RadioButtonFor(m => m.Role, SOA.WLIMS.Models.UserRoles.Employe.ToString(), new { onchange = "show()" })员工
                 @Html.ValidationMessageFor(m => m.Role)
             </div>
             <div id="divEmployeCode" style="display: none;">

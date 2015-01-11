@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
+using System.Security.Principal;
 
 namespace SOA.WLIMS.Web
 {
@@ -12,9 +14,36 @@ namespace SOA.WLIMS.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        /// <summary>
+        /// Authen right for user
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Application_AuthenticateRequest(Object sender, EventArgs e)
+        {
+            if (HttpContext.Current.User != null)
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    if (HttpContext.Current.User.Identity is FormsIdentity)
+                    {
+                        //Get current user identitied by forms
+                        FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;
+                        // get FormsAuthenticationTicket object
+                        FormsAuthenticationTicket ticket = id.Ticket;
+                        string userData = ticket.UserData;
+                        string[] roles = userData.Split(',');
+                        // set the new identity for current user.
+                        HttpContext.Current.User = new GenericPrincipal(id, roles);
+                    }
+                }
+            }
+        }
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new CustomAuthorizeAttribute());
         }
 
         public static void RegisterRoutes(RouteCollection routes)

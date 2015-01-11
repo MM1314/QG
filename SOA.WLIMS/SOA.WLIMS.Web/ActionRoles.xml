@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Roles>
+  <Controller name="Home">
+    <Action name="Index"></Action>
+    <Action name="About"></Action>
+  </Controller>
+  <Controller name="User">
+    <Action name="Index">Admin</Action>
+    <Action name="Create">Admin</Action>
+    <Action name="Edit">Admin</Action>
+    <Action name="Details">Admin</Action>
+    <Action name="Delete">Admin</Action>    
+  </Controller>
+  <Controller name="Order">
+    <Action name="Index">Admin,Customer,Employe</Action>
+    <Action name="Create">Admin,Customer,Employe</Action>
+    <Action name="Edit">Admin,Customer,Employe</Action>
+    <Action name="Details">Admin,Customer,Employe</Action>
+    <Action name="Delete">Admin,Customer,Employe</Action>
+  </Controller>
+  <Controller name="Vehicle">
+    <Action name="Index">Admin,Employe</Action>
+    <Action name="Create">Admin,Employe</Action>
+    <Action name="Edit">Admin,Employe</Action>
+    <Action name="Details">Admin,Employe</Action>
+    <Action name="Delete">Admin,Employe</Action>
+  </Controller>
+  <Controller name="Storehouse">
+    <Action name="Index">Admin,Employe</Action>
+    <Action name="Create">Admin,Employe</Action>
+    <Action name="Edit">Admin,Employe</Action>
+    <Action name="Details">Admin,Employe</Action>
+    <Action name="Delete">Admin,Employe</Action>
+  </Controller>
+</Roles>

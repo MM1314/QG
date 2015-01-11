@@ -47,5 +47,11 @@ namespace SOA.WLIMS.BLL
         {
             throw new NotImplementedException();
         }
+
+
+        public Models.UserModel GetUserByName(string userName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

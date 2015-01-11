@@ -18,12 +18,12 @@ namespace SOA.WLIMS.Web.Controllers
         public IUserService UserService { get; set; }
 
         public IFormsAuthenticationService FormsService { get; set; }
-        public IMembershipService MembershipService { get; set; }
+        //public IMembershipService MembershipService { get; set; }
 
         protected override void Initialize(RequestContext requestContext)
         {
             if (FormsService == null) { FormsService = new FormsAuthenticationService(); }
-            if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
+            //if (MembershipService == null) { MembershipService = new AccountMembershipService(); }
 
             if (UserService == null)
             {
@@ -48,7 +48,18 @@ namespace SOA.WLIMS.Web.Controllers
             {
                 if (UserService.ValidateUser(model.UserName, model.Password))
                 {
+                  UserModel user=  UserService.GetUserByName(model.UserName);
                     FormsService.SignIn(model.UserName, model.RememberMe);
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1,
+                        user.Name,
+                        DateTime.Now,
+                        DateTime.Now.AddMinutes(30),
+                        false,
+                        user.Role);
+                    string encTicket = FormsAuthentication.Encrypt(authTicket);
+                    this.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
+
+
                     if (Url.IsLocalUrl(returnUrl))
                     {
                         return Redirect(returnUrl);
@@ -110,7 +121,9 @@ namespace SOA.WLIMS.Web.Controllers
             }
 
             // 如果我们进行到这一步时某个地方出错，则重新显示表单
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = UserService.MinPasswordLength();
+            
+            //ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View(model);
         }
 
@@ -121,7 +134,8 @@ namespace SOA.WLIMS.Web.Controllers
         [Authorize]
         public ActionResult ChangePassword()
         {
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = UserService.MinPasswordLength();
+            //ViewBag.PasswordLength = MembershipService.MinPasswordLength;
             return View();
         }
 
@@ -142,7 +156,9 @@ namespace SOA.WLIMS.Web.Controllers
             }
 
             // 如果我们进行到这一步时某个地方出错，则重新显示表单
-            ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            //ViewBag.PasswordLength = MembershipService.MinPasswordLength;
+            ViewBag.PasswordLength = UserService.MinPasswordLength();
+            
             return View(model);
         }
 

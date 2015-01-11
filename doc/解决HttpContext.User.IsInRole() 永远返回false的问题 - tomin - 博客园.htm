@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js" async=""></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>解决HttpContext.User.IsInRole() 永远返回false的问题 - tomin - 博客园</title>
+<link type="text/css" rel="stylesheet" href="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-summerGarden.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/tomin/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/tomin/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/tomin/wlwmanifest.xml">
+<script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/encoder.js" type="text/javascript"></script><script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js" type="text/javascript" async=""></script><script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'tomin', cb_enable_mathjax=false;</script>
+<script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_55.js" type="text/javascript" async=""></script><script src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js" type="text/javascript"></script></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/tomin/"><img id="blogLogo" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/tomin/">tomin</a></h1>
+<h2>励志照亮人生，实践积累经验！</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+	<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+	<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/tomin/">首页</a></li>
+	<li><a href="http://news.cnblogs.com/">新闻</a></li>
+	<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+	<li><a id="MyLinks1_ContactLink" accesskey="9" class="menu" rel="nofollow" href="http://space.cnblogs.com/msg/send/tomin">联系</a></li>
+	<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+	<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/tomin/rss">订阅</a>
+	<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/tomin/rss"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/xml.gif" alt="订阅"></a></li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			
+<!--done-->
+随笔- 89&nbsp;
+文章- 1&nbsp;
+评论- 296&nbsp;
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/tomin/archive/2012/01/10/2317851.html">解决HttpContext.User.IsInRole() 永远返回false的问题</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>这几天在用MVC做一个项目，用到了
+HttpContext.User.IsInRole() 
+这个方法，但是每次当我用的时候，HttpContext.User.IsInRole(“Admin”)&nbsp;返回的永远是false。 
+在网上查了很多资料，发现都没有解决，要解决的话，也要实现一系列的扩展方法。好，废话少说，正式进入主题：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('3aadbe58-6790-44c6-89a8-e33b0c0188db')"><img style="display: none;" id="code_img_closed_3aadbe58-6790-44c6-89a8-e33b0c0188db" class="code_img_closed" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ContractedBlock.gif" alt=""><img id="code_img_opened_3aadbe58-6790-44c6-89a8-e33b0c0188db" class="code_img_opened" style="" onclick="cnblogs_code_hide('3aadbe58-6790-44c6-89a8-e33b0c0188db',event)" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ExpandedBlockStart.gif" alt=""><span style="display: none;" class="cnblogs_code_collapse">权限判断</span>
+<div style="display: block;" id="cnblogs_code_open_3aadbe58-6790-44c6-89a8-e33b0c0188db" class="cnblogs_code_hide"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div><span style="color: #0000ff;">if</span>&nbsp;(HttpContext.User.Identity&nbsp;==&nbsp;<span style="color: #0000ff;">null</span>&nbsp;||&nbsp;String.IsNullOrEmpty(HttpContext.User.Identity.Name))<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">return</span>&nbsp;Redirect(<span style="color: #800000;">"</span><span style="color: #800000;">~/Account/LogOn?returnUrl=/service</span><span style="color: #800000;">"</span>);<br>&nbsp;}<br><span style="color: #0000ff;">else</span>&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(HttpContext.User.IsInRole(<span style="color: #800000;">"</span><span style="color: #800000;">Admin</span><span style="color: #800000;">"</span>))<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">return</span>&nbsp;RedirectToAction(<span style="color: #800000;">"</span><span style="color: #800000;">Index</span><span style="color: #800000;">"</span>,&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">AdminService</span><span style="color: #800000;">"</span>);<br>&nbsp;}<br><span style="color: #0000ff;">else</span><br>{<br>&nbsp;&nbsp;…….<br>}</div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<p>上面的代码中HttpContext.User.IsInRole(“Admin”) 返回的是false。我们要返回True怎么办？</p>
+<p><span style="font-family: SimSun;" lang="zh-CN">在</span><span style="font-family: Calibri;" lang="zh-CN">Global.asax</span><span style="font-family: SimSun;" lang="zh-CN">中添加以下方法：</span></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('0dbc962f-e5eb-4696-8334-883f709882cd')"><img style="display: none;" id="code_img_closed_0dbc962f-e5eb-4696-8334-883f709882cd" class="code_img_closed" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ContractedBlock.gif" alt=""><img id="code_img_opened_0dbc962f-e5eb-4696-8334-883f709882cd" class="code_img_opened" style="" onclick="cnblogs_code_hide('0dbc962f-e5eb-4696-8334-883f709882cd',event)" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ExpandedBlockStart.gif" alt=""><span style="display: none;" class="cnblogs_code_collapse">View Code </span>
+<div style="display: block;" id="cnblogs_code_open_0dbc962f-e5eb-4696-8334-883f709882cd" class="cnblogs_code_hide"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div><span style="color: #808080;">///</span><span style="color: #008000;">&nbsp;</span><span style="color: #808080;">&lt;summary&gt;</span><span style="color: #008000;"><br></span><span style="color: #808080;">///</span><span style="color: #008000;">&nbsp;Authen&nbsp;right&nbsp;for&nbsp;user<br></span><span style="color: #808080;">///</span><span style="color: #008000;">&nbsp;</span><span style="color: #808080;">&lt;/summary&gt;</span><span style="color: #008000;"><br></span><span style="color: #808080;">///</span><span style="color: #008000;">&nbsp;</span><span style="color: #808080;">&lt;param&nbsp;name="sender"&gt;&lt;/param&gt;</span><span style="color: #008000;"><br></span><span style="color: #808080;">///</span><span style="color: #008000;">&nbsp;</span><span style="color: #808080;">&lt;param&nbsp;name="e"&gt;&lt;/param&gt;</span><span style="color: #808080;"><br></span><span style="color: #0000ff;">protected</span>&nbsp;<span style="color: #0000ff;">void</span>&nbsp;Application_AuthenticateRequest(Object&nbsp;sender,&nbsp;EventArgs&nbsp;e)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(HttpContext.Current.User&nbsp;!=&nbsp;<span style="color: #0000ff;">null</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(HttpContext.Current.User.Identity.IsAuthenticated)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(HttpContext.Current.User.Identity&nbsp;<span style="color: #0000ff;">is</span>&nbsp;FormsIdentity)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000;">//</span><span style="color: #008000;">Get&nbsp;current&nbsp;user&nbsp;identitied&nbsp;by&nbsp;forms</span><span style="color: #008000;"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FormsIdentity&nbsp;id&nbsp;=&nbsp;(FormsIdentity)HttpContext.Current.User.Identity;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;get&nbsp;FormsAuthenticationTicket&nbsp;object</span><span style="color: #008000;"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FormsAuthenticationTicket&nbsp;ticket&nbsp;=&nbsp;id.Ticket;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">string</span>&nbsp;userData&nbsp;=&nbsp;ticket.UserData;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">string</span>[]&nbsp;roles&nbsp;=&nbsp;userData.Split(<span style="color: #800000;">'</span><span style="color: #800000;">,</span><span style="color: #800000;">'</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;set&nbsp;the&nbsp;new&nbsp;identity&nbsp;for&nbsp;current&nbsp;user.</span><span style="color: #008000;"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpContext.Current.User&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;GenericPrincipal(id,&nbsp;roles);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<p>添加好以后，进入你的登录页面,给当前用户授权。请看：</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('555833e7-c6dc-436f-bae8-7739b037ad95')"><img style="display: none;" id="code_img_closed_555833e7-c6dc-436f-bae8-7739b037ad95" class="code_img_closed" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ContractedBlock.gif" alt=""><img id="code_img_opened_555833e7-c6dc-436f-bae8-7739b037ad95" class="code_img_opened" style="" onclick="cnblogs_code_hide('555833e7-c6dc-436f-bae8-7739b037ad95',event)" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/ExpandedBlockStart.gif" alt=""><span style="display: none;" class="cnblogs_code_collapse">LogOn</span>
+<div style="display: block;" id="cnblogs_code_open_555833e7-c6dc-436f-bae8-7739b037ad95" class="cnblogs_code_hide"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<div>[HttpPost]<br><span style="color: #0000ff;">public</span>&nbsp;ActionResult&nbsp;LogOn(LogOnModel&nbsp;model,&nbsp;<span style="color: #0000ff;">string</span>&nbsp;returnUrl)<br>{<br>&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(ModelState.IsValid)<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>(ValidateUser(model.UserName,&nbsp;model.Password)))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;UserInfo&nbsp;userInfo&nbsp;=&nbsp;GetuserInfo(model.UserName);<br><span style="color: #0000ff;">if</span>&nbsp;(userInfo.Role&nbsp;==<span style="color: #800000;">"</span><span style="color: #800000;">Admin</span><span style="color: #800000;">"</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;role&nbsp;=&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">Admin</span><span style="color: #800000;">"</span>;<br>}<br>FormsAuthenticationTicket&nbsp;authTicket&nbsp;=&nbsp;<span style="color: #0000ff;">new</span>&nbsp;FormsAuthenticationTicket(<span style="color: #800080;">1</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userInfo.Alias,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DateTime.Now,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DateTime.Now.AddMinutes(<span style="color: #800080;">30</span>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">false</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;role);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">string</span>&nbsp;encTicket&nbsp;=&nbsp;FormsAuthentication.Encrypt(authTicket);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">this</span>.Response.Cookies.Add(<span style="color: #0000ff;">new</span>&nbsp;HttpCookie(FormsAuthentication.FormsCookieName,encTicket));<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;&nbsp;FormsAuthentication.SetAuthCookie(model.UserName,&nbsp;model.RememberMe);</span><span style="color: #008000;"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">if</span>&nbsp;(Url.IsLocalUrl(returnUrl)&nbsp;&amp;&amp;&nbsp;returnUrl.Length&nbsp;&gt;&nbsp;<span style="color: #800080;">1</span>&nbsp;&amp;&amp;&nbsp;returnUrl.StartsWith(<span style="color: #800000;">"</span><span style="color: #800000;">/</span><span style="color: #800000;">"</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;&amp;&nbsp;!returnUrl.StartsWith(<span style="color: #800000;">"</span><span style="color: #800000;">//</span><span style="color: #800000;">"</span>)&nbsp;&amp;&amp;&nbsp;!returnUrl.StartsWith(<span style="color: #800000;">"</span><span style="color: #800000;">/\\</span><span style="color: #800000;">"</span>))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">return</span>&nbsp;Redirect(returnUrl);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">return</span>&nbsp;RedirectToAction(<span style="color: #800000;">"</span><span style="color: #800000;">Index</span><span style="color: #800000;">"</span>,&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">Home</span><span style="color: #800000;">"</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">else</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModelState.AddModelError(<span style="color: #800000;">""</span>,&nbsp;<span style="color: #800000;">"</span><span style="color: #800000;">The&nbsp;user&nbsp;name&nbsp;or&nbsp;password&nbsp;provided&nbsp;is&nbsp;incorrect.</span><span style="color: #800000;">"</span>);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000;">//</span><span style="color: #008000;">&nbsp;If&nbsp;we&nbsp;got&nbsp;this&nbsp;far,&nbsp;something&nbsp;failed,&nbsp;redisplay&nbsp;form</span><span style="color: #008000;"><br></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff;">return</span>&nbsp;View(model);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+</div>
+<p>&nbsp;好了，直到这里，所有的问题，已经解决了。如果大家有其他的好的方法，可以分享,&nbsp;欢迎留言指正&nbsp;:)</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/tomin/category/168124.html">ASP.NET技术</a>, <a href="http://www.cnblogs.com/tomin/category/359790.html">MVC</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/tomin/tag/asp.net/">asp.net</a></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2317851,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/tomin" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/tomin/" target="_blank"><img src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/u40491.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/tomin/">tomin</a><br>
+<a href="http://home.cnblogs.com/u/tomin/followees">关注 - 10</a><br>
+<a href="http://home.cnblogs.com/u/tomin/followers">粉丝 - 58</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2317851,'Digg')">
+        <span class="diggnum" id="digg_count">2</span>
+    </div>
+	<div class="buryit" onclick="votePost(2317851,'Bury')"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/tomin/archive/2010/11/17/1879904.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/tomin/archive/2010/11/17/1879904.html" title="发布于2010-11-17 15:37">Microsoft Interview for SDET2</a><br><a href="http://www.cnblogs.com/tomin/archive/2012/02/29/2373933.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/tomin/archive/2012/02/29/2373933.html" title="发布于2012-02-29 19:29">ASP .NET MVC 之Entity Framework- code first</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-01-10 10:54</span> <a href="http://www.cnblogs.com/tomin/">tomin</a> 阅读(<span id="post_view_count">3740</span>) 评论(<span id="post_comment_count">4</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2317851" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2317851);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=44070,cb_entryId=2317851,cb_blogApp=currentBlogApp,cb_blogUserGuid='fdf2460b-63cf-dd11-9e4d-001cf0cd104b',cb_entryCreatedDate='2012/1/10 10:54:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<div class="feedback_area_title">发表评论</div>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2290783" class="layer">#1楼</a><a name="2290783" id="comment_anchor_2290783"></a> <span class="comment_date">2012-01-10 15:16</span> | <a id="a_comment_author_2290783" href="http://www.cnblogs.com/xuzhiqiang/" target="_blank">56180825</a> <a href="http://msg.cnblogs.com/msg/send/56180825" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2290783" class="blog_comment_body">宁愿用SESSION</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2290783,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2290783,'Bury',this)">反对(0)</a></div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2290798" class="layer">#2楼</a><a name="2290798" id="comment_anchor_2290798"></a> <span class="comment_date">2012-01-10 15:28</span> | <a id="a_comment_author_2290798" href="http://www.cnblogs.com/jasondan/" target="_blank">StanZhai</a> <a href="http://msg.cnblogs.com/msg/send/StanZhai" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2290798" class="blog_comment_body">自己定义Filter控制用户权限。可以将用户的角色信息存入cookie（加密的），如FormsAuthentication.SetAuthCookie("userName,Admin", true);一行代码就够了。<br>然后在自定义的Filter中使用User.Identity.Name.Split(',')获取用户名和角色信息，这样更灵活一些，当然拆分用户角色的地方可以封装到一个类中方便使用。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2290798,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2290798,'Bury',this)">反对(0)</a></div><span id="comment_2290798_avatar" style="display:none;">http://pic.cnitblog.com/face/312243/20140925144843.png</span><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2322663" class="layer">#3楼</a><a name="2322663" id="comment_anchor_2322663"></a> <span class="comment_date">2012-03-04 22:35</span> | <a id="ctl00_CommentList_NameLink_2" target="_blank">df283859438[未注册用户]</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2322663" class="blog_comment_body">判断是否登陆用user.isAuthencated就可以了啊 </div><br>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#3066882" class="layer">#4楼</a><a name="3066882" id="comment_anchor_3066882"></a><span id="comment-maxId" style="display:none;">3066882</span><span id="comment-maxDate" style="display:none;">2014/11/19 1:41:08</span> <span class="comment_date">2014-11-19 01:41</span> | <a id="a_comment_author_3066882" href="http://www.cnblogs.com/SpeakHero/" target="_blank">SpeakHero</a> <a href="http://msg.cnblogs.com/msg/send/SpeakHero" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3066882" class="blog_comment_body">老兄，这个方法 失败了</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3066882,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3066882,'Bury',this)">反对(0)</a></div><span id="comment_3066882_avatar" style="display:none;">http://pic.cnitblog.com/face/u280497.png?id=15134607</span><br>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.imooc.com/view/34?from=cnblogs" target="_blank"><b>【免费课程】案例：用JS实现购物车特效</b></a><br><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br><a href="http://amazeui.org/" target="_blank">【推荐】最懂中文的 H5 开源前端框架</a><br><a href="http://www.cnblogs.com/cmt/p/4168231.html" target="_blank">【活动】加班一整年了，程序员们，你们还好吗？</a></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width: 300px; height: 250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" frameborder="0" height="250" width="300"></iframe></div><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom; visibility: hidden; display: none;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" frameborder="0" height="0" width="0"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/512926/" target="_blank">SpaceX火箭未能成功着陆在海上平台</a><br> ·  <a href="http://news.cnblogs.com/n/512923/" target="_blank">Let’s do this！新手程序员的入门指南</a><br> ·  <a href="http://news.cnblogs.com/n/512925/" target="_blank">超级Cookie可致隐私模式失效 仍可追踪用户信息</a><br> ·  <a href="http://news.cnblogs.com/n/512924/" target="_blank">京沪高速开通汽车充电站 支出仅为燃油车一半</a><br> ·  <a href="http://news.cnblogs.com/n/512922/" target="_blank">什么是工程师文化？</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width: 468px; height: 60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" frameborder="0" height="60" width="468"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/512757/" target="_blank">如何高效地将SQL数据映射到NoSQL存储系统中</a><br> ·  <a href="http://kb.cnblogs.com/page/512759/" target="_blank">内存数据库中的索引技术</a><br> ·  <a href="http://kb.cnblogs.com/page/512454/" target="_blank">如何实现一个malloc</a><br> ·  <a href="http://kb.cnblogs.com/page/512477/" target="_blank">原子操作和竞争</a><br> ·  <a href="http://kb.cnblogs.com/page/512323/" target="_blank">工程师忽略的隐形成本</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/tomin/">tomin</a><br>园龄：<a href="http://home.cnblogs.com/u/tomin/" title="入园时间：2008-09-17">6年3个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/tomin/followers/">58</a><br>关注：<a href="http://home.cnblogs.com/u/tomin/followees/">10</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger('fdf2460b-63cf-dd11-9e4d-001cf0cd104b')">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="calendar"><div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="日历" cellpadding="0" cellspacing="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2011/12/01');return false;">&lt;</a></td><td align="center">2012年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2012/02/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td></tr><tr><td class="CalWeekendDay" align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td class="CalWeekendDay" align="center">7</td></tr><tr><td class="CalWeekendDay" align="center">8</td><td align="center">9</td><td align="center"><a href="http://www.cnblogs.com/tomin/archive/2012/01/10.html"><u>10</u></a></td><td align="center">11</td><td align="center">12</td><td align="center">13</td><td class="CalWeekendDay" align="center">14</td></tr><tr><td class="CalWeekendDay" align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td class="CalWeekendDay" align="center">21</td></tr><tr><td class="CalWeekendDay" align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td align="center">27</td><td class="CalWeekendDay" align="center">28</td></tr><tr><td class="CalWeekendDay" align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script></div>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk" type="text">&nbsp;<input onclick="zzk_go()" value="找找看" id="btnZzk" class="btn_my_zzk" type="button"></div>
+
+</div>
+
+
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/tomin/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/tomin/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/tomin/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/tomin/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/tomin/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass('itemListLink', 'itemListLin_con');return false;" href="#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+<div class="catListEssay">
+<h3 class="catListTitle">最新随笔</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/tomin/p/Winform_UserControl.html">1. 2 个UserControl 的传值问题</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2013/05/16/3081718.html">2. 浅论工作</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2013/04/22/Theory.html">3. Thinking of Consultant:Trustworthy</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2013/04/03/skin.html">4. C# 给窗体添加皮肤 - SkinEngine的应用</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/12/17/PowerShell.html">5. 用C# 调用PowerShell 3.0</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/03/05/MVC4_preview.html">6. MVC 4.0 抢先看</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/03/04/Architecture.html">7. Technology Solution Architecture</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/03/01/MVCSkill.html">8. ASP.NET MVC中几个运用技巧</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/02/29/MVC_EntityFramework.html">9. ASP .NET MVC 之Entity Framework- code first</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/01/10/2317851.html">10. 解决HttpContext.User.IsInRole() 永远返回false的问题</a></li>
+</ul>
+</div>
+
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/tomin/tag/Excel%20%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%B3%BB%E5%88%97/">Excel 二次开发系列</a>(9)</li><li><a href="http://www.cnblogs.com/tomin/tag/Excel_VBA%20%E7%BC%96%E7%A8%8B/">Excel_VBA 编程</a>(6)</li><li><a href="http://www.cnblogs.com/tomin/tag/%E9%9D%A2%E8%AF%95/">面试</a>(2)</li><li><a href="http://www.cnblogs.com/tomin/tag/%E4%BA%8B%E4%BB%B6/">事件</a>(2)</li><li><a href="http://www.cnblogs.com/tomin/tag/%E5%BE%AE%E8%BD%AF/">微软</a>(2)</li><li><a href="http://www.cnblogs.com/tomin/tag/asp.net/">asp.net</a>(2)</li><li><a href="http://www.cnblogs.com/tomin/tag/%E7%B3%BB%E5%88%97%E5%8C%96/">系列化</a>(1)</li><li><a href="http://www.cnblogs.com/tomin/tag/%E6%95%B0%E6%8D%AE%E5%BA%932005%E3%80%81%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E8%AE%BF%E9%97%AE/">数据库2005、远程连接访问</a>(1)</li><li><a href="http://www.cnblogs.com/tomin/tag/iis.%20windows%20server2003.%E5%8F%91%E5%B8%83/">iis. windows server2003.发布</a>(1)</li><li><a href="http://www.cnblogs.com/tomin/tag/Python/">Python</a>(1)</li><li><a href="http://www.cnblogs.com/tomin/tag/">更多</a></li>
+</ul>
+</div>
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类<span style="font-size:11px;font-weight:normal">(60)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/tomin/category/168127.html">AJAX</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/tomin/category/168124.html">ASP.NET技术(15)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/tomin/category/168121.html">C#技术(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/tomin/category/168123.html">CSS+div</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/tomin/category/168122.html">js技术(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/tomin/category/359790.html">MVC(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/tomin/category/209011.html">office 二次开发(12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/tomin/category/168126.html">XML(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_8" href="http://www.cnblogs.com/tomin/category/209012.html">其它(5)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_9" href="http://www.cnblogs.com/tomin/category/169937.html">设计模式(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_10" href="http://www.cnblogs.com/tomin/category/359789.html">手机开发(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_11" href="http://www.cnblogs.com/tomin/category/168125.html">数据库(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案<span style="font-size:11px;font-weight:normal">(89)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/tomin/archive/2013/10.html">2013年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/tomin/archive/2013/05.html">2013年5月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/tomin/archive/2013/04.html">2013年4月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/tomin/archive/2012/12.html">2012年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/tomin/archive/2012/03.html">2012年3月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/tomin/archive/2012/02.html">2012年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/tomin/archive/2012/01.html">2012年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/tomin/archive/2011/09.html">2011年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/tomin/archive/2010/11.html">2010年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/tomin/archive/2010/07.html">2010年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/tomin/archive/2010/06.html">2010年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/tomin/archive/2010/04.html">2010年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/tomin/archive/2010/03.html">2010年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/tomin/archive/2010/01.html">2010年1月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/tomin/archive/2009/12.html">2009年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/tomin/archive/2009/10.html">2009年10月 (9)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/tomin/archive/2009/09.html">2009年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/tomin/archive/2009/08.html">2009年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/tomin/archive/2009/07.html">2009年7月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/tomin/archive/2009/06.html">2009年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/tomin/archive/2009/04.html">2009年4月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/tomin/archive/2009/03.html">2009年3月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/tomin/archive/2009/02.html">2009年2月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_23" href="http://www.cnblogs.com/tomin/archive/2009/01.html">2009年1月 (7)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_24" href="http://www.cnblogs.com/tomin/archive/2008/12.html">2008年12月 (10)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_25" href="http://www.cnblogs.com/tomin/archive/2008/11.html">2008年11月 (18)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_26" href="http://www.cnblogs.com/tomin/archive/2008/10.html">2008年10月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleArchive">
+<h3 class="catListTitle">文章档案<span style="font-size:11px;font-weight:normal">(1)</span></h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/tomin/archives/2008/10.html" rel="nofollow">2008年10月 (1)</a> </li>
+
+</ul>
+
+</div>
+
+
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	88862
+	</li><li class="liRank">
+		排名 -	1749
+	</li>
+</ul>
+</div>
+
+
+<div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/tomin/archive/2012/01/10/2317851.html#3066882">1. Re:解决HttpContext.User.IsInRole() 永远返回false的问题</a></li>
+    <li class="recent_comment_body">老兄，这个方法 失败了</li>
+    <li class="recent_comment_author">--SpeakHero</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/tomin/archive/2008/11/27/1342557.html#3062079">2. Re:windows Server 2003 IIS  网站发布说明书        编者：梦之翼团队---余敏  时间：2008-10-13</a></li>
+    <li class="recent_comment_body">按你说的还是会出现401错误，也都设置了一下，就是不行啊。</li>
+    <li class="recent_comment_author">--disneyland</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/tomin/archive/2009/02/25/1397677.html#3033905">3. Re:winform窗体间传值</a></li>
+    <li class="recent_comment_body">没委托传值···</li>
+    <li class="recent_comment_author">--紫泉</li>
+</ul>
+</div>
+</div>
+</div><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/tomin/archive/2009/02/25/1397677.html">1. winform窗体间传值(18004)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/03/05/MVC4_preview.html">2. MVC 4.0 抢先看(10411)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/03/27/1423395.html">3. 大战微软面试(9788)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/03/18/1415755.html">4. 浅析C#中new、override、virtual关键字的区别(9221)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/04/05/1429997.html">5. 微软电话面试题(9209)</a></li></ul></div>
+</div>
+</div><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/tomin/archive/2010/07/28/Interview_Chinasoft.html">1. 中软面试题-最新(64)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/04/05/1429997.html">2. 微软电话面试题(31)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2008/11/18/1335730.html">3. 浅析ASP.NET三层架构（原创）(30)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/03/27/1423395.html">4. 大战微软面试(24)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/10/15/Excel_second_develepment_serise.html">5. Excel 二次开发系列 C#(19)</a></li></ul></div>
+</div>
+</div><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/tomin/archive/2009/10/15/Excel_second_develepment_serise.html">1. Excel 二次开发系列 C#(7)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2010/07/28/Interview_Chinasoft.html">2. 中软面试题-最新(7)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2010/07/29/Interview_Beyondsoft.html">3. 博彦科技面试题-最新（上海）(5)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2009/02/25/1397677.html">4. winform窗体间传值(5)</a></li><li><a href="http://www.cnblogs.com/tomin/archive/2012/03/05/MVC4_preview.html">5. MVC 4.0 抢先看(5)</a></li></ul></div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script><iframe style="visibility: hidden; display: none;" src="%E8%A7%A3%E5%86%B3HttpContext.User.IsInRole%28%29%20%E6%B0%B8%E8%BF%9C%E8%BF%94%E5%9B%9Efalse%E7%9A%84%E9%97%AE%E9%A2%98%20-%20tomin%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/container.htm"></iframe>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2015 tomin
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_6088728261437"></iframe></body></html>
