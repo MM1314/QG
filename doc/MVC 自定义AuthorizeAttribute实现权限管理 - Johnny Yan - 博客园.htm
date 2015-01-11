@@ -1,0 +1,583 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn"><head><script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/analytics.js" async=""></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MVC 自定义AuthorizeAttribute实现权限管理 - Johnny Yan - 博客园</title>
+<link type="text/css" rel="stylesheet" href="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/bundle-iMetro_HD.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jyan/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jyan/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jyan/wlwmanifest.xml">
+<script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/encoder.js" type="text/javascript"></script><script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/gpt.js" type="text/javascript" async=""></script><script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/jquery.js" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'jyan', cb_enable_mathjax=false;</script>
+<script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/blog-common.js" type="text/javascript"></script>
+<script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/pubads_impl_55.js" type="text/javascript" async=""></script><script src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/osd.js" type="text/javascript"></script></head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/jyan/"><img id="blogLogo" src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/jyan/">修德须忘功名，读书定要深心 </a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="MyLinks1_HomeLink" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="MyLinks1_MyHomeLink" class="menu" href="http://www.cnblogs.com/jyan/">首页</a></li>
+<li><a id="MyLinks1_NewPostLink" class="menu" rel="nofollow" href="http://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="MyLinks1_ContactLink" class="menu" rel="nofollow" href="http://space.cnblogs.com/msg/send/Johnny+Yan">联系</a></li>
+<li><a id="MyLinks1_Syndication" class="menu" href="http://www.cnblogs.com/jyan/rss">订阅</a>
+<!--<a id="MyLinks1_XMLLink" class="aHeaderXML" href="http://www.cnblogs.com/jyan/rss"><img src="http://www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="MyLinks1_Admin" class="menu" rel="nofollow" href="http://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			
+<!--done-->
+随笔- 28&nbsp;
+文章- 31&nbsp;
+评论- 20&nbsp;
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/jyan/archive/2012/07/24/2606646.html">MVC 自定义AuthorizeAttribute实现权限管理</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>在上一节中提到可以使用AuthorizeAttribute进行权限管理：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">        [Authorize]
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ActionResult TestAuthorize()
+        { 
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> View();
+        }
+
+        [Authorize(Users</span>=<span style="color: #800000;">"</span><span style="color: #800000;">test1,test2</span><span style="color: #800000;">"</span><span style="color: #000000;">)]
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ActionResult TestAuthorize()
+        { 
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> View();
+        }
+
+        [Authorize(Roles</span>=<span style="color: #800000;">"</span><span style="color: #800000;">Admin</span><span style="color: #800000;">"</span><span style="color: #000000;">)]
+        </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> ActionResult TestAuthorize()
+        { 
+            </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> View();
+        }</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>但是通常情况下，网站的权限并不是固定不变的，当新增角色或者角色改变时，只能修改每个Action对应的特性，当项目较大时工作量可想而知。幸运的是我们可以重写AuthorizeAttribute达到自定义的权限管理。<span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">新建一个CustomAuthorizeAttribute类，使这个类继承于AuthorizeAttribute。打开<span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">AuthorizeAttribute</span>查看下方法说明，我们只需要重写<span style="color: #000000;">AuthorizeCore</span>和OnAuthorization就能达到我们的目的。</span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> Summary:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     When overridden, provides an entry point for custom authorization checks.
+        </span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Parameters:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">   httpContext:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     The HTTP context, which encapsulates all HTTP-specific information about
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     an individual HTTP request.
+        </span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Returns:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     true if the user is authorized; otherwise, false.
+        </span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Exceptions:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">   System.ArgumentNullException:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     The httpContext parameter is null.</span>
+        <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> AuthorizeCore(HttpContextBase httpContext);
+
+
+</span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Summary:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     Called when a process requests authorization.
+        </span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Parameters:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">   filterContext:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     The filter context, which encapsulates information for using System.Web.Mvc.AuthorizeAttribute.
+        </span><span style="color: #008000;">//</span>
+        <span style="color: #008000;">//</span><span style="color: #008000;"> Exceptions:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">   System.ArgumentNullException:
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">     The filterContext parameter is null.</span>
+        <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">void</span> OnAuthorization(AuthorizationContext filterContext);</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">在<span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">CustomAuthorizeAttribute</span>中<span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">重
+载AuthorizeCore方法，它的处理逻辑如下：首先判断当前账户是否被认证，如果没有，则返回false；然后获取当前账户的类型，并跟给定的类
+型进行比较，如果类型相同，则返回true，否则返回false。一般网站中权限管理都会使用权限树，然后将角色的权限保存至数据库或者文件中，本例中我
+们使用XML文件保存每个Action的角色，这样在用户请求Action时，由XML文件获取Action对应的权限，然后检测账户是否有相应的权限</span><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">。CustomAuthorizeAttribute类的代码如下：</span><br></span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> CustomAuthorizeAttribute : System.Web.Mvc.AuthorizeAttribute
+    {
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">new</span> <span style="color: #0000ff;">string</span>[] Roles { <span style="color: #0000ff;">get</span>; <span style="color: #0000ff;">set</span><span style="color: #000000;">; }
+        </span><span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">bool</span><span style="color: #000000;"> AuthorizeCore(HttpContextBase httpContext)
+        {
+            </span><span style="color: #0000ff;">if</span> (httpContext == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">throw</span> <span style="color: #0000ff;">new</span> ArgumentNullException(<span style="color: #800000;">"</span><span style="color: #800000;">HttpContext</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            }
+            </span><span style="color: #0000ff;">if</span> (!<span style="color: #000000;">httpContext.User.Identity.IsAuthenticated) {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">if</span> (Roles == <span style="color: #0000ff;">null</span><span style="color: #000000;">) {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">if</span> (Roles.Length == <span style="color: #800080;">0</span><span style="color: #000000;">)
+            {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">if</span><span style="color: #000000;"> (Roles.Any(httpContext.User.IsInRole))
+            {
+                </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span><span style="color: #000000;">;
+            }
+            </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">override</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> OnAuthorization(System.Web.Mvc.AuthorizationContext filterContext)
+        {
+            </span><span style="color: #0000ff;">string</span> controllerName =<span style="color: #000000;"> filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+            </span><span style="color: #0000ff;">string</span> actionName =<span style="color: #000000;"> filterContext.ActionDescriptor.ActionName;
+            </span><span style="color: #0000ff;">string</span> roles =<span style="color: #000000;"> GetRoles.GetActionRoles(actionName, controllerName);
+            </span><span style="color: #0000ff;">if</span> (!<span style="color: #0000ff;">string</span><span style="color: #000000;">.IsNullOrWhiteSpace(roles)) {
+                </span><span style="color: #0000ff;">this</span>.Roles = roles.Split(<span style="color: #0000ff;">new</span> <span style="color: #0000ff;">string</span>[] { <span style="color: #800000;">"</span><span style="color: #800000;">,</span><span style="color: #800000;">"</span><span style="color: #000000;"> }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            </span><span style="color: #0000ff;">base</span><span style="color: #000000;">.OnAuthorization(filterContext);
+        }
+    }</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>当用户请求一个Action时，会调用<span style="color: #000000;">OnAuthorization</span>方法，该方法中<span style="color: #000000;">GetRoles.GetActionRoles(actionName, controllerName);</span>根据Controller和Action去查找当前Action需要具有的角色类型，获得Action的Roles以后，在<span style="color: #000000;">AuthorizeCore</span>中与用户的角色进行比对<span style="color: #000000;">Roles.Any(httpContext.User.IsInRole)</span>，如果没有相应权限则返回false，<span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">程序就会自动跳转到登录页面</span>。</p>
+<p>&nbsp;</p>
+<p><span style="font-size: 14px;"><span style="color: #000000;">GetRoles</span>为XML解析类，代码如下：</span></p>
+<pre></pre>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>   <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> GetRoles
+    {
+       
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">string</span> GetActionRoles(<span style="color: #0000ff;">string</span> action, <span style="color: #0000ff;">string</span><span style="color: #000000;"> controller) {
+            XElement rootElement </span>= XElement.Load(HttpContext.Current.Server.MapPath(<span style="color: #800000;">"</span><span style="color: #800000;">/</span><span style="color: #800000;">"</span>)+<span style="color: #800000;">"</span><span style="color: #800000;">ActionRoles.xml</span><span style="color: #800000;">"</span><span style="color: #000000;">);
+            XElement controllerElement </span>= findElementByAttribute(rootElement, <span style="color: #800000;">"</span><span style="color: #800000;">Controller</span><span style="color: #800000;">"</span><span style="color: #000000;">, controller);
+            </span><span style="color: #0000ff;">if</span> (controllerElement != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+            {
+                XElement actionElement </span>= findElementByAttribute(controllerElement, <span style="color: #800000;">"</span><span style="color: #800000;">Action</span><span style="color: #800000;">"</span><span style="color: #000000;">, action);
+                </span><span style="color: #0000ff;">if</span> (actionElement != <span style="color: #0000ff;">null</span><span style="color: #000000;">)
+                {
+                    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> actionElement.Value;
+                }
+            }
+            </span><span style="color: #0000ff;">return</span> <span style="color: #800000;">""</span><span style="color: #000000;">;
+        }
+
+        </span><span style="color: #0000ff;">public</span> <span style="color: #0000ff;">static</span> XElement findElementByAttribute(XElement xElement,<span style="color: #0000ff;">string</span> tagName, <span style="color: #0000ff;">string</span><span style="color: #000000;"> attribute)
+        {
+            </span><span style="color: #0000ff;">return</span> xElement.Elements(tagName).FirstOrDefault(x =&gt; x.Attribute(<span style="color: #800000;">"</span><span style="color: #800000;">name</span><span style="color: #800000;">"</span><span style="color: #000000;">).Value.Equals(attribute,StringComparison.OrdinalIgnoreCase));
+        }
+    }</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;"><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">相应的权限XMl文件：<br></span></span></p>
+<p>&nbsp;</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>&lt;?xml version=<span style="color: #800000;">"</span><span style="color: #800000;">1.0</span><span style="color: #800000;">"</span> encoding=<span style="color: #800000;">"</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">"</span> ?&gt;
+&lt;Roles&gt;
+    &lt;Controller name=<span style="color: #800000;">"</span><span style="color: #800000;">Home</span><span style="color: #800000;">"</span>&gt;
+        &lt;Action name=<span style="color: #800000;">"</span><span style="color: #800000;">Index</span><span style="color: #800000;">"</span>&gt;&lt;/Action&gt;
+        &lt;Action name=<span style="color: #800000;">"</span><span style="color: #800000;">About</span><span style="color: #800000;">"</span>&gt;Manager,Admin&lt;/Action&gt;
+        &lt;Action name=<span style="color: #800000;">"</span><span style="color: #800000;">Contact</span><span style="color: #800000;">"</span>&gt;Admin&lt;/Action&gt;
+    &lt;/Controller&gt;
+&lt;/Roles&gt;</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p>
+<p>当需求发生变化时，只需要修改XML文件即可</p>
+<p>使用时，只需要在FilterConfig中注册该filter</p>
+<div class="cnblogs_code">
+<pre>filters.Add(<span style="color: #0000ff;">new</span> CustomAuthorizeAttribute());</pre>
+</div>
+<p>&nbsp;</p>
+<p>当然这只是一个简单的例子，实际应用中会复杂许多，还可能要实现在即的MemberShipProvider和RoleProvider</p>
+<p><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;"><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">&nbsp;</span></span></p>
+<p><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;"><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">&nbsp;</span></span></p>
+<p><span style="color: #000000; font-family: 'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 19px; orphans: 2; text-indent: 30px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; background-color: #ffffff; display: inline ! important; float: none;">&nbsp;</span></p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/jyan/category/387948.html">C#</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+绿色通道：
+<a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(2606646,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+<a id="green_channel_follow" onclick="c_follow();" href="javascript:void(0);">关注我</a>
+<a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a><a id="green_channel_contact" href="http://space.cnblogs.com/msg/send/Johnny+Yan" target="_blank">与我联系</a>
+<a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/icon_weibo_24.png" alt=""></a>
+</div>
+<div id="author_profile">
+<div id="author_profile_info" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/jyan/" target="_blank"><img src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/u193556.jpg" class="author_avatar" alt=""></a>
+<div id="author_profile_detail" class="author_profile_info">
+<a href="http://home.cnblogs.com/u/jyan/">Johnny Yan</a><br>
+<a href="http://home.cnblogs.com/u/jyan/followees">关注 - 12</a><br>
+<a href="http://home.cnblogs.com/u/jyan/followers">粉丝 - 59</a>
+</div>
+</div>
+<div class="clear"></div>
+<div id="author_profile_honor"></div>
+<div id="author_profile_follow">
+    <a href="javascript:void(0);" onclick="c_follow();return false;">+加关注</a>
+</div>
+</div>
+<div id="div_digg">										
+    <div class="diggit" onclick="votePost(2606646,'Digg')">
+        <span class="diggnum" id="digg_count">2</span>
+    </div>
+	<div class="buryit" onclick="votePost(2606646,'Bury')"> 
+		<span class="burynum" id="bury_count">0</span>
+	</div>
+	<div class="clear"></div>	
+	<div class="diggword" id="digg_tips">
+    (请您对文章做出评价)
+    </div>	
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jyan/archive/2012/07/24/2606547.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jyan/archive/2012/07/24/2606547.html" title="发布于2012-07-24 15:09">MVC Action Filter</a><br><a href="http://www.cnblogs.com/jyan/archive/2012/07/25/2607752.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jyan/archive/2012/07/25/2607752.html" title="发布于2012-07-25 10:20">MVC Area领域处理以及T4MVC的使用</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2012-07-24 15:54</span> <a href="http://www.cnblogs.com/jyan/">Johnny Yan</a> 阅读(<span id="post_view_count">10257</span>) 评论(<span id="post_comment_count">5</span>)  <a href="http://i.cnblogs.com/EditPosts.aspx?postid=2606646" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(2606646);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,isLogined=false,cb_blogId=117813,cb_entryId=2606646,cb_blogApp=currentBlogApp,cb_blogUserGuid='5f567b30-a9ec-df11-ac81-842b2b196315',cb_entryCreatedDate='2012/7/24 15:54:00';loadViewCount(cb_entryId);</script>
+	
+</div><!--end: topics 文章、评论容器-->
+<a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2480575" class="layer">#1楼</a><a name="2480575" id="comment_anchor_2480575"></a>  <span class="comment_date">2012-09-25 09:48</span> <a id="a_comment_author_2480575" href="http://www.cnblogs.com/y112102/" target="_blank">s_p</a> <a href="http://msg.cnblogs.com/msg/send/s_p" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2480575" class="blog_comment_body">楼主 当自定义的时候 新建一个类A继承于AuthorizeAttribute<br>重写 AuthorizeCore OnAuthorization   后我在我用验证权限的类继承类A<br>我要启用权限在上面加<br>[Authorize(Roles=？？？)] 这个怎么写啊 ！<br>还有新建一个类的时候CustomAuthorizeAttribute 我看网上的都加了这个后缀Attribute 不加不行吗 也没看到为什么的原因 呵呵！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2480575,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2480575,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2705245" class="layer">#2楼</a><a name="2705245" id="comment_anchor_2705245"></a>  <span class="comment_date">2013-06-15 08:51</span> <a id="a_comment_author_2705245" href="http://www.cnblogs.com/humble/" target="_blank">Moon.Orm塑造Orm经典</a> <a href="http://msg.cnblogs.com/msg/send/Moon.Orm%e5%a1%91%e9%80%a0Orm%e7%bb%8f%e5%85%b8" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2705245" class="blog_comment_body">使用时，只需要在Global.asax中注册该filter<br><br>filters.Add(new CustomAuthorizeAttribute());<br><br>================<br>楼主这个在哪里注册的?</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2705245,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2705245,'Bury',this)">反对(0)</a></div><span id="comment_2705245_avatar" style="display:none;">http://pic.cnitblog.com/face/83201/20130712091921.png</span>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2789805" class="layer">#3楼</a><a name="2789805" id="comment_anchor_2789805"></a>  <span class="comment_date">2013-10-10 14:06</span> <a id="a_comment_author_2789805" href="http://www.cnblogs.com/Sandheart/" target="_blank">C#学习路</a> <a href="http://msg.cnblogs.com/msg/send/C%23%e5%ad%a6%e4%b9%a0%e8%b7%af" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2789805" class="blog_comment_body"><a href="#2705245" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,2705245);">@</a>Moon.NET极速开发框架<br><br>这个我也没找到方法，但可以在要使用的Controller里引用一下“CustomAuthorizeAttribute ”的命名空间也行；</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2789805,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2789805,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2789814" class="layer">#4楼</a><a name="2789814" id="comment_anchor_2789814"></a>  <span class="comment_date">2013-10-10 14:10</span> <a id="a_comment_author_2789814" href="http://www.cnblogs.com/Sandheart/" target="_blank">C#学习路</a> <a href="http://msg.cnblogs.com/msg/send/C%23%e5%ad%a6%e4%b9%a0%e8%b7%af" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2789814" class="blog_comment_body">使用时，只需要在Global.asax中注册该filter<br><br>filters.Add(new CustomAuthorizeAttribute());<br> <br><br>请问楼主怎么实现？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2789814,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2789814,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="#2792446" class="layer">#5楼</a><a name="2792446" id="comment_anchor_2792446"></a><span id="comment-maxId" style="display:none;">2792446</span><span id="comment-maxDate" style="display:none;">2013/10/14 10:06:41</span>  <span class="comment_date">2013-10-14 10:06</span> <a id="a_comment_author_2792446" href="http://www.cnblogs.com/sportdog/" target="_blank">sportdog</a> <a href="http://msg.cnblogs.com/msg/send/sportdog" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_2792446" class="blog_comment_body">把这个[CustomAuthorizeAttribute ]加到你的actionresult或controller上都可以了.</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(2792446,'Digg',this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(2792446,'Bury',this)">反对(0)</a></div>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" id="lnk_RefreshComments" onclick="return RefreshCommentList();">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login('commentform');">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="site_nav_under"><a href="http://www.imooc.com/view/139?from=cnblogs" target="_blank"><b>【免费课程】分享：PS入门教程——新手过招</b></a><br><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.rongcloud.cn/promotion" target="_blank">融云，免费为你的App加入IM功能——让你的App“聊”起来！！</a><br><a href="http://amazeui.org/" target="_blank">【推荐】最懂中文的 H5 开源前端框架</a><br><a href="http://www.cnblogs.com/cmt/p/4168231.html" target="_blank">【活动】加班一整年了，程序员们，你们还好吗？</a></div>
+<div id="opt_under_post"></div>
+<script type="text/javascript">
+    var enableGoogleAd = canShowAdsense(); var googletag = googletag || {}; googletag.cmd = googletag.cmd || [];
+    fixPostBodyFormat();
+</script>
+<div id="ad_under_post_holder">
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        if (enableGoogleAd) {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+            var node = document.getElementsByTagName('script')[0];
+            node.parentNode.insertBefore(gads, node);
+        }
+    })();
+</script>
+<script type="text/javascript">
+    try {
+        if (enableGoogleAd) {
+            googletag.cmd.push(function () {
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C1_sitehome', [300, 250], 'div-gpt-ad-1346480159711-0').addService(googletag.pubads());
+                googletag.defineSlot('/1090369/cnblogs_blogpost_C2', [468, 60], 'div-gpt-ad-1410860226396-0').addService(googletag.pubads());
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+        };
+    } catch (e) { }
+</script>
+<div id="google_ad_c1" class="c_ad_block">
+    <div id="div-gpt-ad-1346480159711-0" style="width: 300px; height: 250px;">
+    <script type="text/javascript">
+        try {
+            if (enableGoogleAd) {
+                googletag.cmd.push(function () { googletag.display('div-gpt-ad-1346480159711-0'); });            
+            } else {
+                $('#div-gpt-ad-1346480159711-0').hide();
+            }
+    } catch (e) { }
+    </script>
+    <div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0" frameborder="0" height="250" width="300"></iframe></div><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom; visibility: hidden; display: none;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" id="google_ads_iframe_/1090369/cnblogs_blogpost_C1_sitehome_0__hidden__" frameborder="0" height="0" width="0"></iframe></div>
+</div>
+</div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/512923/" target="_blank">Let’s do this！新手程序员的入门指南</a><br> ·  <a href="http://news.cnblogs.com/n/512925/" target="_blank">超级Cookie可致隐私模式失效 仍可追踪用户信息</a><br> ·  <a href="http://news.cnblogs.com/n/512924/" target="_blank">京沪高速开通汽车充电站 支出仅为燃油车一半</a><br> ·  <a href="http://news.cnblogs.com/n/512922/" target="_blank">什么是工程师文化？</a><br> ·  <a href="http://news.cnblogs.com/n/512921/" target="_blank">Google的Android性能模式</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="google_ad_c2" class="c_ad_block">
+<div id="div-gpt-ad-1410860226396-0" style="width: 468px; height: 60px;">
+<script type="text/javascript">
+try {
+    if (enableGoogleAd) {
+        googletag.cmd.push(function () { googletag.display('div-gpt-ad-1410860226396-0'); });
+    } else {
+        $('#div-gpt-ad-1346480159711-0').hide();
+    }
+} catch (e) { }
+</script>
+<div style="border: 0pt none;" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0__container__"><iframe src="javascript:&quot;<html><body style='background:transparent'></body></html>&quot;" style="border: 0px none; vertical-align: bottom;" marginheight="0" marginwidth="0" scrolling="no" name="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" id="google_ads_iframe_/1090369/cnblogs_blogpost_C2_0" frameborder="0" height="60" width="468"></iframe></div></div>
+</div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/512757/" target="_blank">如何高效地将SQL数据映射到NoSQL存储系统中</a><br> ·  <a href="http://kb.cnblogs.com/page/512759/" target="_blank">内存数据库中的索引技术</a><br> ·  <a href="http://kb.cnblogs.com/page/512454/" target="_blank">如何实现一个malloc</a><br> ·  <a href="http://kb.cnblogs.com/page/512477/" target="_blank">原子操作和竞争</a><br> ·  <a href="http://kb.cnblogs.com/page/512323/" target="_blank">工程师忽略的隐形成本</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+$(function () {
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 200);
+});
+</script>
+</div>
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/jyan/">Johnny Yan</a><br>园龄：<a href="http://home.cnblogs.com/u/jyan/" title="入园时间：2010-11-10">4年2个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/jyan/followers/">59</a><br>关注：<a href="http://home.cnblogs.com/u/jyan/followees/">12</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="cnblogs.UserManager.FollowBlogger('5f567b30-a9ec-df11-ac81-842b2b196315')">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" title="日历" cellpadding="0" cellspacing="0">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar('2012/06/01');return false;">&lt;</a></td><td align="center">2012年7月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar('2012/08/01');return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" abbr="日" scope="col" align="center">日</th><th class="CalDayHeader" abbr="一" scope="col" align="center">一</th><th class="CalDayHeader" abbr="二" scope="col" align="center">二</th><th class="CalDayHeader" abbr="三" scope="col" align="center">三</th><th class="CalDayHeader" abbr="四" scope="col" align="center">四</th><th class="CalDayHeader" abbr="五" scope="col" align="center">五</th><th class="CalDayHeader" abbr="六" scope="col" align="center">六</th></tr><tr><td class="CalOtherMonthDay" align="center">24</td><td class="CalOtherMonthDay" align="center">25</td><td class="CalOtherMonthDay" align="center">26</td><td class="CalOtherMonthDay" align="center">27</td><td class="CalOtherMonthDay" align="center">28</td><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td></tr><tr><td class="CalWeekendDay" align="center">1</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/02.html"><u>2</u></a></td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td align="center">6</td><td class="CalWeekendDay" align="center">7</td></tr><tr><td class="CalWeekendDay" align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/13.html"><u>13</u></a></td><td class="CalWeekendDay" align="center">14</td></tr><tr><td class="CalWeekendDay" align="center">15</td><td align="center">16</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/17.html"><u>17</u></a></td><td align="center">18</td><td align="center">19</td><td align="center">20</td><td class="CalWeekendDay" align="center">21</td></tr><tr><td class="CalWeekendDay" align="center">22</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/23.html"><u>23</u></a></td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/24.html"><u>24</u></a></td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/25.html"><u>25</u></a></td><td align="center">26</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/27.html"><u>27</u></a></td><td class="CalWeekendDay" align="center">28</td></tr><tr><td class="CalWeekendDay" align="center">29</td><td align="center"><a href="http://www.cnblogs.com/jyan/archive/2012/07/30.html"><u>30</u></a></td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn">
+<div class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="widget_my_zzk" class="div_my_zzk"><input id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk" type="text">&nbsp;<input onclick="zzk_go()" value="找找看" id="btnZzk" class="btn_my_zzk" type="button"></div>
+<div id="widget_my_google" class="div_my_zzk"><input name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk" type="text">&nbsp;<input onclick="google_go()" value="谷歌搜索" class="btn_my_zzk" type="button"></div>
+</div>
+
+
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jyan/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jyan/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jyan/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jyan/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jyan/tag/" title="我的博客的标签列表">我的标签</a></li>
+<li><a id="itemListLink" onclick="this.blur();WarpClass('itemListLink', 'itemListLin_con');return false;" href="#">更多链接</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div>
+<div class="catListPostCategory">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/jyan/category/387948.html">C#(21)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/jyan/category/385124.html">Groovy(7)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/jyan/category/385123.html">Java(2)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListPostArchive">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/jyan/archive/2012/07.html">2012年7月 (16)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/jyan/archive/2012/06.html">2012年6月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/jyan/archive/2012/05.html">2012年5月 (8)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catListArticleCategory">
+<h3 class="catListTitle">文章分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_2_Link_0" href="http://www.cnblogs.com/jyan/category/385768.html">Android(27)</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_1" href="http://www.cnblogs.com/jyan/category/391945.html">C#</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_2" href="http://www.cnblogs.com/jyan/category/383770.html">Groovy</a> </li>
+
+<li><a id="CatList_LinkList_2_Link_3" href="http://www.cnblogs.com/jyan/category/383773.html">Java(1)</a> </li>
+
+</ul>
+
+</div>
+
+<div class="catList">
+<h3 class="catListTitle">电子书</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_3_Link_0" href="http://www.codeproject.com/Articles/155422/jQuery-DataTables-and-ASP-NET-MVC-Integration-Part" rel="nofollow">DataTable 1</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_1" href="http://www.codeproject.com/Articles/165410/ASP-NET-MVC-Editable-DataTable-jQuery-DataTables-a" rel="nofollow">DataTable 2</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_2" href="http://www.codeproject.com/Articles/177335/Refreshing-content-of-the-table-using-AJAX-in-ASP" rel="nofollow">DataTable 3</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_3" href="http://www.codeproject.com/Articles/331986/Table-Row-Drag-and-Drop-in-ASP-NET-MVC-jQuery-Data" rel="nofollow">DataTable 4</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_4" href="http://www.codeproject.com/Articles/189621/Creating-an-expandable-master-details-table-jQuery" rel="nofollow">DataTable 5</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_5" href="http://www.codeproject.com/Articles/331855/jQuery-DataTables-Advanced-Filtering-in-ASP-NET-MV" rel="nofollow">DataTable 6</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_6" href="http://www.codeproject.com/Articles/265211/Using-JEditable-plugin-as-ASP-NET-MVC-jQuery-inli" rel="nofollow">inline editable</a> </li>
+
+<li><a id="CatList_LinkList_3_Link_7" href="http://it-ebooks.info/search/?q=asp.net&amp;type=title&amp;page=2" rel="nofollow">电子书</a> </li>
+
+</ul>
+
+</div>
+
+<div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604474.html#3084264">1. Re:MVC HtmlHelper用法大全</a></li>
+    <li class="recent_comment_body">@eagle_wolf同感。该是html的时候就得html，本来就不应该为了少写代码而改变。搞得C#不像C#，html不像html，可读性大大降低。但微软就是非常喜欢搞这些封装，不亦乐乎，完全不顾猿的感受。...</li>
+    <li class="recent_comment_author">--陈少鑫</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604474.html#2979358">2. Re:MVC HtmlHelper用法大全</a></li>
+    <li class="recent_comment_body">使用htmlHelper 有什么意义呢？ 用了一年mvc<br>在我看来 徒增了局限性 不如直接使用html标签</li>
+    <li class="recent_comment_author">--eagle_wolf</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604562.html#2970679">3. Re:MVC 数据验证【转】</a></li>
+    <li class="recent_comment_body">引用在Asp.net时代，或者没有使用MVC的验证框架，一般是在BLL层
+中进行数据验证，但是BLL层的返回值又只能返回一个东西，比如一个字符串，而实际情况中，数据验证是很复杂的。上面这句话不敢苟同啊，首先BLL层应该
+是关注业务，尽可能的把业务抽到这个层，使项目可以快速的在winfrom和web直接切......</li>
+    <li class="recent_comment_author">--badnewfish</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/jyan/archive/2012/05/17/2505791.html#2965011">4. Re:Java IO操作</a></li>
+    <li class="recent_comment_body">写的不错，给大家推荐一篇<a href="" target="_blank"></a></li>
+    <li class="recent_comment_author">--小塔-皂荚花</li>
+    <li class="recent_comment_title"><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604474.html#2955200">5. Re:MVC HtmlHelper用法大全</a></li>
+    <li class="recent_comment_body">不明白ListBox跟Dropdownbox的区别</li>
+    <li class="recent_comment_author">--洋芋，阿喜欢！</li>
+</ul>
+</div>
+</div>
+</div><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604562.html">1. MVC 数据验证【转】(10546)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/24/2606646.html">2. MVC 自定义AuthorizeAttribute实现权限管理(10257)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604529.html">3. MVC 表单提交【转】(9166)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/17/2594545.html">4. MVC Action和ActionResult(6913)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/17/2590609.html">5. MVC View基础(6507)</a></li></ul></div>
+</div>
+</div><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604474.html">1. MVC HtmlHelper用法大全(5)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/24/2606646.html">2. MVC 自定义AuthorizeAttribute实现权限管理(5)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604562.html">3. MVC 数据验证【转】(4)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604529.html">4. MVC 表单提交【转】(2)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/05/17/2505791.html">5. Java IO操作(1)</a></li></ul></div>
+</div>
+</div><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604562.html">1. MVC 数据验证【转】(9)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/25/2607752.html">2. MVC Area领域处理以及T4MVC的使用(6)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604529.html">3. MVC 表单提交【转】(3)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/23/2604958.html">4. MVC 之AjaxHelper(3)</a></li><li><a href="http://www.cnblogs.com/jyan/archive/2012/07/27/2611836.html">5. Repository模式(2)</a></li></ul></div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script><iframe style="visibility: hidden; display: none;" src="MVC%20%E8%87%AA%E5%AE%9A%E4%B9%89AuthorizeAttribute%E5%AE%9E%E7%8E%B0%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86%20-%20Johnny%20Yan%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD_files/container.htm"></iframe>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2015 Johnny Yan
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_8129707239619"></iframe></body></html>

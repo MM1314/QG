@@ -11,7 +11,7 @@ namespace SOA.WLIMS.Web.Controllers
     {
         //
         // GET: /Vehicle/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View(ServiceFactory.GetVehicleService().Query(null));

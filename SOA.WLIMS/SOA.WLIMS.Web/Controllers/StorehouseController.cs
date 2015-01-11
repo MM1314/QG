@@ -11,7 +11,7 @@ namespace SOA.WLIMS.Web.Controllers
     {
         //
         // GET: /Storehouse/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View(ServiceFactory.GetStorehouseService().Query(null));

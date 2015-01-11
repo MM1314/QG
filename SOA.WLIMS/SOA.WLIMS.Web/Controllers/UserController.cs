@@ -12,7 +12,7 @@ namespace SOA.WLIMS.Web.Controllers
     {
         //
         // GET: /User/
-
+        [Authorize]
         public ActionResult Index()
         {
             return View(ServiceFactory.GetUserService().Query(null));
