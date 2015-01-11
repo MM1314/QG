@@ -6,7 +6,7 @@
 <h2>
     用户管理</h2>
 <p>
-    @Html.ActionLink("新增", "../Account/Register")
+    @*  @Html.ActionLink("新增", "../Account/Register")*@
 </p>
 <table>
     <tr>
@@ -51,8 +51,8 @@
                 @item.Email
             </td>
             <td>
-                @(item.Role.Equals(SOA.WLIMS.Models.UserRoles.Employe.ToString()) ? "员工" :
-                item.Role.Equals(SOA.WLIMS.Models.UserRoles.Customer.ToString()) ?"客户":"管理员")
+                @(item.Role.Equals(SOA.WLIMS.Models.UserRoles.Admin.ToString()) ? "管理员" :
+        item.Role.Equals(SOA.WLIMS.Models.UserRoles.Employe.ToString()) ? "员工" : "客户")
             </td>
             <td>
                 @item.EmployeCode
@@ -63,7 +63,10 @@
             <td>
                 @Html.ActionLink("编辑", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("查看", "Details", new { id = item.ID }) |
-                @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                @if (!item.Role.Equals(SOA.WLIMS.Models.UserRoles.Admin.ToString()))
+                {
+                    @Html.ActionLink("删除", "Delete", new { id = item.ID })
+                }
             </td>
         </tr>
     }

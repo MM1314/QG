@@ -111,8 +111,8 @@ namespace SOA.WLIMS.Web.Controllers
                 MembershipCreateStatus createStatus = UserService.CreateUser(model);
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    //FormsService.SignIn(model.UserName, false /* createPersistentCookie */);
+                    return RedirectToAction("LogOn", "Account");
                 }
                 else
                 {
