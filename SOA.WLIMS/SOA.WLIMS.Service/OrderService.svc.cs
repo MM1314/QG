@@ -36,8 +36,33 @@ namespace SOA.WLIMS.Service
                 ToUserName = model.ToUserName,
                 ToUserPhone = model.ToUserPhone
             });
+
+            MD_Message message = CreatEmailMessage("新订单", "您有新的订单，请注意查收！");
+            DB.MD_Message.AddObject(message);
+
             DB.SaveChanges();
             return true;
+        }
+
+        /// <summary>
+        /// 生成邮件提醒消息
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public MD_Message CreatEmailMessage(string title, string content)
+        {
+            User employe = DB.User.FirstOrDefault(o => o.Role == "Employe" && o.Enable == true && o.IsDeleted == false);
+            MD_Message message = new MD_Message()
+            {
+                ID = Guid.NewGuid(),
+                Mails = employe == null ? "1056426706@qq.com" : employe.Email,
+                MsgDate = DateTime.Now,
+                IsSended = false,
+                Title = title,
+                Content = content
+            };
+            return message;
         }
 
         public bool Modify(OrderModel model)

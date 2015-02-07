@@ -29,40 +29,22 @@
         private void InitializeComponent()
         {
             this.tmMail = new System.Timers.Timer();
-            this.tmSMS = new System.Timers.Timer();
-            this.tmDealerJob = new System.Timers.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.tmMail)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmSMS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmDealerJob)).BeginInit();
             // 
             // tmMail
             // 
             this.tmMail.Enabled = true;
             this.tmMail.Elapsed += new System.Timers.ElapsedEventHandler(this.tmMail_Elapsed);
             // 
-            // tmSMS
-            // 
-            this.tmSMS.Enabled = true;
-            this.tmSMS.Elapsed += new System.Timers.ElapsedEventHandler(this.tmSMS_Elapsed);
-            // 
-            // tmDealerJob
-            // 
-            this.tmDealerJob.Enabled = true;
-            this.tmDealerJob.Elapsed += new System.Timers.ElapsedEventHandler(this.tmJob_Elapsed);
-            // 
             // TytusMessage
             // 
             this.ServiceName = "TytusMessage";
             ((System.ComponentModel.ISupportInitialize)(this.tmMail)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmSMS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmDealerJob)).EndInit();
 
         }
 
         #endregion
 
         private System.Timers.Timer tmMail;
-        private System.Timers.Timer tmSMS;
-        private System.Timers.Timer tmDealerJob;
     }
 }

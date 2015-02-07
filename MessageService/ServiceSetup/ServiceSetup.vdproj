@@ -15,8 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0386E4F01D13D131241E1F9B5A0EFAA8"
+        "MsmKey" = "8:_04853FC70CF7BCF266225843557F989B"
+        "OwnerKey" = "8:_244B3D8F0BE0F0BBE35811222BCB5F52"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_04853FC70CF7BCF266225843557F989B"
         "OwnerKey" = "8:_EC89905E55E4449BB5654FBB65E469F2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_04853FC70CF7BCF266225843557F989B"
+        "OwnerKey" = "8:_87E55348ADEA0378DAA75C0EDE1FCD87"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -27,56 +39,44 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_244B3D8F0BE0F0BBE35811222BCB5F52"
+        "OwnerKey" = "8:_87E55348ADEA0378DAA75C0EDE1FCD87"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_244B3D8F0BE0F0BBE35811222BCB5F52"
+        "OwnerKey" = "8:_EC89905E55E4449BB5654FBB65E469F2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2B4ADCF90A4145949DEAC63FD15C010E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7B972C9BDBB4AA3EBD599D9A57A01ED8"
-        "OwnerKey" = "8:_0386E4F01D13D131241E1F9B5A0EFAA8"
+        "MsmKey" = "8:_5755143550DFE36073184043BE86FBE4"
+        "OwnerKey" = "8:_87E55348ADEA0378DAA75C0EDE1FCD87"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_7B972C9BDBB4AA3EBD599D9A57A01ED8"
+        "MsmKey" = "8:_5755143550DFE36073184043BE86FBE4"
         "OwnerKey" = "8:_EC89905E55E4449BB5654FBB65E469F2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A6F6DE882B79108A5D7AEF2FE2DA7987"
-        "OwnerKey" = "8:_DA54A0818A4D8E6C83E8470565A6FBB8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A6F6DE882B79108A5D7AEF2FE2DA7987"
+        "MsmKey" = "8:_87E55348ADEA0378DAA75C0EDE1FCD87"
         "OwnerKey" = "8:_EC89905E55E4449BB5654FBB65E469F2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A6F6DE882B79108A5D7AEF2FE2DA7987"
-        "OwnerKey" = "8:_0386E4F01D13D131241E1F9B5A0EFAA8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C2609A64EDC14A9D8ED582A7B88872A4"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DA54A0818A4D8E6C83E8470565A6FBB8"
-        "OwnerKey" = "8:_0386E4F01D13D131241E1F9B5A0EFAA8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DA54A0818A4D8E6C83E8470565A6FBB8"
-        "OwnerKey" = "8:_EC89905E55E4449BB5654FBB65E469F2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,25 +94,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0386E4F01D13D131241E1F9B5A0EFAA8"
+        "OwnerKey" = "8:_87E55348ADEA0378DAA75C0EDE1FCD87"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7B972C9BDBB4AA3EBD599D9A57A01ED8"
+        "OwnerKey" = "8:_5755143550DFE36073184043BE86FBE4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DA54A0818A4D8E6C83E8470565A6FBB8"
+        "OwnerKey" = "8:_244B3D8F0BE0F0BBE35811222BCB5F52"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A6F6DE882B79108A5D7AEF2FE2DA7987"
+        "OwnerKey" = "8:_04853FC70CF7BCF266225843557F989B"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -276,20 +276,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0386E4F01D13D131241E1F9B5A0EFAA8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_04853FC70CF7BCF266225843557F989B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MessageService.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MessageService.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0386E4F01D13D131241E1F9B5A0EFAA8"
+                    "_04853FC70CF7BCF266225843557F989B"
                     {
-                    "Name" = "8:MessageService.BLL.dll"
+                    "Name" = "8:MessageService.Model.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MessageService.BLL.dll"
+            "SourcePath" = "8:MessageService.Model.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B13FF159BFEC43998EBE4209F2109E4B"
@@ -327,6 +327,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_244B3D8F0BE0F0BBE35811222BCB5F52"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MessageService.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_244B3D8F0BE0F0BBE35811222BCB5F52"
+                    {
+                    "Name" = "8:MessageService.DAL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MessageService.DAL.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_B13FF159BFEC43998EBE4209F2109E4B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B4ADCF90A4145949DEAC63FD15C010E"
             {
             "SourcePath" = "8:stop.bat"
@@ -347,14 +378,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7B972C9BDBB4AA3EBD599D9A57A01ED8"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5755143550DFE36073184043BE86FBE4"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Tytus.Message, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7B972C9BDBB4AA3EBD599D9A57A01ED8"
+                    "_5755143550DFE36073184043BE86FBE4"
                     {
                     "Name" = "8:Tytus.Message.dll"
                     "Attributes" = "3:512"
@@ -378,20 +409,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A6F6DE882B79108A5D7AEF2FE2DA7987"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_87E55348ADEA0378DAA75C0EDE1FCD87"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MessageService.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MessageService.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A6F6DE882B79108A5D7AEF2FE2DA7987"
+                    "_87E55348ADEA0378DAA75C0EDE1FCD87"
                     {
-                    "Name" = "8:MessageService.Model.dll"
+                    "Name" = "8:MessageService.BLL.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:MessageService.Model.dll"
+            "SourcePath" = "8:MessageService.BLL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_B13FF159BFEC43998EBE4209F2109E4B"
@@ -427,37 +458,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DA54A0818A4D8E6C83E8470565A6FBB8"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MessageService.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DA54A0818A4D8E6C83E8470565A6FBB8"
-                    {
-                    "Name" = "8:MessageService.DAL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MessageService.DAL.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_B13FF159BFEC43998EBE4209F2109E4B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -500,7 +500,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_7C1D8093B298459C82EA43C7DA408EF3"
                     {
-                    "Name" = "8:Tytus Message Service"
+                    "Name" = "8:Message Service"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -526,9 +526,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:ServiceSetup"
+        "ProductName" = "8:SOA物流信息管理系统邮件服务"
         "ProductCode" = "8:{1450E1AF-9D99-48B5-BF93-076D7499B55A}"
-        "PackageCode" = "8:{D3F68B03-F901-4643-94DD-543652A34880}"
+        "PackageCode" = "8:{9CA94446-9C83-439A-8E4C-0CE87FB4B553}"
         "UpgradeCode" = "8:{2432D855-576C-40D5-91E3-807EE0B5B3F1}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -536,12 +536,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:founder"
+        "Manufacturer" = "8:SOAWLIMS"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:ServiceSetup"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:founder"
+        "ARPCONTACT" = "8:"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"

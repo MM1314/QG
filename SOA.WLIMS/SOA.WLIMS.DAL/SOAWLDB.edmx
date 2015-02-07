@@ -4,9 +4,11 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SOAWLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SOAWLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SOAWLDBModelStoreContainer">
           <EntitySet Name="DeliveryInfo" EntityType="SOAWLDBModel.Store.DeliveryInfo" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MD_Message" EntityType="SOAWLDBModel.Store.MD_Message" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MD_MessageLog" EntityType="SOAWLDBModel.Store.MD_MessageLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Order" EntityType="SOAWLDBModel.Store.Order" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Store.Storehouse" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="SOAWLDBModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -23,6 +25,31 @@
           <Property Name="HandleTime" Type="datetime" Nullable="false" />
           <Property Name="HandleStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="HandleMessage" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MD_Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SourceID" Type="uniqueidentifier" />
+          <Property Name="Mails" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Mobiles" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="255" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content" Type="varchar(max)" />
+          <Property Name="MsgDate" Type="datetime" />
+          <Property Name="IsSended" Type="bit" />
+        </EntityType>
+        <EntityType Name="MD_MessageLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MessageID" Type="uniqueidentifier" />
+          <Property Name="SendTime" Type="datetime" />
+          <Property Name="SendType" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsSuccess" Type="bit" />
+          <Property Name="Exception" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -79,8 +106,7 @@
           <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SOAWLDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -90,6 +116,8 @@
           <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Storehouse" />
           <EntitySet Name="User" EntityType="SOAWLDBModel.User" />
           <EntitySet Name="Vehicle" EntityType="SOAWLDBModel.Vehicle" />
+          <EntitySet Name="MD_Message" EntityType="SOAWLDBModel.MD_Message" />
+          <EntitySet Name="MD_MessageLog" EntityType="SOAWLDBModel.MD_MessageLog" />
         </EntityContainer>
         <EntityType Name="DeliveryInfo">
           <Key>
@@ -158,6 +186,31 @@
           <Property Name="LicensePlateNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
         </EntityType>
+        <EntityType Name="MD_Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="Guid" Name="SourceID" />
+          <Property Type="String" Name="Mails" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Mobiles" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Receiver" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="MsgDate" />
+          <Property Type="Boolean" Name="IsSended" />
+        </EntityType>
+        <EntityType Name="MD_MessageLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="Guid" Name="MessageID" />
+          <Property Type="DateTime" Name="SendTime" />
+          <Property Type="String" Name="SendType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsSuccess" />
+          <Property Type="String" Name="Exception" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -216,6 +269,33 @@
             <ScalarProperty Name="LicensePlateNumber" ColumnName="LicensePlateNumber" />
             <ScalarProperty Name="Status" ColumnName="Status" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="MD_Message">
+            <EntityTypeMapping TypeName="SOAWLDBModel.MD_Message">
+              <MappingFragment StoreEntitySet="MD_Message">
+                <ScalarProperty Name="IsSended" ColumnName="IsSended" />
+                <ScalarProperty Name="MsgDate" ColumnName="MsgDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+                <ScalarProperty Name="Mobiles" ColumnName="Mobiles" />
+                <ScalarProperty Name="Mails" ColumnName="Mails" />
+                <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MD_MessageLog">
+            <EntityTypeMapping TypeName="SOAWLDBModel.MD_MessageLog">
+              <MappingFragment StoreEntitySet="MD_MessageLog">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="SendType" ColumnName="SendType" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -242,6 +322,8 @@
         <EntityTypeShape EntityType="SOAWLDBModel.Storehouse" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9700325520833326" IsExpanded="true" />
         <EntityTypeShape EntityType="SOAWLDBModel.User" Width="1.5" PointX="4.875" PointY="3" Height="3.1161507161458335" IsExpanded="true" />
         <EntityTypeShape EntityType="SOAWLDBModel.Vehicle" Width="1.5" PointX="0.75" PointY="5.75" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="SOAWLDBModel.MD_Message" Width="1.5" PointX="7.375" PointY="0.75" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="SOAWLDBModel.MD_MessageLog" Width="1.5" PointX="3.375" PointY="7.75" Height="2.1610522460937496" />
       </Diagram>
     </Diagrams>
   </Designer>

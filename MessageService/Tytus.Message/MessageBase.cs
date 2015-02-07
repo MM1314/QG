@@ -57,13 +57,7 @@ namespace Tytus.Message
         {
             return new Mail.MessageMail();
         }
-
-        public static MessageBase CreatSMSEntity()
-        {
-            return new MessageSMS();
-        }
-
-      
+               
     }
 
     /// <summary>

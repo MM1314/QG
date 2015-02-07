@@ -2,6 +2,8 @@
 <Schema Namespace="SOAWLDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SOAWLDBModelStoreContainer">
     <EntitySet Name="DeliveryInfo" EntityType="SOAWLDBModel.Store.DeliveryInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_Message" EntityType="SOAWLDBModel.Store.MD_Message" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MD_MessageLog" EntityType="SOAWLDBModel.Store.MD_MessageLog" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Order" EntityType="SOAWLDBModel.Store.Order" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Store.Storehouse" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="SOAWLDBModel.Store.User" store:Type="Tables" Schema="dbo" />
@@ -18,6 +20,31 @@
     <Property Name="HandleTime" Type="datetime" Nullable="false" />
     <Property Name="HandleStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="HandleMessage" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="MD_Message">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SourceID" Type="uniqueidentifier" />
+    <Property Name="Mails" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Mobiles" Type="nvarchar" MaxLength="1024" />
+    <Property Name="Receiver" Type="nvarchar" MaxLength="255" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="Content" Type="varchar(max)" />
+    <Property Name="MsgDate" Type="datetime" />
+    <Property Name="IsSended" Type="bit" />
+  </EntityType>
+  <EntityType Name="MD_MessageLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MessageID" Type="uniqueidentifier" />
+    <Property Name="SendTime" Type="datetime" />
+    <Property Name="SendType" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSuccess" Type="bit" />
+    <Property Name="Exception" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="Order">
     <Key>

@@ -16,7 +16,6 @@ namespace Tytus.Message
         #region 暂不调用 通过配置文件中MsgSentType节点配置。 支持单时钟同时发送邮件、短信
 
         const string type_Mail = "Mail";
-        const string type_SMS = "SMS";
 
         /// <summary>
         /// 指定消息发送方式：邮件Mail；短信SMS；以分号隔开
@@ -40,10 +39,6 @@ namespace Tytus.Message
                     {
                         Clients.Add(new Mail.MessageMail());
                     }
-                    else if (type.Equals(type_SMS))
-                    {
-                        Clients.Add(new MessageSMS());
-                    }
                 }
             }
         }
@@ -59,10 +54,6 @@ namespace Tytus.Message
                 if (client.GetType() == typeof(Mail.MessageMail))
                 {
                     client.To = Msg.EMails;
-                }
-                else if (client.GetType() == typeof(MessageSMS))
-                {
-                    client.To = Msg.Mobiles;
                 }
 
                 client.Subject = Msg.Title;
@@ -97,7 +88,6 @@ namespace Tytus.Message
             foreach (MessageBase client in Clients)
             {
                 bool isMail = client.GetType() == typeof(Mail.MessageMail);
-                bool isMsg = client.GetType() == typeof(MessageSMS);
                 //多条消息
                 foreach (MessageEntity msg in Msgs)
                 {
@@ -105,10 +95,7 @@ namespace Tytus.Message
                     {
                         client.To = msg.EMails;
                     }
-                    else if (isMsg)
-                    {
-                        client.To = msg.Mobiles;
-                    }
+                 
                     client.Subject = msg.Title;
                     client.Body = msg.Content;
                     client.Receiver = msg.Receiver;
@@ -138,8 +125,7 @@ namespace Tytus.Message
         #region 扩展 支持邮件|短信独立发送  create 2012.3.14 mjp
 
         private static MessageBase MailClient = MessageBase.CreatMailEntity();
-        private static MessageBase SMSClient = MessageBase.CreatSMSEntity();
-
+        
 
         /// <summary>
         /// 发送邮件
@@ -160,23 +146,6 @@ namespace Tytus.Message
 
         }
 
-        /// <summary>
-        /// 发送短信
-        /// </summary>
-        /// <param name="msg"></param>
-        public static void SendSMS(MessageEntity msg)
-        {
-            msg.IsSended = false;
-
-            SMSClient.To = msg.Mobiles;
-            SMSClient.Subject = msg.Title;
-            SMSClient.Body = msg.Content;
-            SMSClient.Receiver = msg.Receiver;
-            SMSClient.Priority = MessagePriority.High;
-
-            SMSClient.Send();
-            msg.IsSended = true;
-        }
 
         #endregion
 

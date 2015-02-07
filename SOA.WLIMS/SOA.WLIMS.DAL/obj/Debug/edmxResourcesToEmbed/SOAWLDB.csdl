@@ -6,6 +6,8 @@
     <EntitySet Name="Storehouse" EntityType="SOAWLDBModel.Storehouse" />
     <EntitySet Name="User" EntityType="SOAWLDBModel.User" />
     <EntitySet Name="Vehicle" EntityType="SOAWLDBModel.Vehicle" />
+    <EntitySet Name="MD_Message" EntityType="SOAWLDBModel.MD_Message" />
+    <EntitySet Name="MD_MessageLog" EntityType="SOAWLDBModel.MD_MessageLog" />
   </EntityContainer>
   <EntityType Name="DeliveryInfo">
     <Key>
@@ -73,5 +75,30 @@
     <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="LicensePlateNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="MD_Message">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="SourceID" />
+    <Property Type="String" Name="Mails" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Mobiles" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Receiver" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="MsgDate" />
+    <Property Type="Boolean" Name="IsSended" />
+  </EntityType>
+  <EntityType Name="MD_MessageLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Guid" Name="ID" Nullable="false" />
+    <Property Type="Guid" Name="MessageID" />
+    <Property Type="DateTime" Name="SendTime" />
+    <Property Type="String" Name="SendType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsSuccess" />
+    <Property Type="String" Name="Exception" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

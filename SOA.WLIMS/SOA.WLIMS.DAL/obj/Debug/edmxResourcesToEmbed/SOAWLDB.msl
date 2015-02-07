@@ -73,5 +73,32 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MD_Message">
+      <EntityTypeMapping TypeName="SOAWLDBModel.MD_Message">
+        <MappingFragment StoreEntitySet="MD_Message">
+          <ScalarProperty Name="IsSended" ColumnName="IsSended" />
+          <ScalarProperty Name="MsgDate" ColumnName="MsgDate" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Mobiles" ColumnName="Mobiles" />
+          <ScalarProperty Name="Mails" ColumnName="Mails" />
+          <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MD_MessageLog">
+      <EntityTypeMapping TypeName="SOAWLDBModel.MD_MessageLog">
+        <MappingFragment StoreEntitySet="MD_MessageLog">
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+          <ScalarProperty Name="SendType" ColumnName="SendType" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

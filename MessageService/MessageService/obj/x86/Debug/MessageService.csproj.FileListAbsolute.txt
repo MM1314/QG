@@ -38,3 +38,7 @@ E:\soa物流信息系统简介\QG\MessageService\MessageService\obj\x86\Debug\Me
 E:\soa物流信息系统简介\QG\MessageService\MessageService\obj\x86\Debug\MessageService.ProjectInstaller.resources
 E:\soa物流信息系统简介\QG\MessageService\MessageService\obj\x86\Debug\MessageService.TytusMessage.resources
 E:\soa物流信息系统简介\QG\MessageService\MessageService\obj\x86\Debug\MessageService.csproj.GenerateResource.Cache
+E:\soa物流信息系统简介\QG\MessageService\MessageService\bin\Debug\App_Data\ASPNETDB.MDF
+E:\soa物流信息系统简介\QG\MessageService\MessageService\bin\Debug\App_Data\aspnetdb_log.ldf
+E:\soa物流信息系统简介\QG\MessageService\MessageService\bin\Debug\App_Data\SOAWLDB.mdf
+E:\soa物流信息系统简介\QG\MessageService\MessageService\bin\Debug\App_Data\SOAWLDB_log.ldf

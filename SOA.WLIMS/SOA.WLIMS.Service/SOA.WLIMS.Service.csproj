@@ -55,9 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SOAWLDB.mdf" />
-    <Content Include="App_Data\SOAWLDB_log.ldf">
-      <DependentUpon>SOAWLDB.mdf</DependentUpon>
-    </Content>
     <Content Include="OrderService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="StoreService.svc" />
