@@ -28,10 +28,8 @@ MessageService:一个独立的邮件消息服务项目，Setup项目为邮件服
 需要部署在SQL 2008上。
 目前配置：数据库名：SOAWLIMSDB 账号：sa 密码：123456
 配置文件：SOA.WLIMS.Service/web.config；MessageService安装目录下的config两个文件。修改对应数据库连接字符串。
-
 2. 邮件服务器配置
 MessageService安装目录下的config文件中 邮件服务器地址（smtp 服务器地址） 发送邮件的账号、密码
-
 3. 日志系统配置
 MessageService安装目录下的config文件中 日志记录设置
 
