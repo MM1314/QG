@@ -64,6 +64,10 @@ namespace SOA.WLIMS.Web.Controllers
             return View(ServiceFactory.GetOrderService().Get(id));
         }
 
+        public ActionResult Export() {
+            return View();
+        }
+
         //
         // POST: /Order/Edit/5
 
