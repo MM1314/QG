@@ -16,3 +16,5 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.Co
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.Models.dll
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.Contract.pdb
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.Models.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.DAL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.BLL\bin\Debug\SOA.WLIMS.DAL.pdb

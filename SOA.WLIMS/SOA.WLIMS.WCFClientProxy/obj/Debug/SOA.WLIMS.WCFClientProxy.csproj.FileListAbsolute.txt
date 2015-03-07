@@ -13,3 +13,5 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\S
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\EasyEF.Utility.pdb
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\EasyEF.WCFExtension.pdb
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\SOA.WLIMS.Models.pdb
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\SOA.WLIMS.DAL.dll
+E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.WCFClientProxy\bin\Debug\SOA.WLIMS.DAL.pdb
