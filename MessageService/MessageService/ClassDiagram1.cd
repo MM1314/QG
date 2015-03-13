@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Windows Service&#xD;&#xA;开启定时器，定时调用BLLOprate.SendMail方法发送邮件。">
+    <Position X="4.521" Y="0.76" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="提供SendMail方法，调用DBOperate.LoadMessage方法，读取数据库中待发送消息，发送邮件。并将操作日志存入数据库中。">
+    <Position X="4.5" Y="2" Height="1.073" Width="1.7" />
+  </Comment>
+  <Comment CommentText="基于ADO.NET,提供读取消息，更新邮件发送记录，记录操作日志等方法。">
+    <Position X="4.927" Y="3.771" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="封装 基于SMTP协议实现邮件发送操作">
+    <Position X="8.625" Y="2.031" Height="0.99" Width="1.7" />
+  </Comment>
+  <Class Name="MessageService.TytusMessage" Collapsed="true">
+    <Position X="2.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAgAAAAACIAAAABEACACAACABIAIIAIAUAAAAQAAAA=</HashCode>
+      <FileName>TytusMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MessageService.BLL.BLLOprate">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="MessageService.BLL.BLLOprate.SendMailDelegate" Collapsed="true">
+        <TypeIdentifier />
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Tytus.Message.SMessage" Collapsed="true">
+    <Position X="6.5" Y="2" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MessageService.DAL.DBOperate">
+    <Position X="2.75" Y="3.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Tytus.Message.Mail.MessageMail" Collapsed="true">
+    <Position X="6.5" Y="2.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
