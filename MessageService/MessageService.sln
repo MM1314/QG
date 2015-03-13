@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageService.BLL", "Messa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageService.Model", "MessageService.Model\MessageService.Model.csproj", "{C9457F16-D537-48EA-90B5-EB4B6DCDC13B}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{5ADC40CE-AE41-482A-949A-F0A9DA83833B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,16 @@ Global
 		{C9457F16-D537-48EA-90B5-EB4B6DCDC13B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C9457F16-D537-48EA-90B5-EB4B6DCDC13B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C9457F16-D537-48EA-90B5-EB4B6DCDC13B}.Release|x86.ActiveCfg = Release|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5ADC40CE-AE41-482A-949A-F0A9DA83833B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

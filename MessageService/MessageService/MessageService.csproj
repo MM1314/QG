@@ -90,11 +90,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MessageService.DAL\MessageService.DAL.csproj">
+      <Project>{B448E12E-CAAC-400E-B782-3109A91AD99B}</Project>
+      <Name>MessageService.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tytus.Message\Tytus.Message.csproj">
       <Project>{3F13295B-ADA2-49B1-A349-6EC507E3BCD5}</Project>
       <Name>Tytus.Message</Name>
