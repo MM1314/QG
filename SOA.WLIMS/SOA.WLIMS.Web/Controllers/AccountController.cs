@@ -10,6 +10,7 @@ using System.Web.Security;
 
 using SOA.WLIMS.Models;
 using SOA.WLIMS.Contract;
+using SOA.WLIMS.WCFClientProxy;
 
 namespace SOA.WLIMS.Web.Controllers
 {

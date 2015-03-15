@@ -1,0 +1,76 @@
+﻿@model SOA.WLIMS.Models.DeliveryInfoModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>DeliveryInfoModel</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderCode)
+            @Html.ValidationMessageFor(model => model.OrderCode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StorehouseID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StorehouseID)
+            @Html.ValidationMessageFor(model => model.StorehouseID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehicleID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VehicleID)
+            @Html.ValidationMessageFor(model => model.VehicleID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HandleTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HandleTime)
+            @Html.ValidationMessageFor(model => model.HandleTime)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HandleStatus)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HandleStatus)
+            @Html.ValidationMessageFor(model => model.HandleStatus)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HandleMessage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HandleMessage)
+            @Html.ValidationMessageFor(model => model.HandleMessage)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

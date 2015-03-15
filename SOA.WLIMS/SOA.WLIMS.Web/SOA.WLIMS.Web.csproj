@@ -66,12 +66,18 @@
     <Compile Include="Controllers\StorehouseController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
+    <Compile Include="Controllers\DeliveryController.cs" />
     <Compile Include="CustomAuthorizeAttribute.cs" />
     <Compile Include="GetRoles.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WCFService.Delivery\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\WCFService.Order\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,19 +98,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="ServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActionRoles.xml" />
     <Content Include="Global.asax" />
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.User.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.DAL.Vehicle.datasource" />
+    <None Include="Properties\DataSources\SOA.WLIMS.Models.OrderModel.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Models.RegisterModel.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Models.UserModel.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.Order.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.Storehouse.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.User.datasource" />
     <None Include="Properties\DataSources\SOA.WLIMS.Service.DAL.Vehicle.datasource" />
+    <None Include="Service References\WCFService.Delivery\OrderService.wsdl" />
     <None Include="Service References\WCFService.Order\OrderService.wsdl" />
     <None Include="Service References\WCFService.Order\OrderService.xsd" />
     <None Include="Service References\WCFService.Order\OrderService1.xsd" />
@@ -165,6 +172,12 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Service References\WCFService.User\UserService1.disco" />
+    <None Include="Service References\WCFService.Delivery\configuration91.svcinfo" />
+    <None Include="Service References\WCFService.Delivery\configuration.svcinfo" />
+    <None Include="Service References\WCFService.Delivery\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -247,6 +260,11 @@
     <None Include="Service References\WCFService.Vehicle\VehicleService76.xsd" />
     <Content Include="Views\Vehicle\Details.cshtml" />
     <Content Include="Views\Order\Export.cshtml" />
+    <Content Include="Views\Delivery\Index.cshtml" />
+    <Content Include="Views\Delivery\Details.cshtml" />
+    <Content Include="Views\Delivery\Create.cshtml" />
+    <Content Include="Views\Delivery\Edit.cshtml" />
+    <Content Include="Views\Delivery\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -256,6 +274,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WCFService.Delivery\" />
     <WCFMetadataStorage Include="Service References\WCFService.Order\" />
     <WCFMetadataStorage Include="Service References\WCFService.Store\" />
     <WCFMetadataStorage Include="Service References\WCFService.Vehicle\" />

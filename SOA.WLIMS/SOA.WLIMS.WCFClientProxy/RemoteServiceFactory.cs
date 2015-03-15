@@ -16,7 +16,8 @@ namespace SOA.WLIMS.WCFClientProxy
         public string vehicleServiceUri = "http://localhost:1735/VehicleService.svc";
         public string orderServiceUri = "http://localhost:1735/OrderService.svc";
         public string storehouseServiceUri = "http://localhost:1735/StoreService.svc";
-                
+        public string deliveryServiceUri = "http://localhost:1735/Order1Service.svc";
+       
         private T CreateService<T>(string uri)
         {
             var key = string.Format("{0} - {1}", typeof(T), uri);
@@ -69,11 +70,17 @@ namespace SOA.WLIMS.WCFClientProxy
         {
             return this.CreateService<IOrderService>(orderServiceUri);
         }
-
+        public IDeliveryService GetDeliveryService()
+        {
+            return this.CreateService<IDeliveryService>(deliveryServiceUri);
+        }
         public IService<Models.StorehouseModel> GetStorehouseService()
         {
             return this.CreateService<IService<Models.StorehouseModel>>(storehouseServiceUri);
         }
 
+
+
+      
     }
 }

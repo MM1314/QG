@@ -69,6 +69,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="DeliveryService.svc" />
+    <Content Include="Order1Service.svc" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBFactory.cs" />
@@ -88,6 +90,12 @@
     </Compile>
     <Compile Include="VehicleService.svc.cs">
       <DependentUpon>VehicleService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryService.svc.cs">
+      <DependentUpon>DeliveryService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Order1Service.svc.cs">
+      <DependentUpon>Order1Service.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

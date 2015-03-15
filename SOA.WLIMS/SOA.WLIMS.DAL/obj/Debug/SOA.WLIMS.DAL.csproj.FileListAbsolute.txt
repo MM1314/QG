@@ -9,4 +9,3 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.DAL\bin\Debug\SOA.WLIMS.DA
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.DAL\bin\Debug\SOA.WLIMS.DAL.pdb
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.DAL\obj\Debug\SOA.WLIMS.DAL.dll
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.DAL\obj\Debug\SOA.WLIMS.DAL.pdb
-E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.DAL\obj\Debug\SOA.WLIMS.DAL.csprojResolveAssemblyReference.cache

@@ -23,10 +23,17 @@ namespace SOA.WLIMS.WCFClientProxy
         /// <returns></returns>
         IOrderService GetOrderService();
         /// <summary>
+        /// 配送信息管理服务
+        /// </summary>
+        /// <returns></returns>
+        IDeliveryService GetDeliveryService();
+
+        /// <summary>
         /// 仓库管理服务
         /// </summary>
         /// <returns></returns>
-        IService<StorehouseModel> GetStorehouseService()
-        ;
+        IService<StorehouseModel> GetStorehouseService();
+
+      
     }
 }

@@ -14,7 +14,7 @@ namespace WX.Demo.WebClasses
         public IMessageHandler MessageRole(MiddleMessage msg)
         {
             var request = (RequestTextMessage)msg.RequestMessage;
-
+            //MyLog.Log("=============:"+request.Content);
             if (RequestForOrderInfo(request))
             {
                 return new OrderDeliveryMessageHandler();
@@ -34,6 +34,15 @@ namespace WX.Demo.WebClasses
             return new DefaultMessageHandler();
         }
 
+        public static bool IsNum(string str)
+        {
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] <= '0' || str[i] >= '9')
+                    return false;
+            }
+            return true;
+        }
         /// <summary>
         /// 判断请求是否是查询订单信息
         /// </summary>
@@ -41,7 +50,7 @@ namespace WX.Demo.WebClasses
         /// <returns></returns>
         private bool RequestForOrderInfo(RequestTextMessage request)
         {
-            return true;
+            return IsNum(request.Content.Trim());
         }
 
         private static bool RequestForCnblogs(RequestTextMessage request)

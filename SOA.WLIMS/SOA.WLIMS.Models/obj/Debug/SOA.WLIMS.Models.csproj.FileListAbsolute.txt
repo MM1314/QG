@@ -12,4 +12,3 @@ E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Models\bin\Debug\SOA.WLIMS
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Models\bin\Debug\SOA.WLIMS.Models.pdb
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Models\obj\Debug\SOA.WLIMS.Models.dll
 E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Models\obj\Debug\SOA.WLIMS.Models.pdb
-E:\soa物流信息系统简介\QG\SOA.WLIMS\SOA.WLIMS.Models\obj\Debug\SOA.WLIMS.Models.csprojResolveAssemblyReference.cache

@@ -31,6 +31,6 @@ namespace SOA.WLIMS.Models
             set { stringValue = value; }
         }
         [DataMember]
-        Dictionary<string, string> Param { get; set; }
+        public Dictionary<string, string> Param { get; set; }
     }
 }

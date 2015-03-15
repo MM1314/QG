@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountModels.cs" />
+    <Compile Include="DeliveryInfoModel.cs" />
     <Compile Include="OrderModel.cs" />
     <Compile Include="QueryParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

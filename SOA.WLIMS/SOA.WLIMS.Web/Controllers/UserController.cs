@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SOA.WLIMS.Models;
 using SOA.WLIMS.Web.WCFService;
+using SOA.WLIMS.WCFClientProxy;
 
 namespace SOA.WLIMS.Web.Controllers
 {

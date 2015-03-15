@@ -37,6 +37,7 @@
             @item.Status
         </td>
          <td>
+           @Html.ActionLink("联络", "Connect", new { id=item.ID }) |
             @Html.ActionLink("编辑", "Edit", new { id=item.ID }) |
             @Html.ActionLink("查看", "Details", new { id=item.ID }) |
             @Html.ActionLink("删除", "Delete", new { id=item.ID })

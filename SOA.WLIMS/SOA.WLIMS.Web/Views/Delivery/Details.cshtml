@@ -1,0 +1,34 @@
+﻿@model SOA.WLIMS.Models.DeliveryInfoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DeliveryInfoModel</legend>
+
+    <div class="display-label">OrderCode</div>
+    <div class="display-field">@Model.OrderCode</div>
+
+    <div class="display-label">StorehouseID</div>
+    <div class="display-field">@Model.StorehouseID</div>
+
+    <div class="display-label">VehicleID</div>
+    <div class="display-field">@Model.VehicleID</div>
+
+    <div class="display-label">HandleTime</div>
+    <div class="display-field">@String.Format("{0:g}", Model.HandleTime)</div>
+
+    <div class="display-label">HandleStatus</div>
+    <div class="display-field">@Model.HandleStatus</div>
+
+    <div class="display-label">HandleMessage</div>
+    <div class="display-field">@Model.HandleMessage</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

@@ -45,6 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="IDeliveryService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IOrderService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="IStoreService.cs" />

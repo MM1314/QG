@@ -127,5 +127,90 @@ namespace SOA.WLIMS.Service
                 ToUserPhone = model.ToUserPhone
             }).Where(o => 1 == 1).ToList();
         }
+
+
+        public bool AddDelivery(DeliveryInfoModel model)
+        {
+            DB.DeliveryInfo.AddObject(new DeliveryInfo()
+            {
+                OrderCode = model.OrderCode,
+                StorehouseID = model.StorehouseID,
+                VehicleID = model.VehicleID,
+                HandleTime = model.HandleTime,
+                HandleStatus = model.HandleStatus,
+                HandleMessage = model.HandleMessage
+            });
+
+            MD_Message message = CreatEmailMessage("物流信息", "物流信息变动，请注意查收！");
+            DB.MD_Message.AddObject(message);
+
+            DB.SaveChanges();
+            return true;
+        }
+
+
+        public bool ModifyDelivery(DeliveryInfoModel model)
+        {
+            DeliveryInfo oldValue = DB.DeliveryInfo.SingleOrDefault(o => o.ID == model.ID);
+            if (oldValue != null)
+            {
+                oldValue.OrderCode = model.OrderCode;
+                oldValue.StorehouseID = model.StorehouseID;
+                oldValue.VehicleID = model.VehicleID;
+                oldValue.HandleTime = model.HandleTime;
+                oldValue.HandleStatus = model.HandleStatus;
+                oldValue.HandleMessage = model.HandleMessage;
+            }
+            return DB.SaveChanges() == 1;
+        }
+
+        public bool DeleteDelivery(int id)
+        {
+            DB.DeliveryInfo.DeleteObject(DB.DeliveryInfo.SingleOrDefault(o => o.ID == id));
+            return DB.SaveChanges() == 1;
+        }
+
+        public DeliveryInfoModel GetDelivery(int id)
+        {
+            return DB.DeliveryInfo.Select(model => new DeliveryInfoModel()
+            {
+                ID = model.ID,
+                OrderCode = model.OrderCode,
+                StorehouseID = model.StorehouseID,
+                VehicleID = model.VehicleID,
+                HandleTime = model.HandleTime,
+                HandleStatus = model.HandleStatus,
+                HandleMessage = model.HandleMessage
+            }).SingleOrDefault(o => o.ID == id);
+        }
+
+        public List<DeliveryInfoModel> QueryDelivery(string orderCode)
+        {
+            if (string.IsNullOrEmpty(orderCode))
+            {
+                return DB.DeliveryInfo.Select(model => new DeliveryInfoModel()
+                {
+                    ID = model.ID,
+                    OrderCode = model.OrderCode,
+                    StorehouseID = model.StorehouseID,
+                    VehicleID = model.VehicleID,
+                    HandleTime = model.HandleTime,
+                    HandleStatus = model.HandleStatus,
+                    HandleMessage = model.HandleMessage
+                }).Where(o => 1 == 1).OrderByDescending(o => o.HandleTime).ToList();
+            }
+
+            return DB.DeliveryInfo.Select(model => new DeliveryInfoModel()
+            {
+                ID = model.ID,
+                OrderCode = model.OrderCode,
+                StorehouseID = model.StorehouseID,
+                VehicleID = model.VehicleID,
+                HandleTime = model.HandleTime,
+                HandleStatus = model.HandleStatus,
+                HandleMessage = model.HandleMessage
+            }).Where(o => o.OrderCode == orderCode).OrderByDescending(o => o.HandleTime).ToList();
+
+        }
     }
 }

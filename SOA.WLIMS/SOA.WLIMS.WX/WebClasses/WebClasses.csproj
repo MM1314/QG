@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WX.Demo.WebClasses</RootNamespace>
     <AssemblyName>JCSoft.WX.Demo.WebClasses</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -68,6 +68,18 @@
     <Compile Include="Roles\WebMessageRole.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SOA.WLIMS.Contract\SOA.WLIMS.Contract.csproj">
+      <Project>{C864D7C2-BB7D-46CF-8D39-7F69955D7885}</Project>
+      <Name>SOA.WLIMS.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SOA.WLIMS.Models\SOA.WLIMS.Models.csproj">
+      <Project>{300AC4BD-5A7B-4EBD-AC05-7B5EE20B2A65}</Project>
+      <Name>SOA.WLIMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SOA.WLIMS.WCFClientProxy\SOA.WLIMS.WCFClientProxy.csproj">
+      <Project>{EA0B9911-A920-411F-84E2-F85FD828AD19}</Project>
+      <Name>SOA.WLIMS.WCFClientProxy</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business\WXFramework.csproj">
       <Project>{5765cfa5-1892-4a06-81a8-f5e4c8a28dff}</Project>
       <Name>WXFramework</Name>

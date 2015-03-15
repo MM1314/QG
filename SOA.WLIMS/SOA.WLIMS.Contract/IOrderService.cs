@@ -24,6 +24,18 @@ namespace SOA.WLIMS.Contract
         OrderModel Get(int id);
         [OperationContract]
         List<OrderModel> Query(QueryParam para);
+
+        [OperationContract]
+        bool AddDelivery(DeliveryInfoModel model);
+        [OperationContract]
+        bool ModifyDelivery(DeliveryInfoModel model);
+        [OperationContract]
+        bool DeleteDelivery(int id);
+        [OperationContract]
+        DeliveryInfoModel GetDelivery(int id);
+        [OperationContract]
+        List<DeliveryInfoModel> QueryDelivery(string orderCode);
+
     }
 
 }

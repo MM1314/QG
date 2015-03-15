@@ -31,5 +31,11 @@ namespace SOA.WLIMS.WCFClientProxy
         {
             throw new NotImplementedException();
         }
+
+
+        public IDeliveryService GetDeliveryService()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
