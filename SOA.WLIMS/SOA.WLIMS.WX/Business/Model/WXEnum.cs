@@ -29,7 +29,8 @@ namespace WX.Model
         MASSSENDJOBFINISH,
         View,
         Merchant_Order,
-        TEMPLATESENDJOBFINISH //模板消息 2014-09-23
+        TEMPLATESENDJOBFINISH,//模板消息 2014-09-23
+        location_select //位置提取消息
     }
 
     public enum MediaType
@@ -77,7 +78,7 @@ namespace WX.Model
         /// <summary>
         /// 通信运营商
         /// </summary>
-        ITOperators =5,
+        ITOperators = 5,
         /// <summary>
         /// 网络游戏
         /// </summary>
@@ -129,7 +130,7 @@ namespace WX.Model
         /// <summary>
         /// 学术和科研
         /// </summary>
-        AcademicResearch  = 18,
+        AcademicResearch = 18,
         /// <summary>
         /// 交警
         /// </summary>
@@ -213,7 +214,7 @@ namespace WX.Model
         /// <summary>
         /// 娱乐和休闲
         /// </summary>
-        Entertainment  = 39,
+        Entertainment = 39,
         /// <summary>
         /// 印刷
         /// </summary>

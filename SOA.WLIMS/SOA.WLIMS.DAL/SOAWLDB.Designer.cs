@@ -1862,6 +1862,102 @@ namespace SOA.WLIMS.DAL
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String WXCode
+        {
+            get
+            {
+                return _WXCode;
+            }
+            set
+            {
+                OnWXCodeChanging(value);
+                ReportPropertyChanging("WXCode");
+                _WXCode = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("WXCode");
+                OnWXCodeChanged();
+            }
+        }
+        private global::System.String _WXCode;
+        partial void OnWXCodeChanging(global::System.String value);
+        partial void OnWXCodeChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Location_X
+        {
+            get
+            {
+                return _Location_X;
+            }
+            set
+            {
+                OnLocation_XChanging(value);
+                ReportPropertyChanging("Location_X");
+                _Location_X = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Location_X");
+                OnLocation_XChanged();
+            }
+        }
+        private global::System.String _Location_X;
+        partial void OnLocation_XChanging(global::System.String value);
+        partial void OnLocation_XChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Location_Y
+        {
+            get
+            {
+                return _Location_Y;
+            }
+            set
+            {
+                OnLocation_YChanging(value);
+                ReportPropertyChanging("Location_Y");
+                _Location_Y = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Location_Y");
+                OnLocation_YChanged();
+            }
+        }
+        private global::System.String _Location_Y;
+        partial void OnLocation_YChanging(global::System.String value);
+        partial void OnLocation_YChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Remark
+        {
+            get
+            {
+                return _Remark;
+            }
+            set
+            {
+                OnRemarkChanging(value);
+                ReportPropertyChanging("Remark");
+                _Remark = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Remark");
+                OnRemarkChanged();
+            }
+        }
+        private global::System.String _Remark;
+        partial void OnRemarkChanging(global::System.String value);
+        partial void OnRemarkChanged();
 
         #endregion
 

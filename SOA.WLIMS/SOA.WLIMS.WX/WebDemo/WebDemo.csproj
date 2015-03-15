@@ -66,12 +66,14 @@
     <Content Include="Oauth2Demo.aspx" />
     <Content Include="OAuthUserInfoDemo.aspx" />
     <Content Include="QrcodePage.aspx" />
+    <Content Include="SendMessage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="WX.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Oauth2Demo.aspx.cs">
       <DependentUpon>Oauth2Demo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,6 +94,13 @@
     </Compile>
     <Compile Include="QrcodePage.aspx.designer.cs">
       <DependentUpon>QrcodePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SendMessage.aspx.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMessage.aspx.designer.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="WX.aspx.cs">
       <DependentUpon>WX.aspx</DependentUpon>

@@ -100,5 +100,9 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="LicensePlateNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="WXCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location_X" Type="nvarchar" MaxLength="50" />
+    <Property Name="Location_Y" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remark" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

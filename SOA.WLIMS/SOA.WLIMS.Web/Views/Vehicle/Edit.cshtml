@@ -31,7 +31,13 @@
             @Html.EditorFor(model => model.LicensePlateNumber)
             @Html.ValidationMessageFor(model => model.LicensePlateNumber)
         </div>
-
+          <div class="editor-label">
+            @Html.LabelFor(model => model.WXCode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WXCode)
+            @Html.ValidationMessageFor(model => model.WXCode)
+        </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Status)
         </div>

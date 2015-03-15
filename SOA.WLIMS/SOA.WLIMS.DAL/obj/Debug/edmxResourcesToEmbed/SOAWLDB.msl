@@ -66,6 +66,10 @@
     <EntitySetMapping Name="Vehicle">
       <EntityTypeMapping TypeName="SOAWLDBModel.Vehicle">
         <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Location_Y" ColumnName="Location_Y" />
+          <ScalarProperty Name="Location_X" ColumnName="Location_X" />
+          <ScalarProperty Name="WXCode" ColumnName="WXCode" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="LicensePlateNumber" ColumnName="LicensePlateNumber" />

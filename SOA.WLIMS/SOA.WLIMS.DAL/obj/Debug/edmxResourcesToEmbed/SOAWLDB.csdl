@@ -75,6 +75,10 @@
     <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="LicensePlateNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
     <Property Name="Status" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="WXCode" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Location_X" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Location_Y" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remark" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="MD_Message">
     <Key>

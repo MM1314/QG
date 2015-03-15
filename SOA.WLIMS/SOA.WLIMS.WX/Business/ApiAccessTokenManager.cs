@@ -20,6 +20,7 @@ namespace WX.Framework
                 m_appIdentity = new AppIdentication(
                     ConfigurationManager.AppSettings[s_configAppId],
                     ConfigurationManager.AppSettings[s_configAppSecret]);
+                
             }
         }
 

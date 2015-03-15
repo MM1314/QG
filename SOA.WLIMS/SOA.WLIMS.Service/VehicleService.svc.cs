@@ -21,7 +21,11 @@ namespace SOA.WLIMS.Service
             {
                 Name = model.Name,
                 LicensePlateNumber = model.LicensePlateNumber,
-                Status = model.Status
+                Status = model.Status,
+                WXCode = model.WXCode,
+                Location_X = model.Location_X,
+                Location_Y = model.Location_Y,
+                Remark = model.Remark
             });
 
             DB.SaveChanges();
@@ -35,7 +39,12 @@ namespace SOA.WLIMS.Service
             {
                 oldValue.Status = model.Status;
                 oldValue.Name = model.Name;
+                oldValue.WXCode = model.WXCode;
                 oldValue.LicensePlateNumber = model.LicensePlateNumber;
+
+                oldValue.Location_X = model.Location_X;
+                oldValue.Location_Y = model.Location_Y;
+                oldValue.Remark = model.Remark;
             }
             return DB.SaveChanges() == 1;
         }
@@ -53,18 +62,50 @@ namespace SOA.WLIMS.Service
                 ID = model.ID,
                 Name = model.Name,
                 LicensePlateNumber = model.LicensePlateNumber,
-                Status = model.Status
+                Status = model.Status,
+                WXCode = model.WXCode,
+                Location_X = model.Location_X,
+                Location_Y = model.Location_Y,
+                Remark = model.Remark
             }).SingleOrDefault(o => o.ID == id);
         }
 
         public List<VehicleModel> Query(QueryParam para)
         {
+            if (para != null && para.StringValue == "WXCode")
+            {
+                try
+                {string wx=para.Param["WXCode"];
+                    return DB.Vehicle.Select(model => new VehicleModel()
+                    {
+                        ID = model.ID,
+                        Name = model.Name,
+                        LicensePlateNumber = model.LicensePlateNumber,
+                        Status = model.Status,
+                        WXCode = model.WXCode,
+                        Location_X = model.Location_X,
+                        Location_Y = model.Location_Y,
+                        Remark = model.Remark
+
+                    }).Where(o => o.WXCode == wx).ToList();
+                }
+                catch (Exception ex )
+                {
+                    return new List<VehicleModel>() {  new VehicleModel(){ WXCode=ex.ToString()}};
+                }
+                
+            }
             return DB.Vehicle.Select(model => new VehicleModel()
             {
                 ID = model.ID,
                 Name = model.Name,
                 LicensePlateNumber = model.LicensePlateNumber,
-                Status = model.Status
+                Status = model.Status,
+                WXCode = model.WXCode,
+                Location_X = model.Location_X,
+                Location_Y = model.Location_Y,
+                Remark = model.Remark
+
             }).Where(o => 1 == 1).ToList();
         }
     }

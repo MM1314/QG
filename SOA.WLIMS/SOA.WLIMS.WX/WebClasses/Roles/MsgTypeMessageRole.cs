@@ -22,6 +22,9 @@ namespace WX.Demo.WebClasses
                     return new EventMessageRole().MessageRole(msg);
                 case MsgType.Voice:
                     return new VoiceMessageRole().MessageRole(msg);
+                case MsgType.Location:
+                    MyLog.Log("MsgType.Location");
+                    return new LocationMessageRole().MessageRole(msg);
                 default:
                     return new DefaultMessageHandler();
             }

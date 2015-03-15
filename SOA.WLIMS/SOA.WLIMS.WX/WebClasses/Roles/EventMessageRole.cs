@@ -20,6 +20,7 @@ namespace WX.Demo.WebClasses
                     return new SubScribeEventMessageHandler();
                 case Event.Unsubscribe:
                     return new UnSubScribeEventMessageHandler();
+               
             }
 
             return new DefaultMessageHandler();
