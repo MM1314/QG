@@ -46,7 +46,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SOA.WLIMS.Utility\SOA.WLIMS.Utility.csproj">
       <Project>{449732C5-C6E9-4328-8B31-F4974F09C486}</Project>
-      <Name>EasyEF.Utility</Name>
+      <Name>SOA.WLIMS.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

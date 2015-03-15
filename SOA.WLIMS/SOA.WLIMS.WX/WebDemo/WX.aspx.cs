@@ -26,6 +26,7 @@ namespace WebDemo
                     MyLog.Log(doc.ToString());
                     var xml = doc.Element("xml");
                     var msg = new MiddleMessage(xml);
+                   
                     //把inputstream转换成xelement后，直接交给WebMessageRole来处理吧
                     var responseMessage =  new WebMessageRole()
                         .MessageRole(msg)
